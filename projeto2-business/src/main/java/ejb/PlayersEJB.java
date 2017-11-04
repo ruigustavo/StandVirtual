@@ -1,16 +1,17 @@
 package ejb;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import data.Car;
+import data.Player;
+import data.Team;
+import data.User;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
-import data.Player;
-import data.Team;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Session Bean implementation class PlayersEJB
@@ -65,6 +66,24 @@ public class PlayersEJB implements PlayersEJBInterface {
                 new Player("X", getDate(8,12,1990), 1.82f, teams[3]),
                 new Player("Ze", getDate(13,5,1987), 1.93f, teams[3]),
         };
+
+        User[] u = {
+                new User("cona@cona.pt","cona123","cona","meio das pernas","123"),
+                new User("cornudo@cornudo.pt","cona123","cona","meio das pernas","123"),
+
+        };
+
+        Car[] c = {
+           new Car("mercedes","v5","4000",u[1])
+        };
+        c[0].getFollowers().add(u[0]);
+
+
+        for (User t : u)
+            em.persist(t);
+        for (Car t : c)
+            em.persist(t);
+
 
         for (Team t : teams)
             em.persist(t);

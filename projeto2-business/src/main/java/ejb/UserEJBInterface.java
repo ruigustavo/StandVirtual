@@ -1,9 +1,13 @@
 package ejb;
 
 
-import javax.ejb.Local;
+import DTOs.UserDTO;
 
-@Local
+import javax.ejb.Local;
+import javax.ejb.Remote;
+
+@Remote
 public interface UserEJBInterface {
     int login(String email, String hashedPassword);
+    void register(UserDTO user);
 }

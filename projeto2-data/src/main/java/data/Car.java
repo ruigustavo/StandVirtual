@@ -1,11 +1,12 @@
 package data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Car {
+public class Car implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -22,7 +23,24 @@ public class Car {
     @ManyToMany
     private List<User> followers;
 
+
+    public Car(){
+        super();
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", price='" + price + '\'' +
+                ", owner=" + owner +
+                '}';
+    }
+
     public Car(String brand, String model, String price, User owner) {
+        super();
         this.brand = brand;
         this.model = model;
         this.price = price;

@@ -1,11 +1,13 @@
 package data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
-public class User {
+public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -15,6 +17,8 @@ public class User {
     private String name;
     private String address;
     private String phone;
+
+
 
     //In this case Unidirectional helps to see the cars the user is selling
     //and the owner of the car that its being sold.
@@ -26,16 +30,21 @@ public class User {
     @ManyToMany(mappedBy = "followers")
     private List<Car> followingCars;
 
+    public User(){
+        super();
+    }
 
     public User(String email, String password, String name, String address, String phone) {
+        super();
         this.email = email;
         this.password = password;
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.sellingCars = new ArrayList<>();
         this.followingCars = new ArrayList<>();
+        this.sellingCars= new ArrayList<>();
     }
+
 
     public String getEmail() {
         return email;
@@ -89,5 +98,17 @@ public class User {
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }

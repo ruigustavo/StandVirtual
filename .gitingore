@@ -93,6 +93,6 @@ projeto2-data/target/
 projeto2-ear/target/
 projeto2-web/target/
 target/
-
+out/
 
 # End of https://www.gitignore.io/api/java,java-web,intellij+all

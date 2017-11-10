@@ -79,6 +79,18 @@ public class UserEJB implements UserEJBInterface {
 
     }
 
+
+    public String getUserById(int id) {
+        String aux = null;
+
+            Query q = em.createQuery("from User s where s.id = :n");
+            q.setParameter("n", id);
+            aux = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create().toJson(q.getSingleResult());
+
+
+        return aux;
+    }
+
     public void deleteUserById(int id){
         em.remove(em.find(User.class, id));
     }

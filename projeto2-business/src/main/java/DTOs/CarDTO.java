@@ -1,11 +1,22 @@
 package DTOs;
 
+import data.User;
+
 import java.io.Serializable;
 
 public class CarDTO implements Serializable {
     private String brand;
     private String model;
     private long price;
+    private User owner;
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
 
     public CarDTO() {
     }

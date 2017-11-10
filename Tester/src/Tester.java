@@ -1,7 +1,9 @@
+import DTOs.CarDTO;
 import DTOs.UserDTO;
 import com.google.gson.Gson;
 import com.google.common.reflect.TypeToken;
 import data.Car;
+import data.User;
 import ejb.CarEJBInterface;
 import ejb.UserEJBInterface;
 
@@ -194,6 +196,7 @@ public class Tester {
         System.out.println("User Eliminado");
     }
 private void showAllMyCarsGUI(){
+    System.out.println("List of cars you own");
     Type listType = new TypeToken<List<Car>>(){}.getType();
     List<Car> myCars = new Gson().fromJson(userEJB.getCarsOfUser(this.userId), listType);
     for (Car p : myCars) {
@@ -338,6 +341,64 @@ private void showAllMyCarsGUI(){
         }
 
     }
+
+    private void addNewCarForSaleGUI(){
+        CarDTO newCar = new CarDTO();
+        User s = new Gson().fromJson(userEJB.getUserById(this.userId), User.class);
+        try {
+            System.out.println("Insert the brand:");
+            newCar.setBrand(br.readLine());
+            System.out.println("Insert the mode:");
+            newCar.setModel(br.readLine());
+            System.out.println("Insert the price:");
+            newCar.setPrice(Long.parseLong(br.readLine()));
+            newCar.setOwner(s);
+            carEJB.addCar(newCar);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+    private void editCarGUI(){
+        System.out.println("List of cars you own");
+        Type listType = new TypeToken<List<Car>>(){}.getType();
+        List<Car> myCars = new Gson().fromJson(userEJB.getCarsOfUser(this.userId), listType);
+        for (Car p : myCars) {
+            System.out.println(p.toString());
+        }
+
+        try {
+            String value=null;
+            System.out.println("Insert the id of the car you want to edit");
+            String temp_id = br.readLine();
+            System.out.println("Select the parameter you want to edit");
+            System.out.println("1-Brand");
+            System.out.println("2-Model");
+            System.out.println("3-Price");
+            System.out.println("4-Data(does not exist)");
+            String field = br.readLine();
+            switch (field) {
+                case "1":
+                    System.out.println("Insert your new Brand:");
+                    value = br.readLine();
+                    break;
+                case "2":
+                    System.out.println("Insert your new model:");
+                    value = br.readLine();
+                    break;
+                case "3":
+                    System.out.println("Insert your new price:");
+                    value = br.readLine();
+                    break;
+            }
+            carEJB.editCarInfo(Integer.parseInt(temp_id),Integer.parseInt(field),value);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     private void loggedMenu() {
 
         try {
@@ -347,8 +408,9 @@ private void showAllMyCarsGUI(){
             System.out.println("4-Show all cars for sale");
             System.out.println("5-Search cars by brand");
             System.out.println("6-Search cars by brand and model");
-            System.out.println("7- Search cars by range of price");
-            System.out.println();
+            System.out.println("7-Search cars by range of price");
+            System.out.println("8-Add new car for sale");
+            System.out.println("9-Edit one my cars");
             System.out.println("0-Logout");
             String input = br.readLine();
             switch (input) {
@@ -372,6 +434,12 @@ private void showAllMyCarsGUI(){
                     break;
                 case "7":
                     showCarsByPriceRangeGUI();
+                    break;
+                case "8":
+                    addNewCarForSaleGUI();
+                    break;
+                case "9":
+                    editCarGUI();
                     break;
                 default:
                     logged = false;

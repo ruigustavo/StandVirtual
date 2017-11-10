@@ -1,7 +1,10 @@
 package ejb;
 
+import DTOs.CarDTO;
+import DTOs.UserDTO;
 import com.google.gson.GsonBuilder;
 import data.Car;
+import data.User;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -17,6 +20,32 @@ public class CarEJB implements CarEJBInterface{
 
     public CarEJB() {
     }
+
+    public void addCar(CarDTO car){
+        Car toPersist = new Car(car.getBrand(),car.getModel(),car.getPrice(),car.getOwner());
+        em.persist(toPersist);
+    }
+
+    public void editCarInfo(int id, int field, String value){
+        Car aux = null;
+        Query q = em.createQuery("select u from "+ Car.class.getSimpleName() + " u where u.id = :i");
+        q.setParameter("i", id);
+        aux = (Car) q.getSingleResult();
+
+        switch (field){
+            case 1:
+                aux.setBrand(value);
+                break;
+            case 2:
+                aux.setModel(value);
+                break;
+            case 3:
+                aux.setPrice(Integer.parseInt(value));
+                break;
+        }
+        em.merge(aux);
+    }
+
 
     public String getAllCars(int order){
         List<Car> aux = null;

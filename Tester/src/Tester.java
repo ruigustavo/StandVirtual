@@ -1,4 +1,8 @@
 import DTOs.UserDTO;
+import com.google.gson.Gson;
+import com.google.common.reflect.TypeToken;
+import data.Car;
+import ejb.CarEJBInterface;
 import ejb.UserEJBInterface;
 
 import javax.naming.InitialContext;
@@ -6,8 +10,10 @@ import javax.naming.NamingException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 public class Tester {
 
@@ -15,12 +21,14 @@ public class Tester {
     private boolean logged;
     private InitialContext ctx;
     private UserEJBInterface userEJB;
+    private CarEJBInterface carEJB;
 
     public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     public Tester() {
         this.logged=false;
         usersBeginEJB();
+        carsBeginEJB();
         while(1<2){
             menuTUI();
             while (logged){
@@ -29,7 +37,14 @@ public class Tester {
         }
     }
 
-
+    private void carsBeginEJB(){
+        try{
+            ctx = new InitialContext();
+            carEJB = (CarEJBInterface) ctx.lookup("firstear/projeto2-business-0.0.1-SNAPSHOT/CarEJB!ejb.CarEJBInterface");
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void usersBeginEJB(){
         try{
@@ -127,13 +142,241 @@ public class Tester {
 
     }
 
+    public void editProfileGUI(){
+        System.out.println("******************************");
+        System.out.println("Select the paramter you want to edit");
+        System.out.println("1-Name: ");
+        System.out.println("2-Email: ");
+        System.out.println("3-Adress: ");
+        System.out.println("4-Phone: ");
+        System.out.println("5-Password");
+        System.out.println("0-Logout");
+        try {
+            String field = br.readLine();
+            String value = null;
+            System.out.println("******************************");
+            switch (field) {
+                case "1":
+                    System.out.println("Insert your new name:");
+                    value = br.readLine();
+                    break;
+                case "2":
+                    System.out.println("Insert your new e-mail:");
+                    value = br.readLine();
+                    break;
+                case "3":
+                    System.out.println("Insert your new adress:");
+                    value = br.readLine();
+                    break;
+                case "4":
+                    System.out.println("Insert your new phone:");
+                    value = br.readLine();
+                    break;
+                case "5":
+                    System.out.println("Insert your new password:");
+                    value = br.readLine();
+                    value = hashPassword(value);
+                    break;
+                default:
+                    logged = false;
+                    return;
+            }
+            userEJB.editUserInfo(this.userId,Integer.parseInt(field),value);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    private void deleteUserGUI(){
+        int aux = this.userId;
+        logged = false;
+        userEJB.deleteUserById(aux);
+        System.out.println("User Eliminado");
+    }
+private void showAllMyCarsGUI(){
+    Type listType = new TypeToken<List<Car>>(){}.getType();
+    List<Car> myCars = new Gson().fromJson(userEJB.getCarsOfUser(this.userId), listType);
+    for (Car p : myCars) {
+        System.out.println(p.toString());
+    }
+}
 
+    private void showAllCarsGUI(int order){
+        Type listType = new TypeToken<List<Car>>(){}.getType();
+        List<Car> myCars = new Gson().fromJson(carEJB.getAllCars(order), listType);
+        for (Car p : myCars) {
+            System.out.println(p.toString());
+        }
+        System.out.println("1-Price ascending : ");
+        System.out.println("2-Price descending: ");
+        System.out.println("3-Brand ascending: ");
+        System.out.println("4-Brand descendin: ");
+        System.out.println("5-Brand and model ascending");
+        System.out.println("6-Brand and model descending");
+        System.out.println("0-Go back to main menu");
+        String input = null;
+
+            try {
+                input = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if(Integer.parseInt(input)!=0)
+                showAllCarsGUI(Integer.parseInt(input));
+            else loggedMenu();
+
+    }
+    private void showCarsByBrandGUI(int order){
+        System.out.println("Insert the brand you desire:");
+        try {
+            String brand = br.readLine();
+            showCarsByBrandAuxGUI(brand, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private  void showCarsByBrandAuxGUI(String brand, int order){
+        Type listType = new TypeToken<List<Car>>(){}.getType();
+        List<Car> myCars = new Gson().fromJson(carEJB.getCarsByBrand(brand,order), listType);
+        for (Car p : myCars) {
+            System.out.println(p.toString());
+        }
+        System.out.println("1-Price ascending : ");
+        System.out.println("2-Price descending: ");
+        System.out.println("3-Model ascending: ");
+        System.out.println("4-Model descendin: ");
+        System.out.println("0-Back to main Menu");
+        String new_order = null;
+        try {
+            new_order = br.readLine();
+            if(Integer.parseInt(new_order)>0)
+                showCarsByBrandAuxGUI(brand,Integer.parseInt( new_order));
+            else loggedMenu();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void showCarsByBrandAndMode(int order){
+        System.out.println("Insert the brand you desire:");
+
+        try {
+            String brand = br.readLine();
+            System.out.println("Insert the model you desire:");
+            String model = br.readLine();
+            showCarsByBrandAndModelAuxGUI(brand,model, 1);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+   private void showCarsByBrandAndModelAuxGUI(String brand, String model, int order){
+       Type listType = new TypeToken<List<Car>>(){}.getType();
+       List<Car> myCars = new Gson().fromJson(carEJB.getCarsByBrandAndModel(brand,model,order), listType);
+       for (Car p : myCars) {
+           System.out.println(p.toString());
+       }
+       System.out.println("1-Price ascending : ");
+       System.out.println("2-Price descending: ");
+       System.out.println("0-Back to main Menu");
+       String new_order = null;
+       try {
+           new_order = br.readLine();
+           if(Integer.parseInt(new_order)>0)
+               showCarsByBrandAndModelAuxGUI(brand,model,Integer.parseInt( new_order));
+           else loggedMenu();
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
+    }
+
+    private void showCarsByPriceRangeGUI(){
+        System.out.println("Insert lower value");
+        try {
+            String low= br.readLine();
+            System.out.println("Insert upper value");
+            String upper = br.readLine();
+            showCarsByPriceRangeAuxGUI(low,upper, 2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private  void showCarsByPriceRangeAuxGUI(String low,String upper ,int order){
+        try {
+            Type listType = new TypeToken<List<Car>>(){}.getType();
+            List<Car> Cars = new Gson().fromJson(carEJB.getCarsByPriceRange(Long.parseLong(low),Long.parseLong(upper),order), listType);
+            for (Car p : Cars) {
+                System.out.println(p.toString());
+            }
+            System.out.println("1-Search again");
+            System.out.println("2-Price ascending : ");
+            System.out.println("3-Price descending: ");
+            System.out.println("4-Brand ascending: ");
+            System.out.println("5-Brand descendin: ");
+            System.out.println("6-Brand and model ascending");
+            System.out.println("7-Brand and model descending");
+            System.out.println("0-Back to main menu");
+            String input = br.readLine();
+            switch (input){
+                case "1":
+                    showCarsByPriceRangeGUI();
+                    break;
+                case "0":
+                    loggedMenu();
+                    break;
+                default:
+                    showCarsByPriceRangeAuxGUI(low, upper, Integer.parseInt(input));
+                    break;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
     private void loggedMenu() {
 
         try {
-            System.out.println("TODO");
-            br.readLine();
+            System.out.println("1-Edit Profile");
+            System.out.println("2-Delete account(not working)");
+            System.out.println("3-Show all my cars for sale");
+            System.out.println("4-Show all cars for sale");
+            System.out.println("5-Search cars by brand");
+            System.out.println("6-Search cars by brand and model");
+            System.out.println("7- Search cars by range of price");
+            System.out.println();
+            System.out.println("0-Logout");
+            String input = br.readLine();
+            switch (input) {
+                case "1":
+                    editProfileGUI();
+                    break;
+                case "2":
+                    deleteUserGUI();
+                    break;
+                case "3":
+                    showAllMyCarsGUI();
+                    break;
+                case "4":
+                    showAllCarsGUI(1);
+                    break;
+                case "5":
+                    showCarsByBrandGUI(1);
+                    break;
+                case "6":
+                    showCarsByBrandAndMode(1);
+                    break;
+                case "7":
+                    showCarsByPriceRangeGUI();
+                    break;
+                default:
+                    logged = false;
+                    return;
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

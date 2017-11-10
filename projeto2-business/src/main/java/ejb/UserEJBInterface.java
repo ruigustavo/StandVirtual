@@ -10,4 +10,7 @@ import javax.ejb.Remote;
 public interface UserEJBInterface {
     int login(String email, String hashedPassword);
     void register(UserDTO user);
+    void editUserInfo(int id, int field, String value);
+    void deleteUserById(int id);
+    String getCarsOfUser(int id);
 }

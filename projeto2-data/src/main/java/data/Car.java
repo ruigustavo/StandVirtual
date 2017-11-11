@@ -1,5 +1,7 @@
 package data;
 
+import com.google.gson.annotations.Expose;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -11,11 +13,14 @@ public class Car implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Expose
     private int id;
-
+    @Expose
     private String brand;
+    @Expose
     private String model;
-    private String price;
+    @Expose
+    private long price;
 
     @ManyToOne
     private User owner;
@@ -39,7 +44,7 @@ public class Car implements Serializable {
                 '}';
     }
 
-    public Car(String brand, String model, String price, User owner) {
+    public Car(String brand, String model, long price, User owner) {
         super();
         this.brand = brand;
         this.model = model;
@@ -68,11 +73,11 @@ public class Car implements Serializable {
         this.model = model;
     }
 
-    public String getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 

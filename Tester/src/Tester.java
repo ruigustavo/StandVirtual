@@ -188,7 +188,7 @@ public class Tester {
         int aux = this.userId;
         logged = false;
         userEJB.deleteUserById(aux);
-        System.out.println("User Eliminado");
+        System.out.println("User Eliminated");
     }
 private void showAllMyCarsGUI(){
     System.out.println("List of cars you own");

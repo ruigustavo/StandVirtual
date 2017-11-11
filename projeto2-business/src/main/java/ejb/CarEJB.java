@@ -36,7 +36,9 @@ public class CarEJB implements CarEJBInterface{
     }
 
     public void editCarInfo(int id, int field, String value){
+        logger.info("Editing Car with ID " + id +" in field " + field);
         Car aux = null;
+        logger.info("Getting car from db.");
         Query q = em.createQuery("select u from "+ Car.class.getSimpleName() + " u where u.id = :i");
         q.setParameter("i", id);
         aux = (Car) q.getSingleResult();
@@ -52,30 +54,46 @@ public class CarEJB implements CarEJBInterface{
                 aux.setPrice(Long.parseLong(value));
                 break;
         }
-        em.merge(aux);
+        logger.info("Saving Changes to the car...");
+        try {
+            em.merge(aux);
+        } catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Car not edited. Returning...");
+            return;
+        }
+        logger.info("Car edited successfully");
     }
 
 
     public List<CarDTO> getAllCars(int order){
+        logger.info("Getting all Cars");
         List<Car> aux = null;
         Query q=null;
         switch (order) {
         case 1:
+            logger.info(" Getting cars from ascending order by price.");
              q = em.createQuery("from Car order by price asc");
         break;
             case 2:
+                logger.info("Getting cars  descending order by price");
              q = em.createQuery("from Car order by price desc");
              break;
         case 3:
+            logger.info("Getting cars  ascending order by brand.");
              q = em.createQuery("from Car order by brand asc");
             break;
         case 4:
+            logger.info("Getting cars  descending order by brand.");
              q = em.createQuery("from Car order by brand desc");
             break;
         case 5:
+            logger.info("Getting cars from ascending order by brand and model.");
              q = em.createQuery("from Car order by brand asc,model asc ");
             break;
         case 6:
+            logger.info("Getting carsdescending order by brand and model.");
             q = em.createQuery("from Car order by brand desc,model desc ");
             break;
         }
@@ -85,25 +103,31 @@ public class CarEJB implements CarEJBInterface{
         for(Car c : aux){
             toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
         }
+        logger.info("Returning all Cars");
         return toSend;
     }
 
     public List<CarDTO> getCarsByBrand(String brand, int order){
+        logger.info("Getting all Cars of the brand:"+brand);
         List<Car> aux ;
         Query q=null;
         switch (order) {
             case 1:
+                logger.info("Getting all Cars of the brand:"+brand+"in ascending order by price");
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.price asc");
                 q.setParameter("n", brand);
                 break;
             case 2:
+                logger.info("Getting all Cars of the brand:"+brand+"in descending order by price");
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.price desc");
                 q.setParameter("n", brand);
                 break;
             case 3:
+                logger.info("Getting all Cars of the brand:"+brand+"in ascending order by model");
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.model asc");
                 q.setParameter("n", brand);
             case 4:
+                logger.info("Getting all Cars of the brand:"+brand+"in descending order by price");
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.model asc");
                 q.setParameter("n", brand);
                 break;
@@ -113,55 +137,66 @@ public class CarEJB implements CarEJBInterface{
         for(Car c : aux){
             toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
         }
+        logger.info("Return all Cars of the brand:"+brand);
         return toSend;
         }
 
     public List<CarDTO> getCarsByBrandAndModel(String brand, String model, int order){
+        logger.info("Getting all Cars of the brand:"+brand+"and model:"+model);
         List<Car> aux ;
         Query q=null;
         switch (order) {
             case 1:
+                logger.info("Getting all Cars of the brand:"+brand+"and model:"+model+"in ascending order by price");
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where (c.brand = :b AND c.model = :m) order by c.price asc");
                 q.setParameter("b", brand);q.setParameter("m", model);
                 break;
             case 2:
+                logger.info("Getting all Cars of the brand:"+brand+"and model:"+model+"in descending order by price");
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where (c.brand = :b AND c.model = :m) order by c.price desc");
                 q.setParameter("b", brand);q.setParameter("m", model);
                 break;
         }
         aux = q.getResultList();
-
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
             toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
         }
+        logger.info("Return all Cars of the brand:"+brand+"and model:"+model);
         return toSend;
     }
     public List<CarDTO> getCarsByPriceRange(long low_value, long up_value, int order){
+        logger.info("Getting all Cars with price between "+low_value+"and"+up_value);
         List<Car> aux =null;
         Query q=null;
         switch (order) {
             case 2:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by price");
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.price asc");
                 q.setParameter("lo", low_value);q.setParameter("up", up_value);
                 break;
             case 3:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by price");
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.price desc");
                 q.setParameter("lo", low_value);q.setParameter("up", up_value);
                 break;
             case 4:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by brand");
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.brand asc");
                 q.setParameter("lo", low_value);q.setParameter("up", up_value);
                 break;
             case 5:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by brand");
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.brand desc");
                 q.setParameter("lo", low_value);q.setParameter("up", up_value);
                 break;
             case 6:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by brand and model");
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.brand asc,c.model asc ");
                 q.setParameter("lo", low_value);q.setParameter("up", up_value);
                 break;
             case 7:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by brand and model");
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.brand desc,c.model desc ");
                 q.setParameter("lo", low_value);q.setParameter("up", up_value);
                 break;
@@ -172,6 +207,7 @@ public class CarEJB implements CarEJBInterface{
         for(Car c : aux){
             toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
         }
+        logger.info("Returning all Cars with price between "+low_value+"and"+up_value);
         return toSend;
     }
 }

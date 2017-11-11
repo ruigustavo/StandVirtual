@@ -1,11 +1,9 @@
 package data;
 
-import com.google.gson.annotations.Expose;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -13,15 +11,11 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Expose
     private int id;
     private String email;
     private String password;
-    @Expose
     private String name;
-    @Expose
     private String address;
-    @Expose
     private String phone;
 
 

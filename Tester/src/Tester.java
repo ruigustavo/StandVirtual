@@ -1,9 +1,5 @@
 import DTOs.CarDTO;
 import DTOs.UserDTO;
-import com.google.gson.Gson;
-import com.google.common.reflect.TypeToken;
-import data.Car;
-import data.User;
 import ejb.CarEJBInterface;
 import ejb.UserEJBInterface;
 
@@ -12,7 +8,6 @@ import javax.naming.NamingException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Type;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -167,7 +162,7 @@ public class Tester {
                     value = br.readLine();
                     break;
                 case "3":
-                    System.out.println("Insert your new adress:");
+                    System.out.println("Insert your new address:");
                     value = br.readLine();
                     break;
                 case "4":
@@ -197,17 +192,15 @@ public class Tester {
     }
 private void showAllMyCarsGUI(){
     System.out.println("List of cars you own");
-    Type listType = new TypeToken<List<Car>>(){}.getType();
-    List<Car> myCars = new Gson().fromJson(userEJB.getCarsOfUser(this.userId), listType);
-    for (Car p : myCars) {
+    List<CarDTO> myCars = userEJB.getCarsOfUser(this.userId);
+    for (CarDTO p : myCars) {
         System.out.println(p.toString());
     }
 }
 
     private void showAllCarsGUI(int order){
-        Type listType = new TypeToken<List<Car>>(){}.getType();
-        List<Car> myCars = new Gson().fromJson(carEJB.getAllCars(order), listType);
-        for (Car p : myCars) {
+        List<CarDTO> myCars = carEJB.getAllCars(order);
+        for (CarDTO p : myCars) {
             System.out.println(p.toString());
         }
         System.out.println("1-Price ascending : ");
@@ -234,16 +227,15 @@ private void showAllMyCarsGUI(){
         System.out.println("Insert the brand you desire:");
         try {
             String brand = br.readLine();
-            showCarsByBrandAuxGUI(brand, 1);
+            showCarsByBrandAuxGUI(brand, order);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private  void showCarsByBrandAuxGUI(String brand, int order){
-        Type listType = new TypeToken<List<Car>>(){}.getType();
-        List<Car> myCars = new Gson().fromJson(carEJB.getCarsByBrand(brand,order), listType);
-        for (Car p : myCars) {
+        List<CarDTO> myCars = carEJB.getCarsByBrand(brand,order);
+        for (CarDTO p : myCars) {
             System.out.println(p.toString());
         }
         System.out.println("1-Price ascending : ");
@@ -255,7 +247,7 @@ private void showAllMyCarsGUI(){
         try {
             new_order = br.readLine();
             if(Integer.parseInt(new_order)>0)
-                showCarsByBrandAuxGUI(brand,Integer.parseInt( new_order));
+                showCarsByBrandAuxGUI(brand,Integer.parseInt(new_order));
             else loggedMenu();
         } catch (IOException e) {
             e.printStackTrace();
@@ -270,7 +262,7 @@ private void showAllMyCarsGUI(){
             String brand = br.readLine();
             System.out.println("Insert the model you desire:");
             String model = br.readLine();
-            showCarsByBrandAndModelAuxGUI(brand,model, 1);
+            showCarsByBrandAndModelAuxGUI(brand,model, order);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -278,9 +270,9 @@ private void showAllMyCarsGUI(){
     }
 
    private void showCarsByBrandAndModelAuxGUI(String brand, String model, int order){
-       Type listType = new TypeToken<List<Car>>(){}.getType();
-       List<Car> myCars = new Gson().fromJson(carEJB.getCarsByBrandAndModel(brand,model,order), listType);
-       for (Car p : myCars) {
+
+       List<CarDTO> myCars = carEJB.getCarsByBrandAndModel(brand,model,order);
+       for (CarDTO p : myCars) {
            System.out.println(p.toString());
        }
        System.out.println("1-Price ascending : ");
@@ -311,9 +303,8 @@ private void showAllMyCarsGUI(){
 
     private  void showCarsByPriceRangeAuxGUI(String low,String upper ,int order){
         try {
-            Type listType = new TypeToken<List<Car>>(){}.getType();
-            List<Car> Cars = new Gson().fromJson(carEJB.getCarsByPriceRange(Long.parseLong(low),Long.parseLong(upper),order), listType);
-            for (Car p : Cars) {
+            List<CarDTO> Cars = carEJB.getCarsByPriceRange(Long.parseLong(low),Long.parseLong(upper),order);
+            for (CarDTO p : Cars) {
                 System.out.println(p.toString());
             }
             System.out.println("1-Search again");
@@ -344,7 +335,7 @@ private void showAllMyCarsGUI(){
 
     private void addNewCarForSaleGUI(){
         CarDTO newCar = new CarDTO();
-        User s = new Gson().fromJson(userEJB.getUserById(this.userId), User.class);
+        UserDTO s = userEJB.getUserById(this.userId);
         try {
             System.out.println("Insert the brand:");
             newCar.setBrand(br.readLine());
@@ -362,9 +353,8 @@ private void showAllMyCarsGUI(){
     }
     private void editCarGUI(){
         System.out.println("List of cars you own");
-        Type listType = new TypeToken<List<Car>>(){}.getType();
-        List<Car> myCars = new Gson().fromJson(userEJB.getCarsOfUser(this.userId), listType);
-        for (Car p : myCars) {
+        List<CarDTO> myCars = userEJB.getCarsOfUser(this.userId);
+        for (CarDTO p : myCars) {
             System.out.println(p.toString());
         }
 

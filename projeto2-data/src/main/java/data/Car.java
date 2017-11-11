@@ -1,7 +1,5 @@
 package data;
 
-import com.google.gson.annotations.Expose;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,13 +11,9 @@ public class Car implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Expose
     private int id;
-    @Expose
     private String brand;
-    @Expose
     private String model;
-    @Expose
     private long price;
 
     @ManyToOne

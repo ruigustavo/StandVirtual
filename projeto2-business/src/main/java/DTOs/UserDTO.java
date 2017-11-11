@@ -12,6 +12,13 @@ public class UserDTO implements Serializable{
     public UserDTO() {
     }
 
+    public UserDTO(String email, String name, String address, String phone) {
+        this.email = email;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+    }
+
 
     public String getEmail() {
         return email;
@@ -51,5 +58,15 @@ public class UserDTO implements Serializable{
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }

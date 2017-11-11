@@ -1,10 +1,11 @@
 package ejb;
 
 
+import DTOs.CarDTO;
 import DTOs.UserDTO;
 
-import javax.ejb.Local;
 import javax.ejb.Remote;
+import java.util.List;
 
 @Remote
 public interface UserEJBInterface {
@@ -12,6 +13,6 @@ public interface UserEJBInterface {
     void register(UserDTO user);
     void editUserInfo(int id, int field, String value);
     void deleteUserById(int id);
-    String getCarsOfUser(int id);
-    String getUserById(int id);
+    List<CarDTO> getCarsOfUser(int id);
+    UserDTO getUserById(int id);
 }

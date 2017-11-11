@@ -7,7 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="projeto2-business" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -17,7 +16,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module" module-name="projeto2-data" />
-    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.3.1" level="project" />
+    <orderEntry type="module" module-name="projeto2-business" />
   </component>
 </module>

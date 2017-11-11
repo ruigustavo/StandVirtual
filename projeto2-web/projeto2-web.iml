@@ -28,6 +28,5 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: junit:junit:3.8.1" level="project" />
     <orderEntry type="module" module-name="projeto2-business" />
     <orderEntry type="module" module-name="projeto2-data" />
-    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.3.1" level="project" />
   </component>
 </module>

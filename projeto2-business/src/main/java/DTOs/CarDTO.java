@@ -8,13 +8,30 @@ public class CarDTO implements Serializable {
     private String brand;
     private String model;
     private long price;
-    private User owner;
+    private UserDTO owner;
 
-    public User getOwner() {
+    @Override
+    public String toString() {
+        return "CarDTO{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", price=" + price +
+                ", owner=" + owner +
+                '}';
+    }
+
+    public CarDTO(String brand, String model, long price, UserDTO owner) {
+        this.brand = brand;
+        this.model = model;
+        this.price = price;
+        this.owner = owner;
+    }
+
+    public UserDTO getOwner() {
         return owner;
     }
 
-    public void setOwner(User owner) {
+    public void setOwner(UserDTO owner) {
         this.owner = owner;
     }
 

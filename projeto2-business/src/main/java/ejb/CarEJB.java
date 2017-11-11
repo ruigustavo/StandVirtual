@@ -2,7 +2,6 @@ package ejb;
 
 import DTOs.CarDTO;
 import DTOs.UserDTO;
-import com.google.gson.GsonBuilder;
 import data.Car;
 import data.User;
 
@@ -10,6 +9,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
@@ -22,7 +22,9 @@ public class CarEJB implements CarEJBInterface{
     }
 
     public void addCar(CarDTO car){
-        Car toPersist = new Car(car.getBrand(),car.getModel(),car.getPrice(),car.getOwner());
+        Query q = em.createQuery("select u from "+ User.class.getSimpleName()+ " u where u.email = :i ");
+        q.setParameter("i",car.getOwner().getEmail());
+        Car toPersist = new Car(car.getBrand(),car.getModel(),car.getPrice(),(User) q.getSingleResult());
         em.persist(toPersist);
     }
 
@@ -40,14 +42,14 @@ public class CarEJB implements CarEJBInterface{
                 aux.setModel(value);
                 break;
             case 3:
-                aux.setPrice(Integer.parseInt(value));
+                aux.setPrice(Long.parseLong(value));
                 break;
         }
         em.merge(aux);
     }
 
 
-    public String getAllCars(int order){
+    public List<CarDTO> getAllCars(int order){
         List<Car> aux = null;
         Query q=null;
         switch (order) {
@@ -59,22 +61,27 @@ public class CarEJB implements CarEJBInterface{
              break;
         case 3:
              q = em.createQuery("from Car order by brand asc");
-        break;
+            break;
         case 4:
              q = em.createQuery("from Car order by brand desc");
-        break;
+            break;
         case 5:
              q = em.createQuery("from Car order by brand asc,model asc ");
-        break;
+            break;
         case 6:
             q = em.createQuery("from Car order by brand desc,model desc ");
-        break;
-    }
-            aux = q.getResultList();
+            break;
+        }
+        aux = q.getResultList();
 
-        return new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create().toJson(aux);
+        List<CarDTO> toSend = new ArrayList<>();
+        for(Car c : aux){
+            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+        }
+        return toSend;
     }
-    public String getCarsByBrand(String brand, int order){
+
+    public List<CarDTO> getCarsByBrand(String brand, int order){
         List<Car> aux ;
         Query q=null;
         switch (order) {
@@ -95,11 +102,14 @@ public class CarEJB implements CarEJBInterface{
                 break;
         }
         aux = q.getResultList();
+        List<CarDTO> toSend = new ArrayList<>();
+        for(Car c : aux){
+            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+        }
+        return toSend;
+        }
 
-        return new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create().toJson(aux);
-    }
-
-    public String getCarsByBrandAndModel(String brand, String model, int order){
+    public List<CarDTO> getCarsByBrandAndModel(String brand, String model, int order){
         List<Car> aux ;
         Query q=null;
         switch (order) {
@@ -114,9 +124,13 @@ public class CarEJB implements CarEJBInterface{
         }
         aux = q.getResultList();
 
-        return new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create().toJson(aux);
+        List<CarDTO> toSend = new ArrayList<>();
+        for(Car c : aux){
+            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+        }
+        return toSend;
     }
-    public String getCarsByPriceRange(long low_value, long up_value, int order){
+    public List<CarDTO> getCarsByPriceRange(long low_value, long up_value, int order){
         List<Car> aux =null;
         Query q=null;
         switch (order) {
@@ -147,6 +161,10 @@ public class CarEJB implements CarEJBInterface{
         }
         aux = q.getResultList();
 
-        return new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create().toJson(aux);
+        List<CarDTO> toSend = new ArrayList<>();
+        for(Car c : aux){
+            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+        }
+        return toSend;
     }
 }

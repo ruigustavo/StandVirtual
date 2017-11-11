@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>IS</groupId>
 	<artifactId>projeto2-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
 	<packaging>pom</packaging>
 
 	<name>projeto2-parent</name>
@@ -19,7 +20,7 @@
 		<module>projeto2-ear</module>
 	</modules>
 
-	<!-- 3. Definir propriedades, por exemplo variáveis com as versoes de API 
+	<!-- 3. Definir propriedades, por exemplo variáveis com as versoes de API
 		.. EJB .. War etc -->
 	<properties>
 		<!-- encoding -->
@@ -51,7 +52,7 @@
 		<slf4jlog4.version>1.7.25</slf4jlog4.version>
 
 		<junit-version>3.8.1</junit-version>
-		
+
 		<hibernate.validator.version>6.0.2.Final</hibernate.validator.version>
 		<hibernatecore.version>5.2.11.Final</hibernatecore.version>
 		<hibernate.commons.annotations.version>5.0.1.Final</hibernate.commons.annotations.version>
@@ -59,7 +60,7 @@
 		<validation.api>2.0.0.Final</validation.api>
 		<jboss.logging>3.3.1.Final</jboss.logging>
 		<mysql.connector.java>8.0.8-dmr</mysql.connector.java>
-		
+
 		<server.port>9990</server.port>
 	</properties>
 
@@ -230,17 +231,17 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 
 </project>

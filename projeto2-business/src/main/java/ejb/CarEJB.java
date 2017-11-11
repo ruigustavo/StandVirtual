@@ -4,6 +4,8 @@ import DTOs.CarDTO;
 import DTOs.UserDTO;
 import data.Car;
 import data.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -16,15 +18,20 @@ import java.util.List;
 public class CarEJB implements CarEJBInterface{
     @PersistenceContext(name = "Cars")
     private EntityManager em;
+    Logger logger;
 
 
     public CarEJB() {
+        Logger logger = LoggerFactory.getLogger(CarEJB.class);
     }
 
     public void addCar(CarDTO car){
+        logger.info("Getting owner from db.");
         Query q = em.createQuery("select u from "+ User.class.getSimpleName()+ " u where u.email = :i ");
         q.setParameter("i",car.getOwner().getEmail());
+        logger.info("Creating new Car.");
         Car toPersist = new Car(car.getBrand(),car.getModel(),car.getPrice(),(User) q.getSingleResult());
+        logger.info("Persisting it to the db.");
         em.persist(toPersist);
     }
 

@@ -14,31 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dba4a6bd-b378-41e6-8654-2a70a1e9a74f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projeto2tester/src/main/jndi.properties.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projeto2tester/target/classes/tester/Tester.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tester/Tester.iml" afterPath="$PROJECT_DIR$/Tester/Tester.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tester/src/Tester.java" afterPath="$PROJECT_DIR$/Tester/src/Tester.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/pom.xml" afterPath="$PROJECT_DIR$/projeto2-business/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/projeto2-business.iml" afterPath="$PROJECT_DIR$/projeto2-business/projeto2-business.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/CarDTO.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/CarDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJBInterface.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJBInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/PlayersEJB.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/PlayersEJB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJBInterface.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJBInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/pom.xml" afterPath="$PROJECT_DIR$/projeto2-data/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/projeto2-data.iml" afterPath="$PROJECT_DIR$/projeto2-data/projeto2-data.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/src/main/java/data/Car.java" afterPath="$PROJECT_DIR$/projeto2-data/src/main/java/data/Car.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/src/main/java/data/User.java" afterPath="$PROJECT_DIR$/projeto2-data/src/main/java/data/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/projeto2-ear.iml" afterPath="$PROJECT_DIR$/projeto2-ear/projeto2-ear.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-parent.iml" afterPath="$PROJECT_DIR$/projeto2-parent.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/projeto2-web.iml" afterPath="$PROJECT_DIR$/projeto2-web/projeto2-web.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/projeto2-web/target/" />
     <ignored path="$PROJECT_DIR$/projeto2-business/target/" />
@@ -84,23 +60,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CarEJB.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CarEJB.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="26" column="62" lean-forward="false" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
+            <state relative-caret-position="329">
+              <caret line="39" column="47" lean-forward="true" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#514#515#0" expanded="true" />
+                <element signature="e#583#584#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CarDTO.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CarDTO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/CarDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+            <state relative-caret-position="126">
+              <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -192,12 +170,12 @@
         <option value="$PROJECT_DIR$/projeto2-data/pom.xml" />
         <option value="$PROJECT_DIR$/projeto2-data/src/main/java/data/User.java" />
         <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/PlayersEJB.java" />
-        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java" />
         <option value="$PROJECT_DIR$/projeto2-data/src/main/java/data/Car.java" />
         <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java" />
         <option value="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/CarDTO.java" />
+        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java" />
       </list>
     </option>
   </component>
@@ -276,6 +254,14 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="DTOs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projeto2-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projeto2-business" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ejb" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projeto2-parent" type="b2602c69:ProjectViewProjectNode" />
@@ -563,12 +549,12 @@
       <updated>1508254737971</updated>
       <workItem from="1508254741356" duration="3745000" />
       <workItem from="1509031582740" duration="48000" />
-      <workItem from="1510418061357" duration="5055000" />
+      <workItem from="1510418061357" duration="5525000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8848000" />
+    <option name="totallyTimeSpent" value="9318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1366" height="727" extended-state="6" />
@@ -934,16 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="26" column="62" lean-forward="false" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
@@ -1016,9 +992,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/CarDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+        <state relative-caret-position="126">
+          <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="39" column="47" lean-forward="true" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

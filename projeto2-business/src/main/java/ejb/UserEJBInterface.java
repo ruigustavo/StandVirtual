@@ -14,5 +14,7 @@ public interface UserEJBInterface {
     void editUserInfo(int id, int field, String value);
     void deleteUserById(int id);
     List<CarDTO> getCarsOfUser(int id);
+    List<CarDTO> getCarsUserNotOwn(int id);
+    List<CarDTO> getCarsUserFollow(int id);
     UserDTO getUserById(int id);
 }

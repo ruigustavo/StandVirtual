@@ -32,6 +32,7 @@ public class UserEJB implements UserEJBInterface {
             q.setParameter("e",email);
             @SuppressWarnings("unchecked")
             User result = (User) q.getSingleResult();
+            System.out.println(result.getSellingCars());
             if(result!=null) {
                 if (result.getPassword().compareTo(hashedPassword) == 0) {
                     return result.getId();
@@ -58,6 +59,7 @@ public class UserEJB implements UserEJBInterface {
         logger.info("Editing User with ID " + id +" in field " + field);
         User aux = null;
         try {
+            logger.info("Getting user from db.");
             Query q = em.createQuery("select u from "+ User.class.getSimpleName() + " u where u.id = :i");
             q.setParameter("i", id);
             aux = (User) q.getSingleResult();
@@ -113,14 +115,46 @@ public class UserEJB implements UserEJBInterface {
     }
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getId(),c.getBrand(),c.getModel(),c.getPrice(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
         }
         logger.info("Returning Cars of User with ID " + id);
         return toSend;
 
     }
 
-
+     public List<CarDTO> getCarsUserFollow(int id){
+         List<Car> aux = null;
+         logger.info("Getting user from db.");
+         Query q = em.createQuery("select u from "+ User.class.getSimpleName() + " u where u.id = :i");
+         q.setParameter("i", id);
+         User u = (User) q.getSingleResult();
+         aux = u.getFollowingCars();
+         List<CarDTO> toSend = new ArrayList<>();
+         for(Car c : aux){
+             toSend.add(new CarDTO(c.getId(),c.getBrand(),c.getModel(),c.getPrice(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+         }
+         return toSend;
+     }
+    public List<CarDTO> getCarsUserNotOwn(int id){
+        logger.info("Getting Cars of User with ID " + id);
+        List<Car> aux =null;
+        try{
+            Query q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.owner.id != :n order by c.price asc");
+            q.setParameter("n", id);
+            aux = q.getResultList();
+        }   catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Returning null");
+            return null;
+        }
+        List<CarDTO> toSend = new ArrayList<>();
+        for(Car c : aux){
+            toSend.add(new CarDTO(c.getId(),c.getBrand(),c.getModel(),c.getPrice(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+        }
+        logger.info("Returning Cars of User with ID " + id);
+        return toSend;
+    }
     public UserDTO getUserById(int id) {
         logger.info("Getting User with ID " + id);
         User aux = null;

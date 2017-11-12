@@ -40,25 +40,25 @@ public class PlayersEJB implements PlayersEJBInterface {
 
 
     public void populate(){
-//        User[] u = {//password=test
-//                new User("user1@user.pt","098f6bcd4621d373cade4e832627b4f6","user1","Coimbra","123"),
-//                new User("user2@user2.pt","098f6bcd4621d373cade4e832627b4f6","user2","Coimbra","123"),
-//
-//        };
-//
-//        Car[] c = {
-//           new Car("mercedes","v5",4000,u[1]),
-//                new Car("alfa-romeu","v6",1000,u[0]),
-//                new Car("fiat","punto",10000,u[1]),
-//                new Car("citroen","c5",100,u[0])
-//        };
-//        c[0].getFollowers().add(u[0]);
-//
-//
-//        for (User t : u)
-//            em.persist(t);
-//        for (Car t : c)
-//            em.persist(t);
+        User[] u = {//password=test
+                new User("user1@user.pt","098f6bcd4621d373cade4e832627b4f6","user1","Coimbra","123"),
+                new User("user2@user2.pt","098f6bcd4621d373cade4e832627b4f6","user2","Coimbra","123"),
+
+        };
+
+        Car[] c = {
+           new Car("mercedes","v5",4000,"December",2005,u[1]),
+                new Car("alfa-romeu","v6",1000,"August",2011,u[0]),
+                new Car("fiat","punto",10000,"January",2000,u[1]),
+                new Car("citroen","c5",100,"July",2010,u[0])
+        };
+        c[0].getFollowers().add(u[0]);
+
+
+        for (User t : u)
+            em.persist(t);
+        for (Car t : c)
+            em.persist(t);
     }
 
 

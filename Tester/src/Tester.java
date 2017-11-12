@@ -389,6 +389,94 @@ private void showAllMyCarsGUI(){
         }
 
     }
+    private void showCarsByYearGUI(){
+        System.out.println("Insert year");
+        try {
+            String year= br.readLine();
+            showCarsByYearAuxGUI(year, 2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private  void showCarsByYearAuxGUI(String year,int order){
+        try {
+            List<CarDTO> Cars = carEJB.getCarsNewerThan(Integer.parseInt(year),order);
+            for (CarDTO p : Cars) {
+                System.out.println(p.toString());
+            }
+            System.out.println("1-Search again");
+            System.out.println("2-Price ascending : ");
+            System.out.println("3-Price descending: ");
+            System.out.println("4-Brand ascending: ");
+            System.out.println("5-Brand descendin: ");
+            System.out.println("6-Brand and model ascending");
+            System.out.println("7-Brand and model descending");
+            System.out.println("0-Back to main menu");
+            String input = br.readLine();
+            switch (input){
+                case "1":
+                    showCarsByYearGUI();
+                    break;
+                case "0":
+                    loggedMenu();
+                    break;
+                default:
+                    showCarsByYearAuxGUI(year, Integer.parseInt(input));
+                    break;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void deleteCarGUI(){
+        System.out.println("List of cars you own");
+        List<CarDTO> myCars = userEJB.getCarsOfUser(this.userId);
+        for (CarDTO p : myCars) {
+            System.out.println(p.toString());
+        }
+
+        try {
+            System.out.println("Insert the id of the car you want to delete");
+            String car_id = br.readLine();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    private void FollowCarsGUI(){
+        System.out.println("List of cars you can follow");
+        List<CarDTO> myCars = userEJB.getCarsUserNotOwn(this.userId);
+        for (CarDTO p : myCars) {
+            System.out.println(p.toString());
+        }
+        try {
+            System.out.println("Insert the id of the car you want to follow");
+            String car_id = br.readLine();
+            carEJB.followCar(Integer.parseInt(car_id),this.userId);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    private void UnfollowCarsGUI(){
+        System.out.println("List of cars you follow");
+        List<CarDTO> myCars = userEJB.getCarsUserFollow(this.userId);
+        for (CarDTO p : myCars) {
+            System.out.println(p.toString());
+        }
+        try {
+            System.out.println("Insert the id of the car you want to unfollow");
+            String car_id = br.readLine();
+            carEJB.unfollowCar(Integer.parseInt(car_id),this.userId);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     private void loggedMenu() {
 
@@ -400,8 +488,12 @@ private void showAllMyCarsGUI(){
             System.out.println("5-Search cars by brand");
             System.out.println("6-Search cars by brand and model");
             System.out.println("7-Search cars by range of price");
-            System.out.println("8-Add new car for sale");
-            System.out.println("9-Edit one my cars");
+            System.out.println("8-Search cars by newer than a certain year");
+            System.out.println("9-Add new car for sale");
+            System.out.println("10-Edit one my cars");
+            System.out.println("11-Remove car from sale");
+            System.out.println("12-Follow a car");
+            System.out.println("13-Unfollow a car");
             System.out.println("0-Logout");
             String input = br.readLine();
             switch (input) {
@@ -426,11 +518,23 @@ private void showAllMyCarsGUI(){
                 case "7":
                     showCarsByPriceRangeGUI();
                     break;
-                case "8":
-                    addNewCarForSaleGUI();
+                case "8" :
+                    showCarsByYearGUI();
                     break;
                 case "9":
+                    addNewCarForSaleGUI();
+                    break;
+                case "10":
                     editCarGUI();
+                    break;
+                case "11":
+                    deleteCarGUI();
+                    break;
+                case "12":
+                    FollowCarsGUI();
+                    break;
+                case "13":
+                    UnfollowCarsGUI();
                     break;
                 default:
                     logged = false;
@@ -440,7 +544,6 @@ private void showAllMyCarsGUI(){
             e.printStackTrace();
         }
     }
-
 
     public static String hashPassword(String passwordToHash){
         try {

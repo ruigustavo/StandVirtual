@@ -178,7 +178,7 @@ public class Tester {
                     logged = false;
                     return;
             }
-            userEJB.editUserInfo(this.userId,Integer.parseInt(field),value);
+//            userEJB.editUserInfo(this.userId,Integer.parseInt(field),value);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -3,6 +3,8 @@ package DTOs;
 import java.io.Serializable;
 
 public class UserDTO implements Serializable{
+
+    private int id;
     private String email;
     private String password;
     private String name;
@@ -19,6 +21,25 @@ public class UserDTO implements Serializable{
         this.phone = phone;
     }
 
+    public UserDTO(String email, String password, String name, String address, String phone) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+    }
+
+    public UserDTO(int id, String email, String name, String address, String phone) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public String getEmail() {
         return email;

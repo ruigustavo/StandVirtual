@@ -22,7 +22,7 @@ public class CarEJB implements CarEJBInterface{
 
 
     public CarEJB() {
-        Logger logger = LoggerFactory.getLogger(CarEJB.class);
+        logger = LoggerFactory.getLogger(CarEJB.class);
     }
 
     public void addCar(CarDTO car){

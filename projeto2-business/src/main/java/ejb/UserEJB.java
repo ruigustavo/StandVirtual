@@ -54,12 +54,12 @@ public class UserEJB implements UserEJBInterface {
         logger.info("Registered successfully");
     }
 
-    public void editUserInfo(int id, int field, String value){
-        logger.info("Editing User with ID " + id +" in field " + field);
-        User aux = null;
+    public void editUserInfo(UserDTO user){
+        logger.info("Editing User " + user.getId());
+        User aux;
         try {
             Query q = em.createQuery("select u from "+ User.class.getSimpleName() + " u where u.id = :i");
-            q.setParameter("i", id);
+            q.setParameter("i", user.getId());
             aux = (User) q.getSingleResult();
         } catch (Exception e) {
             logger.warn("Dropped Exception");
@@ -67,24 +67,12 @@ public class UserEJB implements UserEJBInterface {
             logger.info("User not edited. Returning...");
             return;
         }
-
-        switch (field){
-            case 1:
-                aux.setName(value);
-                break;
-            case 2:
-                aux.setEmail(value);
-                break;
-            case 3:
-                aux.setAddress(value);
-                break;
-            case 4:
-                aux.setPhone(value);
-                break;
-            case 5:
-                aux.setPassword(value);
-                break;
-        }
+        if(user.getPassword()!=null)
+            aux.setPassword(user.getPassword());
+        aux.setName(user.getName());
+        aux.setAddress(user.getAddress());
+        aux.setEmail(user.getEmail());
+        aux.setPhone(user.getPhone());
         logger.info("Saving Changes...");
         try {
             em.merge(aux);
@@ -135,7 +123,11 @@ public class UserEJB implements UserEJBInterface {
            return null;
        }
         logger.info("Return User with ID " + id);
-        return new UserDTO(aux.getEmail(),aux.getName(),aux.getName(),aux.getPhone());
+        return new UserDTO(aux.getId(),
+                aux.getEmail(),
+                aux.getName(),
+                aux.getAddress(),
+                aux.getPhone());
     }
 
     public void deleteUserById(int id){

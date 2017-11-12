@@ -21,27 +21,34 @@ public class UserEJB implements UserEJBInterface {
     Logger logger;
 
     public UserEJB() {
-        Logger logger = LoggerFactory.getLogger(UserEJB.class);
+        logger = LoggerFactory.getLogger(UserEJB.class);
     }
 
 
     public int login(String email, String hashedPassword){
-        logger.info("Checking Login to Admin");
-        Query q = em.createQuery("select u from "+ User.class.getSimpleName() + " u where u.email= :e");
-        q.setParameter("e",email);
-        @SuppressWarnings("unchecked")
-        User result = (User) q.getResultList().get(0);
-        if(result!=null) {
-            if (result.getPassword().compareTo(hashedPassword) == 0) {
-                return result.getId();
+        logger.info("Trying to authenticate user: "+ email);
+        try{
+            Query q = em.createQuery("select u from "+ User.class.getSimpleName() + " u where u.email= :e");
+            q.setParameter("e",email);
+            @SuppressWarnings("unchecked")
+            User result = (User) q.getSingleResult();
+            if(result!=null) {
+                if (result.getPassword().compareTo(hashedPassword) == 0) {
+                    return result.getId();
+                }else{
+                    logger.warn("Wrong password.");
+                    return -1;
+                }
             }
+        }catch (Exception e){
+            logger.warn("Login failed, user not found.");
         }
         return -1;
     }
 
 
     public void register(UserDTO user){
-        logger.info("Creating new User with name"+user.getName());
+        logger.info("Creating new User with name "+user.getName());
         User toPersist = new User(user.getEmail(),user.getPassword(),user.getName(),user.getAddress(),user.getPhone());
         em.persist(toPersist);
         logger.info("Registered successfully");

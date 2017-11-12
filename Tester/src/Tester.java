@@ -223,6 +223,7 @@ private void showAllMyCarsGUI(){
             else loggedMenu();
 
     }
+
     private void showCarsByBrandGUI(int order){
         System.out.println("Insert the brand you desire:");
         try {

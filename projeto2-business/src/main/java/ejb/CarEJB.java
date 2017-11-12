@@ -72,30 +72,30 @@ public class CarEJB implements CarEJBInterface{
         List<Car> aux = null;
         Query q=null;
         switch (order) {
-        case 1:
-            logger.info(" Getting cars from ascending order by price.");
-             q = em.createQuery("from Car order by price asc");
-        break;
+            case 1:
+                logger.info(" Getting cars from ascending order by price.");
+                q = em.createQuery("from Car order by price asc");
+                break;
             case 2:
                 logger.info("Getting cars  descending order by price");
-             q = em.createQuery("from Car order by price desc");
-             break;
-        case 3:
-            logger.info("Getting cars  ascending order by brand.");
-             q = em.createQuery("from Car order by brand asc");
-            break;
-        case 4:
-            logger.info("Getting cars  descending order by brand.");
-             q = em.createQuery("from Car order by brand desc");
-            break;
-        case 5:
-            logger.info("Getting cars from ascending order by brand and model.");
-             q = em.createQuery("from Car order by brand asc,model asc ");
-            break;
-        case 6:
-            logger.info("Getting carsdescending order by brand and model.");
-            q = em.createQuery("from Car order by brand desc,model desc ");
-            break;
+                q = em.createQuery("from Car order by price desc");
+                break;
+            case 3:
+                logger.info("Getting cars  ascending order by brand.");
+                q = em.createQuery("from Car order by brand asc");
+                break;
+            case 4:
+                logger.info("Getting cars  descending order by brand.");
+                 q = em.createQuery("from Car order by brand desc");
+                break;
+            case 5:
+                logger.info("Getting cars from ascending order by brand and model.");
+                 q = em.createQuery("from Car order by brand asc,model asc ");
+                break;
+            case 6:
+                logger.info("Getting carsdescending order by brand and model.");
+                q = em.createQuery("from Car order by brand desc,model desc ");
+                break;
         }
         aux = q.getResultList();
 

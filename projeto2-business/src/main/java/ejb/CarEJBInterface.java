@@ -13,4 +13,7 @@ public interface CarEJBInterface {
     List<CarDTO> getCarsByBrandAndModel(String brand, String model, int order);
     List<CarDTO> getCarsByPriceRange(long low_value, long up_value, int order);
     void editCarInfo(int id, int field, String value);
+    List<CarDTO> getCarsNewerThan(int year, int order);
+    void followCar(int car_id, int user_id);
+    void unfollowCar(int car_id, int user_id);
 }

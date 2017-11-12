@@ -1,6 +1,9 @@
 package DTOs;
 
+import data.Car;
+
 import java.io.Serializable;
+import java.util.List;
 
 public class UserDTO implements Serializable{
 

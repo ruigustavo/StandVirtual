@@ -15,6 +15,9 @@ public class Car implements Serializable {
     private String brand;
     private String model;
     private long price;
+    private String registration_month;
+    private int registration_year;
+
 
     @ManyToOne
     private User owner;
@@ -38,12 +41,30 @@ public class Car implements Serializable {
                 '}';
     }
 
-    public Car(String brand, String model, long price, User owner) {
+    public String getRegistration_month() {
+        return registration_month;
+    }
+
+    public void setRegistration_month(String registration_month) {
+        this.registration_month = registration_month;
+    }
+
+    public int getRegistration_year() {
+        return registration_year;
+    }
+
+    public void setRegistration_year(int registration_year) {
+        this.registration_year = registration_year;
+    }
+
+    public Car(String brand, String model, long price, String registration_month, int registration_year, User owner) {
         super();
         this.brand = brand;
         this.model = model;
         this.price = price;
         this.owner = owner;
+        this.registration_month = registration_month;
+        this.registration_year = registration_year;
         this.followers = new ArrayList<>();
     }
 

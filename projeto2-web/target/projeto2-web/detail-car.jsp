@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: rogeriocsilva
   Date: 13-11-2017
-  Time: 0:07
+  Time: 21:05
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -16,11 +16,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>StandVirtual v2</title>
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <script src="js/menu.js"></script>
 </head>
 <body>
 <header class="w3-container default-primary-color">
     <div class="w3-row">
-        <div class="w3-col m6" style="width:30%">
+        <div class="w3-col" style="width:30%">
             <h3 class="text-primary-color"><a href="/projeto2-web/">Welcome, <c:out value="${user.getName()}"/></a></h3>
         </div>
         <div class="w3-col" style="width:10%; margin-top: 10px;">
@@ -37,45 +38,37 @@
         </div>
     </div>
 </header>
-<div class="w3-container ">
-    <form class="w3-form" method="post" action="Main" enctype="multipart/form-data">
 
-        <div class="w3-input-group">
-            <label>Brand</label>
-            <input class="w3-input" name="brand" type="text" value = "${car.getBrand()}"/>
-        </div>
-        <div class="w3-input-group">
-            <label>Model</label>
-            <input class="w3-input" name="model" type="text" value = "${car.getModel()}" />
-        </div>
 
-        <div class="w3-input-group">
-            <label>Price</label>
-            <input class="w3-input" name="price" type="number" value = "${car.getPrice()}" />
+<div class="w3-container">
+    <div class="w3-row">
+        <div>
+            <img style="width: 200px" src="data:image/*;base64,${car.getPictureEncoded()}">
         </div>
-
-        <div class="w3-input-group">
-            <label>Month</label>
-            <input class="w3-input" name="registration_month" type="text" value = "${car.getRegistration_month()}" />
+        <div>
+            <label><strong>Brand</strong></label>
+            <p><c:out value = "${car.getBrand()}"/></p>
         </div>
-
-        <div class="w3-input-group">
-            <label>Year</label>
-            <input class="w3-input" name="registration_year" type="number" value = "${car.getRegistration_year()}" />
+        <div>
+            <label><strong>Model</strong></label>
+            <p><c:out value = "${car.getModel()}"/></p>
         </div>
-
-        <img style="width: 30%" src="data:image/*;base64,${car.getPictureEncoded()}">
-
-        <div class="w3-input-group">
-            <label>Picture</label>
-            <input class="w3-input" name="picture" type="file" accept="image/*" />
+        <div>
+            <label><strong>Price</strong></label>
+            <p><c:out value = "${car.getPrice()}"/></p>
         </div>
-        <input type="hidden" name="id" value="${car.getId()}">
-        <input type="hidden" name="action" value="edit-car"/>
-        <button type="submit" class="w3-btn dark-primary-color">Save</button>
-    </form>
+        <div>
+            <label><strong>Registration Year</strong></label>
+            <p><c:out value = "${car.getRegistration_year()}"/></p>
+        </div>
+        <div>
+            <label><strong>Registration Month</strong></label>
+            <p><c:out value = "${car.getRegistration_month()}"/></p>
+        </div>
+        <div>
+            <button type="submit" onclick="goEditCar(${car.getId()})">Edit</button>
+        </div>
+    </div>
 </div>
-
 </body>
 </html>
-

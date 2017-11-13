@@ -40,7 +40,8 @@ public class Car implements Serializable {
     private byte[] picture;
 
 
-    @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
+    @ManyToOne(fetch=FetchType.LAZY,cascade={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
+    @JoinColumn(name="owner_id")
     private User owner;
 
     @ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})

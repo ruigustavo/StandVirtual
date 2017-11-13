@@ -34,33 +34,34 @@
         </div>
     </div>
 </header>
+<div class="w3-container ">
+    <form class="w3-form" method="post" action="Main">
+        <div class="w3-input-group">
+            <label>E-mail</label>
+            <input class="w3-input" name="email" type="text" value="${user.getEmail()}"/>
+        </div>
+        <div class="w3-input-group">
+            <label>Password</label>
+            <input class="w3-input" name="password" type="password" />
+        </div>
+        <div class="w3-input-group">
+            <label>Name</label>
+            <input class="w3-input" name="name" type="text" value="${user.getName()}"/>
+        </div>
 
-<form class="w3-form" method="post" action="Main">
-    <div class="w3-input-group">
-        <label>E-mail</label>
-        <input class="w3-input" name="email" type="text" value="${user.getEmail()}"/>
-    </div>
-    <div class="w3-input-group">
-        <label>Password</label>
-        <input class="w3-input" name="password" type="password" />
-    </div>
-    <div class="w3-input-group">
-        <label>Name</label>
-        <input class="w3-input" name="name" type="text" value="${user.getName()}"/>
-    </div>
+        <div class="w3-input-group">
+            <label>Address</label>
+            <input class="w3-input" name="address" type="text" value="${user.getAddress()}"/>
+        </div>
 
-    <div class="w3-input-group">
-        <label>Address</label>
-        <input class="w3-input" name="address" type="text" value="${user.getAddress()}"/>
-    </div>
-
-    <div class="w3-input-group">
-        <label>Phone</label>
-        <input class="w3-input" name="phone" type="text" value="${user.getPhone()}"/>
-    </div>
-    <input type="hidden" name="action" value="edit-profile"/>
-    <button type="submit" class="w3-btn dark-primary-color">Save Changes</button>
-</form>
+        <div class="w3-input-group">
+            <label>Phone</label>
+            <input class="w3-input" name="phone" type="text" value="${user.getPhone()}"/>
+        </div>
+        <input type="hidden" name="action" value="edit-profile"/>
+        <button type="submit" class="w3-btn dark-primary-color">Save Changes</button>
+    </form>
+</div>
 
 </body>
 </html>

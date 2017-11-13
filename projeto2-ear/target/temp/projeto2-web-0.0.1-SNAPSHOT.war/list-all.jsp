@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: rogeriocsilva
-  Date: 12-11-2017
-  Time: 15:25
+  Date: 13-11-2017
+  Time: 21:46
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -56,21 +56,19 @@
 
 <div class="w3-container">
     <div class="w3-row">
-        <c:if test="${user.getSellingCars().size() > 0}">
+        <c:if test="${carslist!=null}">
             <form name="ownedCars" method="get" action="Main">
                 <input type="hidden" name="id"/>
                 <input type="hidden" name="action"/>
                 <table class="w3-table" style="width:50%">
-                    <caption>My Cars</caption>
                     <tr>
                         <th></th>
                         <th>Brand</th>
-                        </tr>
-                    <c:forEach items= "${user.getSellingCars()}" var = "i">
+                    </tr>
+                    <c:forEach items= "${carslist}" var = "i">
                         <tr>
                             <td><img style="width: 200px" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
                             <td><c:out value = "${i.getBrand()}"/></td>
-                            <td><button type="submit" onclick="goEditCar(${i.getId()})">Edit</button></td>
                             <td><button type="submit" onclick="goDetailsCar(${i.getId()})">Details</button></td>
                         </tr>
                     </c:forEach>
@@ -79,12 +77,6 @@
         </c:if>
     </div>
 
-    <div class="w3-row">
-        <form class="w3-form" method="get" action="Main">
-            <input type="hidden" name="action" value="new-car"/>
-            <input type="submit" class="w3-btn accent-color secondary-text-color" value="New Car"/>
-        </form>
-    </div>
 </div>
 </body>
 </html>

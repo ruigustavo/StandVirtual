@@ -30,29 +30,52 @@ public class CarEJB implements CarEJBInterface{
         Query q = em.createQuery("select u from "+ User.class.getSimpleName()+ " u where u.email = :i ");
         q.setParameter("i",car.getOwner().getEmail());
         logger.info("Creating new Car.");
-        Car toPersist = new Car(car.getBrand(),car.getModel(),car.getPrice(),car.getRegistration_month(),car.getRegistration_year(),car.getPicture(),(User) q.getSingleResult());
+        User owner = (User) q.getSingleResult();
+        Car toPersist = new Car(car.getBrand(),
+                car.getModel(),car.getPrice(),
+                car.getRegistration_month(),car.getRegistration_year(),
+                car.getPicture(),owner);
         logger.info("Persisting it to the db.");
         em.persist(toPersist);
+        if(!owner.getSellingCars().contains(toPersist)){
+            owner.getSellingCars().add(toPersist);
+            em.persist(owner);
+        }
     }
 
-    public void editCarInfo(int id, int field, String value){
-        logger.info("Editing Car with ID " + id +" in field " + field);
+    public CarDTO getCarById(int id){
         Car aux = null;
         logger.info("Getting car from db.");
         Query q = em.createQuery("select u from "+ Car.class.getSimpleName() + " u where u.id = :i");
         q.setParameter("i", id);
         aux = (Car) q.getSingleResult();
+        logger.warn(aux.toString());
+        CarDTO toSend = new CarDTO(aux.getId(),
+                aux.getBrand(),
+                aux.getModel(),
+                aux.getPrice(),
+                aux.getRegistration_month(),
+                aux.getRegistration_year(),
+                aux.getPicture());
+        logger.warn(toSend.toString());
+        return toSend;
+    }
 
-        switch (field){
-            case 1:
-                aux.setBrand(value);
-                break;
-            case 2:
-                aux.setModel(value);
-                break;
-            case 3:
-                aux.setPrice(Long.parseLong(value));
-                break;
+    public void editCarInfo(CarDTO toEdit){
+        logger.info("Editing Car with ID " + toEdit.getId());
+        Car aux = null;
+        logger.info("Getting car from db.");
+        Query q = em.createQuery("select u from "+ Car.class.getSimpleName() + " u where u.id = :i");
+        q.setParameter("i", toEdit.getId());
+        aux = (Car) q.getSingleResult();
+        aux.setBrand(toEdit.getBrand());
+        aux.setModel(toEdit.getModel());
+        aux.setPrice(toEdit.getPrice());
+        aux.setRegistration_month(toEdit.getRegistration_month());
+        aux.setRegistration_year(toEdit.getRegistration_year());
+        System.out.println(toEdit.getPicture());
+        if(toEdit.getPicture()!=null){
+            aux.setPicture(toEdit.getPicture());
         }
         logger.info("Saving Changes to the car...");
         try {
@@ -127,6 +150,7 @@ public class CarEJB implements CarEJBInterface{
         }
         logger.info("Car followed successfully");
     }
+
     public List<CarDTO> getAllCars(int order){
         logger.info("Getting all Cars");
         List<Car> aux = null;
@@ -161,7 +185,18 @@ public class CarEJB implements CarEJBInterface{
 
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()
+            ));
         }
         logger.info("Returning all Cars");
         return toSend;

@@ -17,14 +17,25 @@ public class Car implements Serializable {
     private long price;
     private String registration_month;
     private int registration_year;
+    private long km;
 
-    public Car(String brand, String model, long price, String registration_month, int registration_year, byte[] picture, User owner) {
+    public long getKm() {
+        return km;
+    }
+
+    public void setKm(long km) {
+        this.km = km;
+    }
+
+    public Car(String brand, String model, long price, long km, String registration_month, int registration_year, byte[] picture, User owner) {
         this.brand = brand;
         this.model = model;
         this.price = price;
+        this.km=km;
         this.registration_month = registration_month;
         this.registration_year = registration_year;
         this.picture = picture;
+
         this.owner = owner;
     }
 

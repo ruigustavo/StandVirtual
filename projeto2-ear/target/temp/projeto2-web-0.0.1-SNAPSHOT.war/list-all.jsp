@@ -64,11 +64,13 @@
                     <tr>
                         <th></th>
                         <th>Brand</th>
+                        <th>Price</th>
                     </tr>
                     <c:forEach items= "${carslist}" var = "i">
                         <tr>
                             <td><img style="width: 200px" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
                             <td><c:out value = "${i.getBrand()}"/></td>
+                            <td><c:out value = "${i.getPrice()}"/></td>
                             <td><button type="submit" onclick="goDetailsCar(${i.getId()})">Details</button></td>
                         </tr>
                     </c:forEach>

@@ -55,6 +55,11 @@
         </div>
 
         <div class="w3-input-group">
+            <label>Kilometers</label>
+            <input class="w3-input" name="km" type="number" value = "${car.getKm()}" />
+        </div>
+
+        <div class="w3-input-group">
             <label>Month</label>
             <input class="w3-input" name="registration_month" type="text" value = "${car.getRegistration_month()}" />
         </div>

@@ -147,6 +147,7 @@ public class Main extends HttpServlet {
                 CarDTO car = new CarDTO(request.getParameter("brand"),
                         request.getParameter("model"),
                         Long.parseLong(request.getParameter("price")),
+                        Long.parseLong(request.getParameter("km")),
                         (UserDTO) request.getSession().getAttribute("user"),
                         request.getParameter("registration_month"),
                         Integer.parseInt(request.getParameter("registration_year")),
@@ -167,6 +168,7 @@ public class Main extends HttpServlet {
                             request.getParameter("brand"),
                             request.getParameter("model"),
                             Long.parseLong(request.getParameter("price")),
+                            Long.parseLong(request.getParameter("km")),
                             request.getParameter("registration_month"),
                             Integer.parseInt(request.getParameter("registration_year")),
                             Base64.getEncoder().encode(
@@ -178,6 +180,7 @@ public class Main extends HttpServlet {
                             request.getParameter("brand"),
                             request.getParameter("model"),
                             Long.parseLong(request.getParameter("price")),
+                            Long.parseLong(request.getParameter("km")),
                             request.getParameter("registration_month"),
                             Integer.parseInt(request.getParameter("registration_year")),
                             null

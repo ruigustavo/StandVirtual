@@ -53,6 +53,11 @@
         </div>
 
         <div class="w3-input-group">
+            <label>Kilometers</label>
+            <input class="w3-input" name="km" type="number" required/>
+        </div>
+
+        <div class="w3-input-group">
             <label>Month</label>
             <input class="w3-input" name="registration_month" type="text" required/>
         </div>

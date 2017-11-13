@@ -32,7 +32,7 @@ public class CarEJB implements CarEJBInterface{
         logger.info("Creating new Car.");
         User owner = (User) q.getSingleResult();
         Car toPersist = new Car(car.getBrand(),
-                car.getModel(),car.getPrice(),
+                car.getModel(),car.getPrice(),car.getKm(),
                 car.getRegistration_month(),car.getRegistration_year(),
                 car.getPicture(),owner);
         logger.info("Persisting it to the db.");
@@ -54,6 +54,7 @@ public class CarEJB implements CarEJBInterface{
                 aux.getBrand(),
                 aux.getModel(),
                 aux.getPrice(),
+                aux.getKm(),
                 aux.getRegistration_month(),
                 aux.getRegistration_year(),
                 aux.getPicture());
@@ -189,6 +190,7 @@ public class CarEJB implements CarEJBInterface{
                     c.getBrand(),
                     c.getModel(),
                     c.getPrice(),
+                    c.getKm(),
                     c.getRegistration_month(),
                     c.getRegistration_year(),
                     new UserDTO(c.getOwner().getEmail(),
@@ -230,7 +232,7 @@ public class CarEJB implements CarEJBInterface{
         aux = q.getResultList();
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getKm(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
         }
         logger.info("Return all Cars of the brand:"+brand);
         return toSend;
@@ -255,7 +257,7 @@ public class CarEJB implements CarEJBInterface{
         aux = q.getResultList();
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getKm(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
         }
         logger.info("Return all Cars of the brand:"+brand+"and model:"+model);
         return toSend;
@@ -297,7 +299,7 @@ public class CarEJB implements CarEJBInterface{
         aux = q.getResultList();
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getKm(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
         }
         logger.info("Returning all Cars with year newer than "+year);
         return toSend;
@@ -343,9 +345,67 @@ public class CarEJB implements CarEJBInterface{
 
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getKm(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
         }
         logger.info("Returning all Cars with price between "+low_value+"and"+up_value);
         return toSend;
     }
+
+
+
+    public List<CarDTO> getCarsByKmRange(long low_value, long up_value, int order){
+        logger.info("Getting all Cars with kilometers between "+low_value+"and"+up_value);
+        List<Car> aux =null;
+        Query q=null;
+        switch (order) {
+            case 2:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by price");
+                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.price asc");
+                q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                break;
+            case 3:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by price");
+                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.price desc");
+                q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                break;
+            case 4:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by brand");
+                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.brand asc");
+                q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                break;
+            case 5:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by brand");
+                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.brand desc");
+                q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                break;
+            case 6:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by brand and model");
+                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.brand asc,c.model asc ");
+                q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                break;
+            case 7:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by brand and model");
+                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.brand desc,c.model desc ");
+                q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                break;
+        }
+        aux = q.getResultList();
+
+        List<CarDTO> toSend = new ArrayList<>();
+        for(Car c : aux){
+            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getKm(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+        }
+        logger.info("Returning all Cars with kilometers between "+low_value+"and"+up_value);
+        return toSend;
+    }
+
+
+
+
+
+
+
+
+
+
 }

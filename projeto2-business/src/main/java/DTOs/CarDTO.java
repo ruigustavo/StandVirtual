@@ -11,38 +11,42 @@ public class CarDTO implements Serializable {
     private String brand;
     private String model;
     private long price;
+    private long km;
     private UserDTO owner;
     private String registration_month;
     private int registration_year;
     private byte[] picture;
 
 
-    public CarDTO(String brand, String model, long price, UserDTO owner, String registration_month, int registration_year, byte[] picture) {
+    public CarDTO(String brand, String model, long price,long km, UserDTO owner, String registration_month, int registration_year, byte[] picture) {
         this.brand = brand;
         this.model = model;
         this.price = price;
         this.owner = owner;
+        this.km=km;
         this.registration_month = registration_month;
         this.registration_year = registration_year;
         this.picture = picture;
     }
 
-    public CarDTO(int id, String brand, String model, long price, String registration_month, int registration_year, byte[] picture) {
+    public CarDTO(int id, String brand, String model, long price,long km, String registration_month, int registration_year, byte[] picture) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.price = price;
+        this.km=km;
         this.registration_month = registration_month;
         this.registration_year = registration_year;
         this.picture = picture;
     }
 
 
-    public CarDTO(int id, String brand, String model, long price, String registration_month, int registration_year) {
+    public CarDTO(int id, String brand, String model, long price,long km, String registration_month, int registration_year) {
         this.id=id;
         this.brand = brand;
         this.model = model;
         this.price = price;
+        this.km=km;
         this.registration_month = registration_month;
         this.registration_year = registration_year;
     }
@@ -61,11 +65,12 @@ public class CarDTO implements Serializable {
                 '}';
     }
 
-    public CarDTO(String brand, String model, long price, String registration_month, int registration_year, UserDTO owner) {
+    public CarDTO(String brand, String model, long price,long km, String registration_month, int registration_year, UserDTO owner) {
         this.brand = brand;
         this.model = model;
         this.price = price;
         this.owner = owner;
+        this.km=km;
         this.registration_month = registration_month;
         this.registration_year=registration_year;
     }
@@ -78,11 +83,20 @@ public class CarDTO implements Serializable {
         this.id = id;
     }
 
-    public CarDTO(int id, String brand, String model, long price, String registration_month, int registration_year, UserDTO owner,byte[] picture) {
+    public long getKm() {
+        return km;
+    }
+
+    public void setKm(long km) {
+        this.km = km;
+    }
+
+    public CarDTO(int id, String brand, String model, long price, long km, String registration_month, int registration_year, UserDTO owner, byte[] picture) {
         this.id=id;
         this.brand = brand;
         this.model = model;
         this.price = price;
+        this.km=km;
         this.owner = owner;
         this.registration_month = registration_month;
         this.registration_year=registration_year;

@@ -58,6 +58,10 @@
             <p><c:out value = "${car.getPrice()}"/></p>
         </div>
         <div>
+            <label><strong>Kilometers</strong></label>
+            <p><c:out value = "${car.getKm()}"/></p>
+        </div>
+        <div>
             <label><strong>Registration Year</strong></label>
             <p><c:out value = "${car.getRegistration_year()}"/></p>
         </div>

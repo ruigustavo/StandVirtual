@@ -305,6 +305,8 @@ private void showAllMyCarsGUI(){
         }
     }
 
+
+
     private  void showCarsByPriceRangeAuxGUI(String low,String upper ,int order){
         try {
             List<CarDTO> Cars = carEJB.getCarsByPriceRange(Long.parseLong(low),Long.parseLong(upper),order);
@@ -329,6 +331,50 @@ private void showAllMyCarsGUI(){
                     break;
                 default:
                     showCarsByPriceRangeAuxGUI(low, upper, Integer.parseInt(input));
+                    break;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void showCarsByKmRangeGUI(){
+        System.out.println("Insert lower value");
+        try {
+            String low= br.readLine();
+            System.out.println("Insert upper value");
+            String upper = br.readLine();
+            showCarsByKmRangeAuxGUI(low,upper, 2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private  void showCarsByKmRangeAuxGUI(String low,String upper ,int order){
+        try {
+            List<CarDTO> Cars = carEJB.getCarsByKmRange(Long.parseLong(low),Long.parseLong(upper),order);
+            for (CarDTO p : Cars) {
+                System.out.println(p.toString());
+            }
+            System.out.println("1-Search again");
+            System.out.println("2-Price ascending : ");
+            System.out.println("3-Price descending: ");
+            System.out.println("4-Brand ascending: ");
+            System.out.println("5-Brand descendin: ");
+            System.out.println("6-Brand and model ascending");
+            System.out.println("7-Brand and model descending");
+            System.out.println("0-Back to main menu");
+            String input = br.readLine();
+            switch (input){
+                case "1":
+                    showCarsByKmRangeGUI();
+                    break;
+                case "0":
+                    loggedMenu();
+                    break;
+                default:
+                    showCarsByKmRangeAuxGUI(low, upper, Integer.parseInt(input));
                     break;
             }
         } catch (IOException e) {
@@ -386,7 +432,7 @@ private void showAllMyCarsGUI(){
                     value = br.readLine();
                     break;
             }
-            carEJB.editCarInfo(Integer.parseInt(temp_id),Integer.parseInt(field),value);
+            //carEJB.editCarInfo(Integer.parseInt(temp_id),Integer.parseInt(field),value);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -494,11 +540,12 @@ private void showAllMyCarsGUI(){
             System.out.println("6-Search cars by brand and model");
             System.out.println("7-Search cars by range of price");
             System.out.println("8-Search cars by newer than a certain year");
-            System.out.println("9-Add new car for sale");
-            System.out.println("10-Edit one my cars");
-            System.out.println("11-Remove car from sale");
-            System.out.println("12-Follow a car");
-            System.out.println("13-Unfollow a car");
+            System.out.println("9-Search cars by kilometeres range");
+            System.out.println("10-Add new car for sale");
+            System.out.println("11-Edit one my cars");
+            System.out.println("12-Remove car from sale");
+            System.out.println("13-Follow a car");
+            System.out.println("14-Unfollow a car");
             System.out.println("0-Logout");
             String input = br.readLine();
             switch (input) {
@@ -527,18 +574,21 @@ private void showAllMyCarsGUI(){
                     showCarsByYearGUI();
                     break;
                 case "9":
-                    addNewCarForSaleGUI();
+                    showCarsByKmRangeGUI();
                     break;
                 case "10":
-                    editCarGUI();
+                    addNewCarForSaleGUI();
                     break;
                 case "11":
-                    deleteCarGUI();
+                    editCarGUI();
                     break;
                 case "12":
-                    FollowCarsGUI();
+                    deleteCarGUI();
                     break;
                 case "13":
+                    FollowCarsGUI();
+                    break;
+                case "14":
                     UnfollowCarsGUI();
                     break;
                 default:

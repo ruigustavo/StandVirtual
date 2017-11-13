@@ -29,4 +29,6 @@ public interface CarEJBInterface {
     void deleteCarById(int id);
 
     CarDTO getCarById(int id);
+
+    List<CarDTO> getCarsByKmRange(long low_value, long up_value, int order);
 }

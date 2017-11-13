@@ -23,7 +23,7 @@ import ejb.PlayersEJBInterface;
 @WebServlet("/PlayersTallerThan")
 public class PlayersTallerThan extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    @Inject
+    @EJB
     PlayersEJBInterface ejbremote;
 
     /**

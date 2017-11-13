@@ -16,4 +16,5 @@ public interface CarEJBInterface {
     List<CarDTO> getCarsNewerThan(int year, int order);
     void followCar(int car_id, int user_id);
     void unfollowCar(int car_id, int user_id);
+    void deleteCarById(int id);
 }

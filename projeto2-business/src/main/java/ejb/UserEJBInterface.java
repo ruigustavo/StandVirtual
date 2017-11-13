@@ -5,12 +5,13 @@ import DTOs.CarDTO;
 import DTOs.UserDTO;
 
 import javax.ejb.Local;
+import javax.ejb.Remote;
 import java.util.List;
 
-@Local
+@Remote
 public interface UserEJBInterface {
     int login(String email, String hashedPassword);
-    void register(UserDTO user);
+    int register(UserDTO user);
     void editUserInfo(UserDTO user);
     void deleteUserById(int id);
     List<CarDTO> getCarsOfUser(int id);

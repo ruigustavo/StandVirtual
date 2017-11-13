@@ -66,9 +66,17 @@ public class CarEJB implements CarEJBInterface{
         logger.info("Car edited successfully");
     }
 //TODO ROGERIO NOOB
-//    public void deleteCarById(int id){
-//
-//    }
+    public void deleteCarById(int id){
+      try{
+            logger.info("Deleting car with Id " + id);
+            em.remove(em.find(Car.class, id));
+            logger.info("Car "+id+" deleted");
+}catch (Exception e){
+        logger.warn("Dropped exception");
+        e.printStackTrace();
+        logger.info("Car not deleted");
+        }
+    }
     public void unfollowCar(int car_id, int user_id){
         Car aux_car;
         User aux_user;

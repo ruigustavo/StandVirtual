@@ -48,11 +48,23 @@ public class UserEJB implements UserEJBInterface {
     }
 
 
-    public void register(UserDTO user){
-        logger.info("Creating new User with name "+user.getName());
-        User toPersist = new User(user.getEmail(),user.getPassword(),user.getName(),user.getAddress(),user.getPhone());
-        em.persist(toPersist);
-        logger.info("Registered successfully");
+    public int register(UserDTO user){
+        logger.info("Checking if email already exists");
+        Query q = em.createQuery("select count(u) from"+ User.class.getSimpleName() +"u where u.email =:email");
+        q.setParameter("email", user.getEmail());
+
+        if((int)q.getSingleResult()==0){
+            logger.info("Creating new User with name "+user.getName());
+            User toPersist = new User(user.getEmail(),user.getPassword(),user.getName(),user.getAddress(),user.getPhone());
+            em.persist(toPersist);
+            logger.info("Registered successfully");
+            return 1;
+        }
+        else{
+            logger.info("Register not successful");
+            return 0;
+        }
+
     }
 
     public void editUserInfo(UserDTO user){
@@ -195,7 +207,23 @@ public class UserEJB implements UserEJBInterface {
     }
 
     public void deleteUserById(int id){
-        em.remove(em.find(User.class, id));
+//        User aux;
+//        logger.info("Deleting User with Id " + id);
+//        Query q = em.createQuery("FROM User c WHERE c.id = :id");
+//        q.setParameter("id", id);
+//        aux = (User) q.getSingleResult();
+//        em.remove(aux);
+        try{
+            logger.info("Deleting user with Id " + id);
+            em.remove(em.find(User.class, id));
+            logger.info("User "+id+" deleted");
+        }catch (Exception e){
+            logger.warn("Dropped exception");
+            e.printStackTrace();
+            logger.info("User not deleted");
+        }
+
+
     }
 
 }

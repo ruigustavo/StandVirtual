@@ -132,7 +132,9 @@ public class Tester {
             System.out.println("******************************");
             System.out.println("Phone");
             newUser.setPhone(br.readLine());
-            userEJB.register(newUser);
+            int result = userEJB.register(newUser);
+            if(result==0)
+                System.out.println("O email indicado já se encontra registado");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -186,8 +188,9 @@ public class Tester {
 
     private void deleteUserGUI(){
         int aux = this.userId;
-        logged = false;
+
         userEJB.deleteUserById(aux);
+        logged = false;
         System.out.println("User Eliminated");
     }
 private void showAllMyCarsGUI(){
@@ -441,6 +444,8 @@ private void showAllMyCarsGUI(){
         try {
             System.out.println("Insert the id of the car you want to delete");
             String car_id = br.readLine();
+            userEJB.deleteUserById(Integer.parseInt(car_id));
+            System.out.println("Car Erased");
 
         } catch (IOException e) {
             e.printStackTrace();

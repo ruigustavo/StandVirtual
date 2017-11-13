@@ -40,10 +40,10 @@ public class Car implements Serializable {
     private byte[] picture;
 
 
-    @ManyToOne
+    @ManyToOne(cascade={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
     private User owner;
 
-    @ManyToMany
+    @ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
     private List<User> followers;
 
 

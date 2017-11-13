@@ -90,11 +90,12 @@ public class Car implements Serializable {
         this.registration_year = registration_year;
     }
 
-    public Car(String brand, String model, long price, String registration_month, int registration_year, User owner) {
+    public Car(String brand, String model, long price,long km, String registration_month, int registration_year, User owner) {
         super();
         this.brand = brand;
         this.model = model;
         this.price = price;
+        this.km=km;
         this.owner = owner;
         this.registration_month = registration_month;
         this.registration_year = registration_year;

@@ -47,10 +47,10 @@ public class PlayersEJB implements PlayersEJBInterface {
         };
 
         Car[] c = {
-           new Car("mercedes","v5",4000,"December",2005,u[1]),
-                new Car("alfa-romeu","v6",1000,"August",2011,u[0]),
-                new Car("fiat","punto",10000,"January",2000,u[1]),
-                new Car("citroen","c5",100,"July",2010,u[0])
+           new Car("mercedes","v5",4000,12345,"December",2005,u[1]),
+                new Car("alfa-romeu","v6",1000,123456,"August",2011,u[0]),
+                new Car("fiat","punto",10000,1234567,"January",2000,u[1]),
+                new Car("citroen","c5",100,12345678,"July",2010,u[0])
         };
         c[0].getFollowers().add(u[0]);
 

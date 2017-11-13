@@ -6,7 +6,7 @@ import javax.ejb.Local;
 import javax.ejb.Remote;
 import java.util.List;
 
-@Remote
+@Local
 public interface CarEJBInterface {
     void addCar(CarDTO car);
 

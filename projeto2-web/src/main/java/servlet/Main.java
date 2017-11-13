@@ -18,6 +18,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Base64;
+import java.util.Enumeration;
+import java.util.List;
 
 @WebServlet("/Main")
 @MultipartConfig
@@ -63,7 +65,20 @@ public class Main extends HttpServlet {
                 CarDTO car = (CarDTO) carejb.getCarById(id);
                 request.getSession().setAttribute("car",car);
                 request.getRequestDispatcher("edit-car.jsp").forward(request,response);
-            }else{
+            }else if(action.compareToIgnoreCase("detail-car")==0){
+                int id = Integer.parseInt(request.getParameter("id"));
+                CarDTO car = (CarDTO) carejb.getCarById(id);
+                request.getSession().setAttribute("car",car);
+                request.getRequestDispatcher("detail-car.jsp").forward(request,response);
+            }else if(action.compareToIgnoreCase("search-car")==0){
+
+                request.getRequestDispatcher("menu.jsp").forward(request,response);
+            }else if(action.compareToIgnoreCase("list-all")==0){
+                List<CarDTO> cars = carejb.getAllCars(1);
+                request.getSession().setAttribute("carslist",cars);
+                request.getRequestDispatcher("list-all.jsp").forward(request,response);
+            }
+            else{
                 request.getRequestDispatcher("menu.jsp").forward(request,response);
             }
         }
@@ -146,9 +161,7 @@ public class Main extends HttpServlet {
 
                 request.getRequestDispatcher("menu.jsp").forward(request,response);
             }else if(action.compareToIgnoreCase("edit-car")==0){
-                System.out.println(request.getSession().getAttribute("id"));
                 CarDTO car;
-                System.out.println(request.getPart("picture"));
                 if(request.getPart("picture").getSize()>0){
                     car = new CarDTO(Integer.parseInt(request.getParameter("id")),
                             request.getParameter("brand"),
@@ -161,7 +174,6 @@ public class Main extends HttpServlet {
                                             .toByteArray())
                     );
                 }else{
-                    System.out.println("_-------------------------------______NULLLLL---");
                     car = new CarDTO(Integer.parseInt(request.getParameter("id")),
                             request.getParameter("brand"),
                             request.getParameter("model"),

@@ -142,6 +142,7 @@ public class CarEJB implements CarEJBInterface{
         }
         logger.info("Car followed successfully");
     }
+
     public List<CarDTO> getAllCars(int order){
         logger.info("Getting all Cars");
         List<Car> aux = null;
@@ -176,7 +177,18 @@ public class CarEJB implements CarEJBInterface{
 
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()
+            ));
         }
         logger.info("Returning all Cars");
         return toSend;

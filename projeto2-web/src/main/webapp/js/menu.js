@@ -4,3 +4,9 @@ function goEditCar(i)
     document.ownedCars.id.value = i;
     document.ownedCars.submit();
 }
+
+function goDetailsCar(i){
+    document.ownedCars.action.value = "detail-car";
+    document.ownedCars.id.value = i;
+    document.ownedCars.submit();
+}

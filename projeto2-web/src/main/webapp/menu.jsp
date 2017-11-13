@@ -26,6 +26,20 @@
         </div>
         <div class="w3-col" style="width:10%; margin-top: 10px;">
             <form class="w3-form" method="get" action="Main">
+                <input type="hidden" name="action" value="search-car"/>
+                <input type="search" class="w3-input" name="search-value"/>
+            </form>
+        </div>
+
+        <div class="w3-col" style="width:10%; margin-top: 10px;">
+            <form class="w3-form" method="get" action="Main">
+                <input type="hidden" name="action" value="list-all"/>
+                <input type="submit" class="w3-btn accent-color secondary-text-color" value="All Cars"/>
+            </form>
+        </div>
+
+        <div class="w3-col" style="width:10%; margin-top: 10px;">
+            <form class="w3-form" method="get" action="Main">
                 <input type="hidden" name="action" value="edit-profile"/>
                 <input type="submit" class="w3-btn accent-color secondary-text-color" value="Edit Profile"/>
             </form>
@@ -49,22 +63,15 @@
                 <table class="w3-table" style="width:50%">
                     <caption>My Cars</caption>
                     <tr>
-                        <th>Picture</th>
+                        <th></th>
                         <th>Brand</th>
-                        <th>Model</th>
-                        <th>Price</th>
-                        <th>Month</th>
-                        <th>Year</th>
-                    </tr>
+                        </tr>
                     <c:forEach items= "${user.getSellingCars()}" var = "i">
                         <tr>
-                            <td><img style="width: 30%" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
+                            <td><img style="width: 200px" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
                             <td><c:out value = "${i.getBrand()}"/></td>
-                            <td><c:out value = "${i.getModel()}"/></td>
-                            <td><c:out value = "${i.getPrice()}"/></td>
-                            <td><c:out value = "${i.getRegistration_year()}"/></td>
-                            <td><c:out value = "${i.getRegistration_month()}"/></td>
                             <td><button type="submit" onclick="goEditCar(${i.getId()})">Edit</button></td>
+                            <td><button type="submit" onclick="goDetailsCar(${i.getId()})">Details</button></td>
                         </tr>
                     </c:forEach>
                 </table>

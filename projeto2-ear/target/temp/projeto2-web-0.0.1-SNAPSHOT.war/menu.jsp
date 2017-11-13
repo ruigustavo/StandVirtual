@@ -16,6 +16,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>StandVirtual v2</title>
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <script src="js/menu.js"></script>
 </head>
 <body>
 <header class="w3-container default-primary-color">
@@ -41,36 +42,41 @@
 
 <div class="w3-container">
     <div class="w3-row">
+        <c:if test="${user.getSellingCars().size() > 0}">
+            <form name="ownedCars" method="get" action="Main">
+                <input type="hidden" name="id"/>
+                <input type="hidden" name="action"/>
+                <table class="w3-table" style="width:50%">
+                    <caption>My Cars</caption>
+                    <tr>
+                        <th>Picture</th>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Price</th>
+                        <th>Month</th>
+                        <th>Year</th>
+                    </tr>
+                    <c:forEach items= "${user.getSellingCars()}" var = "i">
+                        <tr>
+                            <td><img style="width: 30%" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
+                            <td><c:out value = "${i.getBrand()}"/></td>
+                            <td><c:out value = "${i.getModel()}"/></td>
+                            <td><c:out value = "${i.getPrice()}"/></td>
+                            <td><c:out value = "${i.getRegistration_year()}"/></td>
+                            <td><c:out value = "${i.getRegistration_month()}"/></td>
+                            <td><button type="submit" onclick="goEditCar(${i.getId()})">Edit</button></td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </form>
+        </c:if>
+    </div>
+
+    <div class="w3-row">
         <form class="w3-form" method="get" action="Main">
             <input type="hidden" name="action" value="new-car"/>
             <input type="submit" class="w3-btn accent-color secondary-text-color" value="New Car"/>
         </form>
-    </div>
-
-    <div class="w3-row">
-        <c:if test="${user.getSellingCars().size() > 0}">
-            <table class="w3-table" style="width:50%">
-                <caption>My Cars</caption>
-                <tr>
-                    <th>Picture</th>
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>Price</th>
-                    <th>Month</th>
-                    <th>Year</th>
-                </tr>
-                <c:forEach items= "${user.getSellingCars()}" var = "i">
-                    <tr>
-                        <td><img style="width: 30%" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
-                        <td><c:out value = "${i.getBrand()}"/></td>
-                        <td><c:out value = "${i.getModel()}"/></td>
-                        <td><c:out value = "${i.getPrice()}"/></td>
-                        <td><c:out value = "${i.getRegistration_year()}"/></td>
-                        <td><c:out value = "${i.getRegistration_month()}"/></td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </c:if>
     </div>
 </div>
 </body>

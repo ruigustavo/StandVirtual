@@ -20,9 +20,9 @@ public class User implements Serializable {
 
 
 
-    //In this case Unidirectional helps to see the cars the user is selling
+    //In this case Bidirectional helps to see the cars the user is selling
     //and the owner of the car that its being sold.
-    @OneToMany
+    @OneToMany(mappedBy = "owner")
     private List<Car> sellingCars;
 
     //Bidirectional Many2Many because i just need to see who's following the car
@@ -105,7 +105,6 @@ public class User implements Serializable {
         return "User{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +

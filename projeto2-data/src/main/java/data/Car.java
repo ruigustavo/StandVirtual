@@ -40,7 +40,8 @@ public class Car implements Serializable {
     private byte[] picture;
 
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="owner_id")
     private User owner;
 
     @ManyToMany

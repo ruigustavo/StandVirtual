@@ -176,22 +176,53 @@ public class UserEJB implements UserEJBInterface {
     public UserDTO getUserById(int id) {
         logger.info("Getting User with ID " + id);
         User aux = null;
-       try{
-           Query q = em.createQuery("from User s where s.id = :n");
+        try{
+            Query q = em.createQuery("from User s where s.id = :n");
             q.setParameter("n", id);
-              aux = (User) q.getSingleResult();
-    }   catch (Exception e) {
+            aux = (User) q.getSingleResult();
+        }catch (Exception e) {
             logger.warn("Dropped Exception");
             e.printStackTrace();
             logger.info("Returning null");
-           return null;
-       }
+            return null;
+        }
         logger.info("Return User with ID " + id);
+        logger.info(aux.getSellingCars().toString());
+        List<CarDTO> followingCars= new ArrayList<>();
+        for(Car c : aux.getFollowingCars()){
+            followingCars.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()));
+        }
+        List<CarDTO> ownedCars= new ArrayList<>();
+        for(Car c : aux.getSellingCars()){
+            ownedCars.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()));
+        }
         return new UserDTO(aux.getId(),
                 aux.getEmail(),
                 aux.getName(),
                 aux.getAddress(),
-                aux.getPhone());
+                aux.getPhone(),
+                ownedCars,
+                followingCars);
     }
 
     public void deleteUserById(int id){

@@ -13,6 +13,29 @@ public class UserDTO implements Serializable{
     private String name;
     private String address;
     private String phone;
+    private List<CarDTO> sellingCars;
+    private List<CarDTO> followingCars;
+
+    public UserDTO(int id, String email, String name, String address, String phone, List<CarDTO> sellingCars, List<CarDTO> followingCars) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.sellingCars = sellingCars;
+        this.followingCars = followingCars;
+    }
+
+
+    public List<CarDTO> getFollowingCars() {
+        return followingCars;
+    }
+
+    public void setFollowingCars(List<CarDTO> followingCars) {
+        this.followingCars = followingCars;
+    }
+
+
 
     public List<CarDTO> getSellingCars() {
         return sellingCars;
@@ -22,7 +45,6 @@ public class UserDTO implements Serializable{
         this.sellingCars = sellingCars;
     }
 
-    private List<CarDTO> sellingCars;
 
 
     public UserDTO() {

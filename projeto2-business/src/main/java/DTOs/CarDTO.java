@@ -27,6 +27,25 @@ public class CarDTO implements Serializable {
         this.picture = picture;
     }
 
+    public CarDTO(int id, String brand, String model, long price, String registration_month, int registration_year, byte[] picture) {
+        this.id = id;
+        this.brand = brand;
+        this.model = model;
+        this.price = price;
+        this.registration_month = registration_month;
+        this.registration_year = registration_year;
+        this.picture = picture;
+    }
+
+
+    public CarDTO(int id, String brand, String model, long price, String registration_month, int registration_year) {
+        this.id=id;
+        this.brand = brand;
+        this.model = model;
+        this.price = price;
+        this.registration_month = registration_month;
+        this.registration_year = registration_year;
+    }
 
 
     @Override

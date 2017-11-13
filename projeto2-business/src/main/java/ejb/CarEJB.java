@@ -72,6 +72,7 @@ public class CarEJB implements CarEJBInterface{
         aux.setBrand(toEdit.getBrand());
         aux.setModel(toEdit.getModel());
         aux.setPrice(toEdit.getPrice());
+        aux.setKm(toEdit.getKm());
         aux.setRegistration_month(toEdit.getRegistration_month());
         aux.setRegistration_year(toEdit.getRegistration_year());
         System.out.println(toEdit.getPicture());

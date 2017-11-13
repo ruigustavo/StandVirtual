@@ -14,6 +14,17 @@ public class UserDTO implements Serializable{
     private String address;
     private String phone;
 
+    public List<CarDTO> getSellingCars() {
+        return sellingCars;
+    }
+
+    public void setSellingCars(List<CarDTO> sellingCars) {
+        this.sellingCars = sellingCars;
+    }
+
+    private List<CarDTO> sellingCars;
+
+
     public UserDTO() {
     }
 

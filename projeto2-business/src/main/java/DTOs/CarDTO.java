@@ -3,6 +3,8 @@ package DTOs;
 import data.User;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Base64;
 
 public class CarDTO implements Serializable {
     private int id;
@@ -12,6 +14,20 @@ public class CarDTO implements Serializable {
     private UserDTO owner;
     private String registration_month;
     private int registration_year;
+    private byte[] picture;
+
+
+    public CarDTO(String brand, String model, long price, UserDTO owner, String registration_month, int registration_year, byte[] picture) {
+        this.brand = brand;
+        this.model = model;
+        this.price = price;
+        this.owner = owner;
+        this.registration_month = registration_month;
+        this.registration_year = registration_year;
+        this.picture = picture;
+    }
+
+
 
     @Override
     public String toString() {
@@ -43,15 +59,15 @@ public class CarDTO implements Serializable {
         this.id = id;
     }
 
-    public CarDTO(int id, String brand, String model, long price, String registration_month, int registration_year, UserDTO owner) {
+    public CarDTO(int id, String brand, String model, long price, String registration_month, int registration_year, UserDTO owner,byte[] picture) {
         this.id=id;
-
         this.brand = brand;
         this.model = model;
         this.price = price;
         this.owner = owner;
         this.registration_month = registration_month;
         this.registration_year=registration_year;
+        this.picture = picture;
     }
 
     public UserDTO getOwner() {
@@ -103,5 +119,17 @@ public class CarDTO implements Serializable {
 
     public void setPrice(long price) {
         this.price = price;
+    }
+
+    public byte[] getPicture(){
+        return picture;
+    }
+
+    public String getPictureEncoded() {
+        return new String(this.picture);
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
     }
 }

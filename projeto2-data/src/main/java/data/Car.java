@@ -18,6 +18,27 @@ public class Car implements Serializable {
     private String registration_month;
     private int registration_year;
 
+    public Car(String brand, String model, long price, String registration_month, int registration_year, byte[] picture, User owner) {
+        this.brand = brand;
+        this.model = model;
+        this.price = price;
+        this.registration_month = registration_month;
+        this.registration_year = registration_year;
+        this.picture = picture;
+        this.owner = owner;
+    }
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
+    @Lob
+    private byte[] picture;
+
 
     @ManyToOne
     private User owner;

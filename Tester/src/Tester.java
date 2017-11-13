@@ -340,7 +340,7 @@ private void showAllMyCarsGUI(){
         try {
             System.out.println("Insert the brand:");
             newCar.setBrand(br.readLine());
-            System.out.println("Insert the mode:");
+            System.out.println("Insert the model:");
             newCar.setModel(br.readLine());
             System.out.println("Insert the price:");
             newCar.setPrice(Long.parseLong(br.readLine()));

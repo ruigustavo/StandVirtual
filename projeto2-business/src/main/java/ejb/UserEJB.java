@@ -103,7 +103,17 @@ public class UserEJB implements UserEJBInterface {
     }
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getId(),c.getBrand(),c.getModel(),c.getPrice(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()));
         }
         logger.info("Returning Cars of User with ID " + id);
         return toSend;
@@ -119,7 +129,17 @@ public class UserEJB implements UserEJBInterface {
          aux = u.getFollowingCars();
          List<CarDTO> toSend = new ArrayList<>();
          for(Car c : aux){
-             toSend.add(new CarDTO(c.getId(),c.getBrand(),c.getModel(),c.getPrice(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+             toSend.add(new CarDTO(c.getId(),
+                     c.getBrand(),
+                     c.getModel(),
+                     c.getPrice(),
+                     c.getRegistration_month(),
+                     c.getRegistration_year(),
+                     new UserDTO(c.getOwner().getEmail(),
+                             c.getOwner().getName(),
+                             c.getOwner().getAddress(),
+                             c.getOwner().getPhone()),
+                     c.getPicture()));
          }
          return toSend;
      }
@@ -138,7 +158,17 @@ public class UserEJB implements UserEJBInterface {
         }
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getId(),c.getBrand(),c.getModel(),c.getPrice(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()));
         }
         logger.info("Returning Cars of User with ID " + id);
         return toSend;

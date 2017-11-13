@@ -30,7 +30,7 @@ public class CarEJB implements CarEJBInterface{
         Query q = em.createQuery("select u from "+ User.class.getSimpleName()+ " u where u.email = :i ");
         q.setParameter("i",car.getOwner().getEmail());
         logger.info("Creating new Car.");
-        Car toPersist = new Car(car.getBrand(),car.getModel(),car.getPrice(),car.getRegistration_month(),car.getRegistration_year(),(User) q.getSingleResult());
+        Car toPersist = new Car(car.getBrand(),car.getModel(),car.getPrice(),car.getRegistration_month(),car.getRegistration_year(),car.getPicture(),(User) q.getSingleResult());
         logger.info("Persisting it to the db.");
         em.persist(toPersist);
     }

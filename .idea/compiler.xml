@@ -13,11 +13,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="projeto2-business" target="1.7" />
+      <module name="projeto2-business" target="1.8" />
       <module name="projeto2-data" target="1.7" />
       <module name="projeto2-ear" target="1.7" />
       <module name="projeto2-parent" target="1.7" />
-      <module name="projeto2-web" target="1.7" />
+      <module name="projeto2-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

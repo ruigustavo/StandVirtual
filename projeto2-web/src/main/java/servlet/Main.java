@@ -1,53 +1,84 @@
 package servlet;
 
+import DTOs.CarDTO;
 import DTOs.UserDTO;
 import Helper.Hasher;
+import ejb.CarEJBInterface;
 import ejb.UserEJBInterface;
 
 import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Base64;
 
 @WebServlet("/Main")
+@MultipartConfig
 public class Main extends HttpServlet {
     private static final long serialVersionUID = 1L;
     @EJB
     UserEJBInterface userejb;
+    @EJB
+    CarEJBInterface carejb;
 
     public Main() {
         super();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("doGet");
         System.out.println(request.toString());
         String action = request.getParameter("action");
+        System.out.println(action);
+        System.out.println(request.getSession().getAttribute("user"));
         if(request.getSession().getAttribute("user")==null){
-            if(action==null) {
+            if(action==null){
                 request.getRequestDispatcher("index.jsp").forward(request, response);
-            }else if(action.compareToIgnoreCase("register")==0){
+            }
+            else if(action.compareToIgnoreCase("register")==0){
                 request.getRequestDispatcher("register.jsp").forward(request,response);
             }else if(action.compareToIgnoreCase("login")==0){
                 request.getRequestDispatcher("login.jsp").forward(request,response);
+            }else{
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }
         }else{
             if(action==null){
+                UserDTO user = (UserDTO) request.getSession().getAttribute("user");
+                user.setSellingCars(userejb.getCarsOfUser(user.getId()));
+                request.getSession().setAttribute("user",user);
                 request.getRequestDispatcher("menu.jsp").forward(request,response);
-            }else if(action.compareToIgnoreCase("edit-profile")==0){
+            }
+            else if(action.compareToIgnoreCase("edit-profile")==0){
                 request.getRequestDispatcher("edit-profile.jsp").forward(request,response);
+            }else if(action.compareToIgnoreCase("new-car")==0){
+                request.getRequestDispatcher("new-car.jsp").forward(request,response);
+            }else if(action.compareToIgnoreCase("edit-car")==0){
+                request.getRequestDispatcher("edit-car").forward(request,response);
+            }else{
+                UserDTO user = (UserDTO) request.getSession().getAttribute("user");
+                user.setSellingCars(userejb.getCarsOfUser(user.getId()));
+                request.getSession().setAttribute("user",user);
+                request.getRequestDispatcher("menu.jsp").forward(request,response);
             }
         }
     }
 
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println(request.toString());
         String action = request.getParameter("action");
+        System.out.println(action);
+        System.out.println(request.getSession().getAttribute("user"));
         if(request.getSession().getAttribute("user")==null){
             if(action==null) {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -67,11 +98,19 @@ public class Main extends HttpServlet {
                 int result = userejb.login(email,Hasher.hashPassword(password));
                 if(result>0){
                     request.getSession().setAttribute("user",userejb.getUserById(result));
+                    UserDTO user = (UserDTO) request.getSession().getAttribute("user");
+                    user.setSellingCars(userejb.getCarsOfUser(user.getId()));
+                    request.getSession().setAttribute("user",user);
                     request.getRequestDispatcher("menu.jsp").forward(request,response);
                 }
+            }else{
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }
         }else{
             if(action==null){
+                UserDTO user = (UserDTO) request.getSession().getAttribute("user");
+                user.setSellingCars(userejb.getCarsOfUser(user.getId()));
+                request.getSession().setAttribute("user",user);
                 request.getRequestDispatcher("menu.jsp").forward(request,response);
             }
             else if(action.compareToIgnoreCase("logout")==0){
@@ -91,6 +130,42 @@ public class Main extends HttpServlet {
                 user.setPhone(request.getParameter("phone"));
 
                 userejb.editUserInfo(user);
+                request.getSession().setAttribute("user",user);
+
+                user.setSellingCars(userejb.getCarsOfUser(user.getId()));
+                request.getSession().setAttribute("user",user);
+
+                request.getRequestDispatcher("menu.jsp").forward(request,response);
+            }else if(action.compareToIgnoreCase("new-car")==0){
+                System.out.println(request);
+                System.out.println(request.getParameter("picture"));
+
+                //https://stackoverflow.com/questions/19138706/how-to-convert-part-to-blob-so-i-can-store-it-in-mysql/19139125#19139125
+                
+                Part filePart = request.getPart("picture");
+                InputStream fileContent = filePart.getInputStream();
+                ByteArrayOutputStream output = new ByteArrayOutputStream();
+                byte[] buffer = new byte[10240];
+                for (int length = 0; (length = fileContent.read(buffer)) > 0;) output.write(buffer, 0, length);
+
+                CarDTO car = new CarDTO(request.getParameter("brand"),
+                        request.getParameter("model"),
+                        Long.parseLong(request.getParameter("price")),
+                        (UserDTO) request.getSession().getAttribute("user"),
+                        request.getParameter("registration_month"),
+                        Integer.parseInt(request.getParameter("registration_year")),
+                        Base64.getEncoder().encode(output.toByteArray())
+                );
+                carejb.addCar(car);
+
+                UserDTO user = (UserDTO) request.getSession().getAttribute("user");
+                user.setSellingCars(userejb.getCarsOfUser(user.getId()));
+                request.getSession().setAttribute("user",user);
+                request.getRequestDispatcher("menu.jsp").forward(request,response);
+            }else{
+                UserDTO user = (UserDTO) request.getSession().getAttribute("user");
+                user.setSellingCars(userejb.getCarsOfUser(user.getId()));
+                request.getSession().setAttribute("user",user);
                 request.getRequestDispatcher("menu.jsp").forward(request,response);
             }
         }

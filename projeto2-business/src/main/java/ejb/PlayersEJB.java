@@ -41,8 +41,8 @@ public class PlayersEJB implements PlayersEJBInterface {
 
     public void populate(){
         User[] u = {//password=test
-                new User("koala","098f6bcd4621d373cade4e832627b4f6","user1","Coimbra","123"),
-                new User("user2@user2.pt","098f6bcd4621d373cade4e832627b4f6","user2","Coimbra","123"),
+                new User("r.g.ventura@hotmail.com","098f6bcd4621d373cade4e832627b4f6","user1","Coimbra","123"),
+                new User("rgventuraa@gmail.com","098f6bcd4621d373cade4e832627b4f6","user2","Coimbra","123"),
 
         };
 
@@ -50,11 +50,11 @@ public class PlayersEJB implements PlayersEJBInterface {
            new Car("mercedes","v5",4000,12345,"December",2005,u[1]),
                 new Car("alfa-romeu","v6",1000,123456,"August",2011,u[0]),
                 new Car("fiat","punto",10000,1234567,"January",2000,u[1]),
+                new Car("fiat","swag",1220,1212334567,"January",2000,u[1]),
                 new Car("citroen","c5",100,12345678,"July",2010,u[0])
         };
         c[0].getFollowers().add(u[0]);
-
-
+        c[0].getFollowers().add(u[1]);
         for (User t : u)
             em.persist(t);
         for (Car t : c)

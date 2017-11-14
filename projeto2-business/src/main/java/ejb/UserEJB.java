@@ -49,20 +49,20 @@ public class UserEJB implements UserEJBInterface {
 
     public int register(UserDTO user){
         logger.info("Checking if email already exists");
-        Query q = em.createQuery("select u from "+ User.class.getSimpleName() +" u where u.email =:email");
-        q.setParameter("email", user.getEmail());
-        int count =   q.getResultList().size();
-        if(count==0){
-            logger.info("Creating new User with name "+user.getName());
-            User toPersist = new User(user.getEmail(),user.getPassword(),user.getName(),user.getAddress(),user.getPhone());
-            em.persist(toPersist);
-            logger.info("Registered successfully");
-            return 1;
-        }
-        else{
-            logger.info("Register not successful");
-            return 0;
-        }
+                Query q = em.createQuery("select count(u) from "+ User.class.getSimpleName() +" u where u.email =:email");
+                q.setParameter("email", user.getEmail());
+
+                        if(q.getSingleResult().equals(0L)){
+                       logger.info("Creating new User with name "+user.getName());
+                        User toPersist = new User(user.getEmail(),user.getPassword(),user.getName(),user.getAddress(),user.getPhone());
+                        em.persist(toPersist);
+                        logger.info("Registered successfully");
+                        return 1;
+                    }
+                else{
+                        logger.info("Register not successful");
+                        return 0;
+                    }
 
     }
 

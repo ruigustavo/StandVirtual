@@ -7,7 +7,12 @@ import data.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -19,6 +24,9 @@ public class CarEJB implements CarEJBInterface{
     @PersistenceContext(name = "Cars")
     private EntityManager em;
     Logger logger;
+
+    @Resource(mappedName = "java:jboss/mail/gmail")
+    Session mailSession;
 
 
     public CarEJB() {
@@ -69,11 +77,21 @@ public class CarEJB implements CarEJBInterface{
 
     public void editCarInfo(CarDTO toEdit){
         logger.info("Editing Car with ID " + toEdit.getId());
+
         Car aux = null;
+
         logger.info("Getting car from db.");
         Query q = em.createQuery("select u from "+ Car.class.getSimpleName() + " u where u.id = :i");
         q.setParameter("i", toEdit.getId());
         aux = (Car) q.getSingleResult();
+        //verificar se preço foi alterado
+        if(toEdit.getPrice()!= aux.getPrice()){
+            for(User c : aux.getFollowers()){
+                logger.info("Enviando e-mail para:"+c.getEmail());
+                sendEmail(c.getEmail());
+            }
+        }
+
         aux.setBrand(toEdit.getBrand());
         aux.setModel(toEdit.getModel());
         aux.setPrice(toEdit.getPrice());
@@ -410,6 +428,13 @@ public class CarEJB implements CarEJBInterface{
         return toSend;
     }
 
+    public List<String> getDistinctBrands(){
+        List<String> aux =null;
+        Query q=null;
+        q = em.createQuery("SELECT DISTINCT c.brand from " +Car.class.getSimpleName()+ " c" );
+        aux = q.getResultList();
+        return aux;
+    }
 
 
     public List<CarDTO> getCarsByKmRange(long low_value, long up_value, int order){
@@ -469,6 +494,42 @@ public class CarEJB implements CarEJBInterface{
         }
         logger.info("Returning all Cars with kilometers between "+low_value+"and"+up_value);
         return toSend;
+    }
+
+    public void sendEmail(String recipient_email){
+        // Recipient's email ID needs to be mentioned.
+        String to = recipient_email;
+
+        // Sender's email ID needs to be mentioned
+        String from = "standvirtual2017is@gmail.com";
+        //String user = "MAILFROM";
+        String passwd = "projectis";
+        // Assuming you are sending email from localhost
+        String host = "localhost";
+        String port = "465";
+        // Get system properties
+        Properties properties = System.getProperties();
+
+        // Setup mail server
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.port", port);
+
+        // Get the default Session object.
+//        Session mailSession = Session.getInstance(properties, new javax.mail.Authenticator() {
+//            protected PasswordAuthentication getPasswordAuthentication() {
+//                return new PasswordAuthentication(from, passwd);
+//            }
+//        });
+
+
+        MimeMessage m = new MimeMessage(mailSession);
+        try {
+            m.setRecipients(Message.RecipientType.TO, to);
+            m.setContent("Test from Wildfly","text/plain");
+            Transport.send(m);//throws exception
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
     }
     public List<CarDTO> getCarsOfUser(int id){
         logger.info("Getting Cars of User with ID " + id);

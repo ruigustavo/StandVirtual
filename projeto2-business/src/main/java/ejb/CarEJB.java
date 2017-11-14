@@ -88,7 +88,7 @@ public class CarEJB implements CarEJBInterface{
         if(toEdit.getPrice()!= aux.getPrice()){
             for(User c : aux.getFollowers()){
                 logger.info("Enviando e-mail para:"+c.getEmail());
-                sendEmail(c.getEmail());
+                sendEmail(c.getEmail(),aux.getBrand(),aux.getModel());
             }
         }
 
@@ -496,7 +496,7 @@ public class CarEJB implements CarEJBInterface{
         return toSend;
     }
 
-    public void sendEmail(String recipient_email){
+    public void sendEmail(String recipient_email, String brand, String model){
         // Recipient's email ID needs to be mentioned.
         String to = recipient_email;
 
@@ -525,7 +525,7 @@ public class CarEJB implements CarEJBInterface{
         MimeMessage m = new MimeMessage(mailSession);
         try {
             m.setRecipients(Message.RecipientType.TO, to);
-            m.setContent("Test from Wildfly","text/plain");
+            m.setContent("Notification: The price of the "+brand+" "+model+" foi alterado!","text/plain");
             Transport.send(m);//throws exception
         } catch (MessagingException e) {
             e.printStackTrace();

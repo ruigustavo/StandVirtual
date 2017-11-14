@@ -31,6 +31,14 @@ public class UserDTO implements Serializable{
         return followingCars;
     }
 
+    public boolean isFollowing(int i){
+        for(CarDTO c: this.followingCars){
+            if(c.getId()==i)
+                return true;
+        }
+        return false;
+    }
+
     public void setFollowingCars(List<CarDTO> followingCars) {
         this.followingCars = followingCars;
     }

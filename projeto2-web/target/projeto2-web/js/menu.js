@@ -12,9 +12,14 @@ function goDetailsCar(i){
 }
 
 function followCar(i){
-    document.ownedCars.action.value = "follow-car";
-    document.ownedCars.id.value = i;
-    document.ownedCars.submit();
+    document.follow.action.value = "follow-car";
+    document.follow.id.value = i;
+    document.follow.submit();
+}
+function unfollowCar(i){
+    document.unfollow.action.value = "unfollow-car";
+    document.unfollow.id.value = i;
+    document.unfollow.submit();
 }
 
 

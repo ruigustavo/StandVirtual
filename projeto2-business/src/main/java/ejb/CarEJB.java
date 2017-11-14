@@ -58,6 +58,15 @@ public class CarEJB implements CarEJBInterface{
         q.setParameter("i", id);
         aux = (Car) q.getSingleResult();
         logger.warn(aux.toString());
+        List<UserDTO> followers = new ArrayList<>();
+        for(User u: aux.getFollowers()){
+            followers.add(new UserDTO(u.getId(),
+                    u.getEmail(),
+                    u.getName(),
+                    u.getAddress(),
+                    u.getPhone()
+            ));
+        }
         CarDTO toSend = new CarDTO(aux.getId(),
                 aux.getBrand(),
                 aux.getModel(),
@@ -70,7 +79,8 @@ public class CarEJB implements CarEJBInterface{
                         aux.getOwner().getName(),
                         aux.getOwner().getAddress(),
                         aux.getOwner().getPhone()),
-                aux.getPicture());
+                aux.getPicture(),
+                followers);
         logger.warn(toSend.toString());
         return toSend;
     }
@@ -207,8 +217,18 @@ public class CarEJB implements CarEJBInterface{
         }
         aux = q.getResultList();
 
+
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
+            List<UserDTO> followers = new ArrayList<>();
+            for(User u: c.getFollowers()){
+                followers.add(new UserDTO(u.getId(),
+                        u.getEmail(),
+                        u.getName(),
+                        u.getAddress(),
+                        u.getPhone()
+                ));
+            }
             toSend.add(new CarDTO(c.getId(),
                     c.getBrand(),
                     c.getModel(),
@@ -221,7 +241,8 @@ public class CarEJB implements CarEJBInterface{
                             c.getOwner().getName(),
                             c.getOwner().getAddress(),
                             c.getOwner().getPhone()),
-                    c.getPicture()
+                    c.getPicture(),
+                    followers
             ));
         }
         logger.info("Returning all Cars");
@@ -256,6 +277,15 @@ public class CarEJB implements CarEJBInterface{
         aux = q.getResultList();
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
+            List<UserDTO> followers = new ArrayList<>();
+            for(User u: c.getFollowers()){
+                followers.add(new UserDTO(u.getId(),
+                        u.getEmail(),
+                        u.getName(),
+                        u.getAddress(),
+                        u.getPhone()
+                ));
+            }
             toSend.add(new CarDTO(c.getId(),
                     c.getBrand(),
                     c.getModel(),
@@ -268,7 +298,8 @@ public class CarEJB implements CarEJBInterface{
                             c.getOwner().getName(),
                             c.getOwner().getAddress(),
                             c.getOwner().getPhone()),
-                    c.getPicture()
+                    c.getPicture(),
+                    followers
             ));
         }
         logger.warn(toSend.toString());
@@ -295,6 +326,16 @@ public class CarEJB implements CarEJBInterface{
         aux = q.getResultList();
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
+            List<UserDTO> followers = new ArrayList<>();
+            for(User u: c.getFollowers()){
+                followers.add(new UserDTO(u.getId(),
+                        u.getEmail(),
+                        u.getName(),
+                        u.getAddress(),
+                        u.getPhone()
+                ));
+            }
+
             toSend.add(new CarDTO(c.getId(),
                     c.getBrand(),
                     c.getModel(),
@@ -307,7 +348,8 @@ public class CarEJB implements CarEJBInterface{
                             c.getOwner().getName(),
                             c.getOwner().getAddress(),
                             c.getOwner().getPhone()),
-                    c.getPicture()
+                    c.getPicture(),
+                    followers
             ));
         }
         logger.info("Return all Cars of the brand:"+brand+"and model:"+model);
@@ -350,6 +392,15 @@ public class CarEJB implements CarEJBInterface{
         aux = q.getResultList();
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
+            List<UserDTO> followers = new ArrayList<>();
+            for(User u: c.getFollowers()){
+                followers.add(new UserDTO(u.getId(),
+                        u.getEmail(),
+                        u.getName(),
+                        u.getAddress(),
+                        u.getPhone()
+                ));
+            }
             toSend.add(new CarDTO(c.getId(),
                     c.getBrand(),
                     c.getModel(),
@@ -362,7 +413,8 @@ public class CarEJB implements CarEJBInterface{
                             c.getOwner().getName(),
                             c.getOwner().getAddress(),
                             c.getOwner().getPhone()),
-                    c.getPicture()
+                    c.getPicture(),
+                    followers
             ));
         }
         logger.info("Returning all Cars with year newer than "+year);
@@ -414,6 +466,15 @@ public class CarEJB implements CarEJBInterface{
 
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
+            List<UserDTO> followers = new ArrayList<>();
+            for(User u: c.getFollowers()){
+                followers.add(new UserDTO(u.getId(),
+                        u.getEmail(),
+                        u.getName(),
+                        u.getAddress(),
+                        u.getPhone()
+                ));
+            }
             toSend.add(new CarDTO(c.getId(),
                     c.getBrand(),
                     c.getModel(),
@@ -426,7 +487,8 @@ public class CarEJB implements CarEJBInterface{
                             c.getOwner().getName(),
                             c.getOwner().getAddress(),
                             c.getOwner().getPhone()),
-                    c.getPicture()
+                    c.getPicture(),
+                    followers
             ));
         }
         logger.info("Returning all Cars with price between "+low_value+"and"+up_value);
@@ -495,6 +557,15 @@ public class CarEJB implements CarEJBInterface{
 
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
+            List<UserDTO> followers = new ArrayList<>();
+            for(User u: c.getFollowers()){
+                followers.add(new UserDTO(u.getId(),
+                        u.getEmail(),
+                        u.getName(),
+                        u.getAddress(),
+                        u.getPhone()
+                ));
+            }
             toSend.add(new CarDTO(c.getId(),
                     c.getBrand(),
                     c.getModel(),
@@ -507,7 +578,8 @@ public class CarEJB implements CarEJBInterface{
                             c.getOwner().getName(),
                             c.getOwner().getAddress(),
                             c.getOwner().getPhone()),
-                    c.getPicture()
+                    c.getPicture(),
+                    followers
             ));
         }
         logger.info("Returning all Cars with kilometers between "+low_value+"and"+up_value);
@@ -558,6 +630,15 @@ public class CarEJB implements CarEJBInterface{
         }
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
+            List<UserDTO> followers = new ArrayList<>();
+            for(User u: c.getFollowers()){
+                followers.add(new UserDTO(u.getId(),
+                        u.getEmail(),
+                        u.getName(),
+                        u.getAddress(),
+                        u.getPhone()
+                ));
+            }
             toSend.add(new CarDTO(c.getId(),
                     c.getBrand(),
                     c.getModel(),
@@ -570,7 +651,8 @@ public class CarEJB implements CarEJBInterface{
                             c.getOwner().getName(),
                             c.getOwner().getAddress(),
                             c.getOwner().getPhone()),
-                    c.getPicture()
+                    c.getPicture(),
+                    followers
             ));
         }
         logger.info("Returning Cars of User with ID " + id);
@@ -587,6 +669,15 @@ public class CarEJB implements CarEJBInterface{
         aux = u.getFollowingCars();
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
+            List<UserDTO> followers = new ArrayList<>();
+            for(User u1: c.getFollowers()){
+                followers.add(new UserDTO(u1.getId(),
+                        u1.getEmail(),
+                        u1.getName(),
+                        u1.getAddress(),
+                        u1.getPhone()
+                ));
+            }
             toSend.add(new CarDTO(c.getId(),
                     c.getBrand(),
                     c.getModel(),
@@ -599,7 +690,8 @@ public class CarEJB implements CarEJBInterface{
                             c.getOwner().getName(),
                             c.getOwner().getAddress(),
                             c.getOwner().getPhone()),
-                    c.getPicture()
+                    c.getPicture(),
+                    followers
             ));
         }
         return toSend;
@@ -619,6 +711,15 @@ public class CarEJB implements CarEJBInterface{
         }
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
+            List<UserDTO> followers = new ArrayList<>();
+            for(User u: c.getFollowers()){
+                followers.add(new UserDTO(u.getId(),
+                        u.getEmail(),
+                        u.getName(),
+                        u.getAddress(),
+                        u.getPhone()
+                ));
+            }
             toSend.add(new CarDTO(c.getId(),
                     c.getBrand(),
                     c.getModel(),
@@ -631,7 +732,8 @@ public class CarEJB implements CarEJBInterface{
                             c.getOwner().getName(),
                             c.getOwner().getAddress(),
                             c.getOwner().getPhone()),
-                    c.getPicture()
+                    c.getPicture(),
+                    followers
             ));
         }
         logger.info("Returning Cars of User with ID " + id);

@@ -51,17 +51,17 @@
 <div class="w3-container">
     <div class="w3-row">
         <c:if test="${carslist!=null}">
-            <form name="ownedCars" method="get" action="Main">
-                <input type="hidden" name="id"/>
-                <input type="hidden" name="action"/>
-                <table class="w3-table" style="width:50%">
+            <table class="w3-table" style="width:50%">
+                <tr>
+                    <th></th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                </tr>
+                <c:forEach items= "${carslist}" var = "i">
                     <tr>
-                        <th></th>
-                        <th>Brand</th>
-                        <th>Price</th>
-                    </tr>
-                    <c:forEach items= "${carslist}" var = "i">
-                        <tr>
+                        <form name="ownedCars" method="get" action="Main">
+                            <input type="hidden" name="id"/>
+                            <input type="hidden" name="action"/>
                             <c:choose>
                                 <c:when test="${empty i.getPicture()}">
                                     <td></td>
@@ -73,10 +73,39 @@
                             <td><c:out value = "${i.getBrand()}"/></td>
                             <td><c:out value = "${i.getPrice()}"/></td>
                             <td><button type="submit" onclick="goDetailsCar(${i.getId()})">Details</button></td>
-                        </tr>
-                    </c:forEach>
-                </table>
-            </form>
+                        </form>
+                    <c:if test="${i.getOwner().getId()!=user.getId()}">
+                        <c:set var="contains" value="false" />
+                        <c:if test="${not empty i.getFollowers()}">
+                            <c:forEach var="item" items="${i.getFollowers()}">
+                                <c:if test="${item.getId() eq i.getOwner().getId()}">
+                                    <c:set var="contains" value="true" />
+                                </c:if>
+                            </c:forEach>
+
+                        </c:if>
+                        <c:choose test="${contains eq true}">
+                            <td>
+                                <form name="unfollow" method="post" action="Main">
+                                    <input type="hidden" name="action"/>
+                                    <input type="hidden" name="id"/>
+                                    <button type="submit" onclick="unfollowCar(${i.getId()})">Unfollow</button>
+                                </form>
+                            </td>
+                        </c:choose>
+                        <c:otherwise>
+                            <td>
+                                <form name="follow" method="post" action="Main">
+                                    <input type="hidden" name="action"/>
+                                    <input type="hidden" name="id"/>
+                                    <button type="submit" onclick="followCar(${i.getId()})">Follow</button>
+                                </form>
+                            </td>
+                        </c:otherwise>
+                    </c:if>
+                    </tr>
+                </c:forEach>
+            </table>
         </c:if>
     </div>
 

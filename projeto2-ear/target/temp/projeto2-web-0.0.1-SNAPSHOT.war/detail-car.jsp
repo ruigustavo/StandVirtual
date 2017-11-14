@@ -95,11 +95,24 @@
                 </form>
             </c:when>
             <c:otherwise>
-                <form name="ownedCars" method="post" action="Main">
-                    <input type="hidden" name="action"/>
-                    <input type="hidden" name="id"/>
-                    <button type="submit" onclick="followCar(${car.getId()})">Follow</button>
-                </form>
+                <c:choose test="${user.isFollowing(i.getId())}">
+                    <td>
+                        <form name="unfollow" method="post" action="Main">
+                            <input type="hidden" name="action"/>
+                            <input type="hidden" name="id"/>
+                            <button type="submit" onclick="unfollowCar(${car.getId()})">Unfollow</button>
+                        </form>
+                    </td>
+                </c:choose>
+                <c:otherwise>
+                    <td>
+                        <form name="follow" method="post" action="Main">
+                            <input type="hidden" name="action"/>
+                            <input type="hidden" name="id"/>
+                            <button type="submit" onclick="followCar(${car.getId()})">Follow</button>
+                        </form>
+                    </td>
+                </c:otherwise>
             </c:otherwise>
         </c:choose>
         </div>

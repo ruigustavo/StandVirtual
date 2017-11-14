@@ -71,6 +71,12 @@ public class Main extends HttpServlet {
                 request.getRequestDispatcher("menu.jsp").forward(request,response);
             }else if(action.compareToIgnoreCase("list-all")==0){
                 List<CarDTO> cars = carejb.getAllCars(1);
+                for(CarDTO c:cars){
+                    System.out.println("------------------"+c.getId()+"---------------------");
+                    for(UserDTO u:c.getFollowers()){
+                        System.out.println("----------------______"+u.getId()+"_________-----------------");
+                    }
+                }
                 List<String> brands = carejb.getDistinctBrands();
                 List<String> models = carejb.getDistinctModels();
                 request.getSession().setAttribute("carslist",cars);
@@ -144,7 +150,7 @@ public class Main extends HttpServlet {
                 if(result>0){
                     UserDTO user = (UserDTO) userejb.getUserById(result);
                     request.getSession().setAttribute("user",user);
-
+                    System.out.println(user.toString());
                     request.getRequestDispatcher("menu.jsp").forward(request,response);
                 }else{
                     request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -156,7 +162,6 @@ public class Main extends HttpServlet {
             UserDTO user = (UserDTO) request.getSession().getAttribute("user");
             String finalDestination = "menu.jsp";
             if(action.compareToIgnoreCase("logout")==0){
-                System.out.println("LOGOUTTATEATATETAETARAERAET");
                 request.getSession().removeAttribute("user");
                 finalDestination = "index.jsp";
             }else if(action.compareToIgnoreCase("edit-profile")==0){
@@ -176,9 +181,9 @@ public class Main extends HttpServlet {
                         request.getParameter("model"),
                         Long.parseLong(request.getParameter("price")),
                         Long.parseLong(request.getParameter("km")),
-                        (UserDTO) request.getSession().getAttribute("user"),
                         request.getParameter("registration_month"),
                         Integer.parseInt(request.getParameter("registration_year")),
+                        (UserDTO) request.getSession().getAttribute("user"),
                         Base64.getEncoder().encode(
                                 encodePicture(request.getPart("picture"))
                                         .toByteArray())
@@ -187,6 +192,8 @@ public class Main extends HttpServlet {
 
             }else if(action.compareToIgnoreCase("follow-car")==0){
                 carejb.followCar(Integer.parseInt(request.getParameter("id")),user.getId());
+            }else if(action.compareToIgnoreCase("unfollow-car")==0){
+                carejb.unfollowCar(Integer.parseInt(request.getParameter("id")),user.getId());
             }else if(action.compareToIgnoreCase("edit-car")==0){
                 CarDTO car;
                 if(request.getPart("picture").getSize()>0){
@@ -197,6 +204,7 @@ public class Main extends HttpServlet {
                             Long.parseLong(request.getParameter("km")),
                             request.getParameter("registration_month"),
                             Integer.parseInt(request.getParameter("registration_year")),
+                            user,
                             Base64.getEncoder().encode(
                                     encodePicture(request.getPart("picture"))
                                             .toByteArray())
@@ -209,6 +217,7 @@ public class Main extends HttpServlet {
                             Long.parseLong(request.getParameter("km")),
                             request.getParameter("registration_month"),
                             Integer.parseInt(request.getParameter("registration_year")),
+                            user,
                             null
                     );
                 }
@@ -217,6 +226,7 @@ public class Main extends HttpServlet {
             if(action.compareToIgnoreCase("logout")!=0){
                 UserDTO refreshed = userejb.getUserById(user.getId());
                 request.getSession().setAttribute("user",refreshed);
+                System.out.println(refreshed.getFollowingCars().toString());
             }
             response.sendRedirect(finalDestination);
         }

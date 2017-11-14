@@ -94,16 +94,19 @@
             <%--&lt;%&ndash;</form>&ndash;%&gt;--%>
         <%--</div>--%>
         <c:if test="${carslist!=null}">
-            <h4>Brand</h4>
-            <c:forEach items= "${carslist}" var = "i">
-                <form class="w3-form" name="orderByBrand" method="get" action="Main">
-                    <input type="hidden" name="action"/>
-                    <input type="hidden" name="brand"/>
-                    <button type="submit" onclick="researchByBrand('${i.getBrand()}')"><c:out value="${i.getBrand()}"/></button>
-                </form>
-            </c:forEach>
-
+            <h4>Search</h4>
+            <form class="w3-form" name="reOrder" method="get" action="Main">
+                <input type="hidden" name="action"/>
+                <select name="brand">
+                    <option value="" disabled selected>Select your option</option>
+                    <c:forEach items= "${carslist}" var = "i">
+                        <option value="${i.getBrand()}"><c:out value="${i.getBrand()}"/></option>
+                    </c:forEach>
+                </select>
+                <button type="submit" onclick='researchByBrand()'>Search</button>
+            </form>
         </c:if>
+
     </div>
 
 </div>

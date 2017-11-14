@@ -53,8 +53,6 @@
     </div>
 </header>
 
-<c:out value = "${user.getId()}"/>
-
 <div class="w3-container">
     <div class="w3-row">
         <c:if test="${user.getSellingCars().size() > 0}">
@@ -78,7 +76,6 @@
                                 </c:otherwise>
                             </c:choose>
                             <td><c:out value = "${i.getBrand()}"/></td>
-                            <c:out value = "${i.getOwner().getId()}"/>
                             <td><button type="submit" onclick="goEditCar(${i.getId()})">Edit</button></td>
                             <td><button type="submit" onclick="goDetailsCar(${i.getId()})">Details</button></td>
                         </tr>

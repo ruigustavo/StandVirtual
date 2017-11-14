@@ -14,130 +14,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dba4a6bd-b378-41e6-8654-2a70a1e9a74f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/DTOs/UserDTO.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/DTOs/UserDTO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/CarEJB.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/CarEJB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/CarEJBInterface.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/CarEJBInterface.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/PlayersEJB.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/PlayersEJB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/UserEJB.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/UserEJB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/UserEJBInterface.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/UserEJBInterface.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/projeto2-business.jar" afterPath="$PROJECT_DIR$/projeto2-business/target/projeto2-business.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/classes/data/Car.class" afterPath="$PROJECT_DIR$/projeto2-data/target/classes/data/Car.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/projeto2-data.jar" afterPath="$PROJECT_DIR$/projeto2-data/target/projeto2-data.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/firstear.ear" afterPath="$PROJECT_DIR$/projeto2-ear/target/firstear.ear" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/projeto2-business-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/projeto2-business-0.0.1-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/projeto2-data-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/projeto2-data-0.0.1-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/projeto2-web-0.0.1-SNAPSHOT.war" afterPath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/projeto2-web-0.0.1-SNAPSHOT.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/DTOs/UserDTO.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/DTOs/UserDTO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/CarEJB.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/CarEJB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/CarEJBInterface.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/CarEJBInterface.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/PlayersEJB.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/PlayersEJB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/UserEJB.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/UserEJB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/UserEJBInterface.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/UserEJBInterface.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-data-0.0.1-SNAPSHOT.jar/data/Car.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-data-0.0.1-SNAPSHOT.jar/data/Car.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/classes/servlet/Main.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/classes/servlet/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/lib/projeto2-business-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/lib/projeto2-business-0.0.1-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/lib/projeto2-data-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/lib/projeto2-data-0.0.1-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/classes/servlet/Main.class" afterPath="$PROJECT_DIR$/projeto2-web/target/classes/servlet/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web.war" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/classes/servlet/Main.class" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/classes/servlet/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/lib/projeto2-business-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/lib/projeto2-business-0.0.1-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/lib/projeto2-data-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/lib/projeto2-data-0.0.1-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJBInterface.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJBInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/PlayersEJB.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/PlayersEJB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJBInterface.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJBInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/dependencies.html" afterPath="$PROJECT_DIR$/projeto2-business/target/site/dependencies.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/dependency-convergence.html" afterPath="$PROJECT_DIR$/projeto2-business/target/site/dependency-convergence.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/dependency-info.html" afterPath="$PROJECT_DIR$/projeto2-business/target/site/dependency-info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/dependency-management.html" afterPath="$PROJECT_DIR$/projeto2-business/target/site/dependency-management.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/index.html" afterPath="$PROJECT_DIR$/projeto2-business/target/site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/plugin-management.html" afterPath="$PROJECT_DIR$/projeto2-business/target/site/plugin-management.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/plugins.html" afterPath="$PROJECT_DIR$/projeto2-business/target/site/plugins.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/project-info.html" afterPath="$PROJECT_DIR$/projeto2-business/target/site/project-info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/project-summary.html" afterPath="$PROJECT_DIR$/projeto2-business/target/site/project-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/surefire-reports/TEST-org.projeto2.business.AppTest.xml" afterPath="$PROJECT_DIR$/projeto2-business/target/surefire-reports/TEST-org.projeto2.business.AppTest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/surefire-reports/org.projeto2.business.AppTest.txt" afterPath="$PROJECT_DIR$/projeto2-business/target/surefire-reports/org.projeto2.business.AppTest.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/dependencies.html" afterPath="$PROJECT_DIR$/projeto2-data/target/site/dependencies.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/dependency-convergence.html" afterPath="$PROJECT_DIR$/projeto2-data/target/site/dependency-convergence.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/dependency-info.html" afterPath="$PROJECT_DIR$/projeto2-data/target/site/dependency-info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/dependency-management.html" afterPath="$PROJECT_DIR$/projeto2-data/target/site/dependency-management.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/index.html" afterPath="$PROJECT_DIR$/projeto2-data/target/site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/plugin-management.html" afterPath="$PROJECT_DIR$/projeto2-data/target/site/plugin-management.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/plugins.html" afterPath="$PROJECT_DIR$/projeto2-data/target/site/plugins.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/project-info.html" afterPath="$PROJECT_DIR$/projeto2-data/target/site/project-info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/project-summary.html" afterPath="$PROJECT_DIR$/projeto2-data/target/site/project-summary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/surefire-reports/TEST-org.projeto2.data.AppTest.xml" afterPath="$PROJECT_DIR$/projeto2-data/target/surefire-reports/TEST-org.projeto2.data.AppTest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/surefire-reports/org.projeto2.data.AppTest.txt" afterPath="$PROJECT_DIR$/projeto2-data/target/surefire-reports/org.projeto2.data.AppTest.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/projeto2-ear/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/dependencies.html" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/dependencies.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/dependency-convergence.html" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/dependency-convergence.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/dependency-info.html" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/dependency-info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/dependency-management.html" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/dependency-management.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/index.html" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/plugin-management.html" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/plugin-management.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/plugins.html" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/plugins.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/project-info.html" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/project-info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/project-summary.html" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/project-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-data-0.0.1-SNAPSHOT.jar/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-data-0.0.1-SNAPSHOT.jar/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/detail-car.jsp" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/detail-car.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/edit-car.jsp" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/edit-car.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/edit-profile.jsp" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/edit-profile.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/js/menu.js" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/js/menu.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/list-all.jsp" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/list-all.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/menu.jsp" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/menu.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/new-car.jsp" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/new-car.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/java/servlet/Main.java" afterPath="$PROJECT_DIR$/projeto2-web/src/main/java/servlet/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/detail-car.jsp" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/detail-car.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-car.jsp" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-car.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-profile.jsp" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-profile.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/js/menu.js" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/js/menu.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/list-all.jsp" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/list-all.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/new-car.jsp" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/new-car.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/detail-car.jsp" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/detail-car.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/edit-car.jsp" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/edit-car.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/edit-profile.jsp" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/edit-profile.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/js/menu.js" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/js/menu.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/list-all.jsp" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/list-all.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/menu.jsp" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/menu.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/new-car.jsp" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/new-car.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/dependencies.html" afterPath="$PROJECT_DIR$/projeto2-web/target/site/dependencies.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/dependency-convergence.html" afterPath="$PROJECT_DIR$/projeto2-web/target/site/dependency-convergence.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/dependency-info.html" afterPath="$PROJECT_DIR$/projeto2-web/target/site/dependency-info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/dependency-management.html" afterPath="$PROJECT_DIR$/projeto2-web/target/site/dependency-management.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/index.html" afterPath="$PROJECT_DIR$/projeto2-web/target/site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/plugin-management.html" afterPath="$PROJECT_DIR$/projeto2-web/target/site/plugin-management.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/plugins.html" afterPath="$PROJECT_DIR$/projeto2-web/target/site/plugins.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/project-info.html" afterPath="$PROJECT_DIR$/projeto2-web/target/site/project-info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/project-summary.html" afterPath="$PROJECT_DIR$/projeto2-web/target/site/project-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/surefire-reports/TEST-org.projeto2.web.AppTest.xml" afterPath="$PROJECT_DIR$/projeto2-web/target/surefire-reports/TEST-org.projeto2.web.AppTest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/surefire-reports/org.projeto2.web.AppTest.txt" afterPath="$PROJECT_DIR$/projeto2-web/target/surefire-reports/org.projeto2.web.AppTest.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/dependency-convergence.html" afterPath="$PROJECT_DIR$/target/site/dependency-convergence.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/dependency-info.html" afterPath="$PROJECT_DIR$/target/site/dependency-info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/dependency-management.html" afterPath="$PROJECT_DIR$/target/site/dependency-management.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/index.html" afterPath="$PROJECT_DIR$/target/site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/modules.html" afterPath="$PROJECT_DIR$/target/site/modules.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/plugin-management.html" afterPath="$PROJECT_DIR$/target/site/plugin-management.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/plugins.html" afterPath="$PROJECT_DIR$/target/site/plugins.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/project-info.html" afterPath="$PROJECT_DIR$/target/site/project-info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/project-summary.html" afterPath="$PROJECT_DIR$/target/site/project-summary.html" />
     </list>
     <ignored path="$PROJECT_DIR$/projeto2-web/target/" />
     <ignored path="$PROJECT_DIR$/projeto2-business/target/" />
@@ -156,7 +58,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/java/servlet/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="689">
+            <state relative-caret-position="1134">
               <caret line="85" column="16" lean-forward="false" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -168,8 +70,8 @@
       <file leaf-file-name="menu.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="60" column="34" lean-forward="false" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="34" />
+            <state relative-caret-position="81">
+              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -178,7 +80,7 @@
       <file leaf-file-name="edit-car.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-car.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1397">
+            <state relative-caret-position="-900">
               <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
               <folding />
             </state>
@@ -188,30 +90,30 @@
       <file leaf-file-name="list-all.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/list-all.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="101" column="84" lean-forward="false" selection-start-line="101" selection-start-column="84" selection-end-line="101" selection-end-column="84" />
+            <state relative-caret-position="56">
+              <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
               <folding>
-                <marker date="1510627818637" expanded="false" signature="3735:3763" ph="..." />
+                <marker date="1510660672569" expanded="false" signature="3735:3763" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="menu.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/js/menu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+            <state relative-caret-position="153">
+              <caret line="14" column="50" lean-forward="false" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CarEJB.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CarEJB.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="422" column="24" lean-forward="true" selection-start-line="422" selection-start-column="24" selection-end-line="422" selection-end-column="24" />
+            <state relative-caret-position="6426">
+              <caret line="422" column="24" lean-forward="false" selection-start-line="422" selection-start-column="24" selection-end-line="422" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -220,7 +122,7 @@
       <file leaf-file-name="UserEJB.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
+            <state relative-caret-position="360">
               <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -233,7 +135,7 @@
       <file leaf-file-name="UserDTO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
+            <state relative-caret-position="1602">
               <caret line="122" column="36" lean-forward="false" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -299,13 +201,13 @@
         <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/new-car.jsp" />
         <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJBInterface.java" />
         <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJBInterface.java" />
-        <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp" />
         <option value="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java" />
         <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java" />
         <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java" />
-        <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/js/menu.js" />
         <option value="$PROJECT_DIR$/projeto2-web/src/main/java/servlet/Main.java" />
+        <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp" />
         <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/list-all.jsp" />
+        <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/js/menu.js" />
       </list>
     </option>
   </component>
@@ -331,7 +233,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1366" />
     <option name="y" value="-6" />
     <option name="width" value="1366" />
@@ -356,8 +258,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -496,6 +396,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -682,11 +584,12 @@
       <workItem from="1509031582740" duration="48000" />
       <workItem from="1510418061357" duration="5525000" />
       <workItem from="1510517529284" duration="9668000" />
+      <workItem from="1510656830487" duration="5463000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55836000" />
+    <option name="totallyTimeSpent" value="61299000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="-6" width="1366" height="729" extended-state="6" />
@@ -694,40 +597,9 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1830161" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.100292824" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3993559" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20933977" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21229868" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="EJB" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1830161" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -736,23 +608,27 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2173913" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21229868" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15739386" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="EJB" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1009,8 +885,8 @@
         <state relative-caret-position="135">
           <caret line="156" column="18" lean-forward="false" selection-start-line="156" selection-start-column="18" selection-end-line="156" selection-end-column="18" />
           <folding>
-            <element signature="e#4103#4104#0" expanded="true" />
-            <element signature="e#4133#4134#0" expanded="true" />
+            <element signature="e#4103#4104#0" expanded="false" />
+            <element signature="e#4133#4134#0" expanded="false" />
             <marker date="1510615887377" expanded="true" signature="2913:3084" ph="{...}" />
             <marker date="1510615887377" expanded="false" signature="3115:3126" ph=" { " />
             <marker date="1510615887377" expanded="false" signature="3139:3145" ph=" }" />
@@ -1092,9 +968,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="67">
           <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,9 +976,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1142,7 +1014,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
+        <state relative-caret-position="1602">
           <caret line="122" column="36" lean-forward="false" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1152,7 +1024,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
+        <state relative-caret-position="360">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1161,17 +1033,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="60" column="34" lean-forward="false" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/java/servlet/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
+        <state relative-caret-position="1134">
           <caret line="85" column="16" lean-forward="false" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1179,36 +1043,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/list-all.jsp">
+    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="101" column="84" lean-forward="false" selection-start-line="101" selection-start-column="84" selection-end-line="101" selection-end-column="84" />
-          <folding>
-            <marker date="1510627818637" expanded="false" signature="3735:3763" ph="..." />
-          </folding>
+        <state relative-caret-position="6426">
+          <caret line="422" column="24" lean-forward="false" selection-start-line="422" selection-start-column="24" selection-end-line="422" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/js/menu.js">
+    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        <state relative-caret-position="81">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-car.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1397">
+        <state relative-caret-position="-900">
           <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java">
+    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/list-all.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="422" column="24" lean-forward="true" selection-start-line="422" selection-start-column="24" selection-end-line="422" selection-end-column="24" />
+        <state relative-caret-position="56">
+          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding>
+            <marker date="1510660672569" expanded="false" signature="3735:3763" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="50" lean-forward="false" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
           <folding />
         </state>
       </provider>

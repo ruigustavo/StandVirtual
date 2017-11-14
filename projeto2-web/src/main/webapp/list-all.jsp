@@ -68,7 +68,14 @@
                     </tr>
                     <c:forEach items= "${carslist}" var = "i">
                         <tr>
-                            <td><img style="width: 200px" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
+                            <c:choose>
+                                <c:when test="${empty i.getPicture()}">
+                                    <td></td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td><img style="width: 200px" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
+                                </c:otherwise>
+                            </c:choose>
                             <td><c:out value = "${i.getBrand()}"/></td>
                             <td><c:out value = "${i.getPrice()}"/></td>
                             <td><button type="submit" onclick="goDetailsCar(${i.getId()})">Details</button></td>
@@ -76,6 +83,26 @@
                     </c:forEach>
                 </table>
             </form>
+        </c:if>
+    </div>
+
+    <div class="w3-row">
+        <%--<div class="w3-col" style="width:10%; margin-top: 10px;">--%>
+            <%--&lt;%&ndash;<form class="w3-form" method="get" action="Main">&ndash;%&gt;--%>
+                <%--&lt;%&ndash;<input type="hidden" name="action" value="search-car"/>&ndash;%&gt;--%>
+                <%--&lt;%&ndash;<input type="search" class="w3-input" name="search-value"/>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;</form>&ndash;%&gt;--%>
+        <%--</div>--%>
+        <c:if test="${carslist!=null}">
+            <h4>Brand</h4>
+            <c:forEach items= "${carslist}" var = "i">
+                <form class="w3-form" name="orderByBrand" method="get" action="Main">
+                    <input type="hidden" name="action"/>
+                    <input type="hidden" name="brand"/>
+                    <button type="submit" onclick="researchByBrand('${i.getBrand()}')"><c:out value="${i.getBrand()}"/></button>
+                </form>
+            </c:forEach>
+
         </c:if>
     </div>
 

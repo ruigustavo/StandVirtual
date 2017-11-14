@@ -26,6 +26,20 @@
         </div>
         <div class="w3-col" style="width:10%; margin-top: 10px;">
             <form class="w3-form" method="get" action="Main">
+                <input type="hidden" name="action" value="search-car"/>
+                <input type="search" class="w3-input" name="search-value"/>
+            </form>
+        </div>
+
+        <div class="w3-col" style="width:10%; margin-top: 10px;">
+            <form class="w3-form" method="get" action="Main">
+                <input type="hidden" name="action" value="list-all"/>
+                <input type="submit" class="w3-btn accent-color secondary-text-color" value="All Cars"/>
+            </form>
+        </div>
+
+        <div class="w3-col" style="width:10%; margin-top: 10px;">
+            <form class="w3-form" method="get" action="Main">
                 <input type="hidden" name="action" value="edit-profile"/>
                 <input type="submit" class="w3-btn accent-color secondary-text-color" value="Edit Profile"/>
             </form>
@@ -43,7 +57,14 @@
 <div class="w3-container">
     <div class="w3-row">
         <div>
-            <img style="width: 200px" src="data:image/*;base64,${car.getPictureEncoded()}">
+            <c:choose>
+                <c:when test="${empty car.getPicture()}">
+                    <td></td>
+                </c:when>
+                <c:otherwise>
+                    <td><img style="width: 200px" src="data:image/*;base64,${car.getPictureEncoded()}"></td>
+                </c:otherwise>
+            </c:choose>
         </div>
         <div>
             <label><strong>Brand</strong></label>
@@ -70,7 +91,13 @@
             <p><c:out value = "${car.getRegistration_month()}"/></p>
         </div>
         <div>
-            <button type="submit" onclick="goEditCar(${car.getId()})">Edit</button>
+            <c:if test="${user.getId() == car.getOwner().getId()}">
+                <form name="ownedCars">
+                    <input type="hidden" name="action"/>
+                    <input type="hidden" name="id"/>
+                    <button type="submit" onclick="goEditCar(${car.getId()})">Edit</button>
+                </form>
+            </c:if>
         </div>
     </div>
 </div>

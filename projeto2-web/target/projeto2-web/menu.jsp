@@ -53,6 +53,7 @@
     </div>
 </header>
 
+<c:out value = "${user.getId()}"/>
 
 <div class="w3-container">
     <div class="w3-row">
@@ -68,8 +69,16 @@
                         </tr>
                     <c:forEach items= "${user.getSellingCars()}" var = "i">
                         <tr>
-                            <td><img style="width: 200px" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
+                            <c:choose>
+                                <c:when test="${empty i.getPicture()}">
+                                    <td></td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td><img style="width: 200px" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
+                                </c:otherwise>
+                            </c:choose>
                             <td><c:out value = "${i.getBrand()}"/></td>
+                            <c:out value = "${i.getOwner().getId()}"/>
                             <td><button type="submit" onclick="goEditCar(${i.getId()})">Edit</button></td>
                             <td><button type="submit" onclick="goDetailsCar(${i.getId()})">Details</button></td>
                         </tr>

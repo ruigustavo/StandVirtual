@@ -57,6 +57,11 @@ public class CarEJB implements CarEJBInterface{
                 aux.getKm(),
                 aux.getRegistration_month(),
                 aux.getRegistration_year(),
+                new UserDTO(aux.getOwner().getId(),
+                        aux.getOwner().getEmail(),
+                        aux.getOwner().getName(),
+                        aux.getOwner().getAddress(),
+                        aux.getOwner().getPhone()),
                 aux.getPicture());
         logger.warn(toSend.toString());
         return toSend;
@@ -75,7 +80,6 @@ public class CarEJB implements CarEJBInterface{
         aux.setKm(toEdit.getKm());
         aux.setRegistration_month(toEdit.getRegistration_month());
         aux.setRegistration_year(toEdit.getRegistration_year());
-        System.out.println(toEdit.getPicture());
         if(toEdit.getPicture()!=null){
             aux.setPicture(toEdit.getPicture());
         }
@@ -194,7 +198,8 @@ public class CarEJB implements CarEJBInterface{
                     c.getKm(),
                     c.getRegistration_month(),
                     c.getRegistration_year(),
-                    new UserDTO(c.getOwner().getEmail(),
+                    new UserDTO(c.getOwner().getId(),
+                            c.getOwner().getEmail(),
                             c.getOwner().getName(),
                             c.getOwner().getAddress(),
                             c.getOwner().getPhone()),
@@ -233,8 +238,22 @@ public class CarEJB implements CarEJBInterface{
         aux = q.getResultList();
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getKm(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getKm(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getId(),
+                            c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()
+            ));
         }
+        logger.warn(toSend.toString());
         logger.info("Return all Cars of the brand:"+brand);
         return toSend;
         }
@@ -258,7 +277,20 @@ public class CarEJB implements CarEJBInterface{
         aux = q.getResultList();
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getKm(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getKm(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getId(),
+                            c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()
+            ));
         }
         logger.info("Return all Cars of the brand:"+brand+"and model:"+model);
         return toSend;
@@ -296,11 +328,24 @@ public class CarEJB implements CarEJBInterface{
                 q.setParameter("y", year);
                 break;
         }
-        List<Car> aux = null;
+        List<Car> aux;
         aux = q.getResultList();
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getKm(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getKm(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getId(),
+                            c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()
+            ));
         }
         logger.info("Returning all Cars with year newer than "+year);
         return toSend;
@@ -346,7 +391,20 @@ public class CarEJB implements CarEJBInterface{
 
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getKm(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getKm(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getId(),
+                            c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()
+            ));
         }
         logger.info("Returning all Cars with price between "+low_value+"and"+up_value);
         return toSend;
@@ -394,19 +452,117 @@ public class CarEJB implements CarEJBInterface{
 
         List<CarDTO> toSend = new ArrayList<>();
         for(Car c : aux){
-            toSend.add(new CarDTO(c.getBrand(),c.getModel(),c.getPrice(),c.getKm(),c.getRegistration_month(),c.getRegistration_year(),new UserDTO(c.getOwner().getEmail(),c.getOwner().getName(),c.getOwner().getAddress(),c.getOwner().getPhone())));
+            toSend.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getKm(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getId(),
+                            c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()
+            ));
         }
         logger.info("Returning all Cars with kilometers between "+low_value+"and"+up_value);
         return toSend;
     }
+    public List<CarDTO> getCarsOfUser(int id){
+        logger.info("Getting Cars of User with ID " + id);
+        List<Car> aux =null;
+        try{
+            Query q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.owner.id = :n order by c.price asc");
+            q.setParameter("n", id);
+            aux = q.getResultList();
+        }   catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Returning null");
+            return null;
+        }
+        List<CarDTO> toSend = new ArrayList<>();
+        for(Car c : aux){
+            toSend.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getKm(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getId(),
+                            c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()
+            ));
+        }
+        logger.info("Returning Cars of User with ID " + id);
+        return toSend;
 
+    }
 
-
-
-
-
-
-
-
+    public List<CarDTO> getCarsUserFollow(int id){
+        List<Car> aux = null;
+        logger.info("Getting user from db.");
+        Query q = em.createQuery("select u from "+ User.class.getSimpleName() + " u where u.id = :i");
+        q.setParameter("i", id);
+        User u = (User) q.getSingleResult();
+        aux = u.getFollowingCars();
+        List<CarDTO> toSend = new ArrayList<>();
+        for(Car c : aux){
+            toSend.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getKm(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getId(),
+                            c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()
+            ));
+        }
+        return toSend;
+    }
+    public List<CarDTO> getCarsUserNotOwn(int id){
+        logger.info("Getting Cars of User with ID " + id);
+        List<Car> aux =null;
+        try{
+            Query q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.owner.id != :n order by c.price asc");
+            q.setParameter("n", id);
+            aux = q.getResultList();
+        }   catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Returning null");
+            return null;
+        }
+        List<CarDTO> toSend = new ArrayList<>();
+        for(Car c : aux){
+            toSend.add(new CarDTO(c.getId(),
+                    c.getBrand(),
+                    c.getModel(),
+                    c.getPrice(),
+                    c.getKm(),
+                    c.getRegistration_month(),
+                    c.getRegistration_year(),
+                    new UserDTO(c.getOwner().getId(),
+                            c.getOwner().getEmail(),
+                            c.getOwner().getName(),
+                            c.getOwner().getAddress(),
+                            c.getOwner().getPhone()),
+                    c.getPicture()
+            ));
+        }
+        logger.info("Returning Cars of User with ID " + id);
+        return toSend;
+    }
 
 }

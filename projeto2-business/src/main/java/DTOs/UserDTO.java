@@ -120,6 +120,7 @@ public class UserDTO implements Serializable{
     @Override
     public String toString() {
         return "UserDTO{" +
+                "id='" + id + '\'' +
                 "email='" + email + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +

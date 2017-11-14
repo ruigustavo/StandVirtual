@@ -14,8 +14,5 @@ public interface UserEJBInterface {
     int register(UserDTO user);
     void editUserInfo(UserDTO user);
     void deleteUserById(int id);
-    List<CarDTO> getCarsOfUser(int id);
-    List<CarDTO> getCarsUserNotOwn(int id);
-    List<CarDTO> getCarsUserFollow(int id);
     UserDTO getUserById(int id);
 }

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import javax.xml.registry.infomodel.User;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,6 +37,7 @@ public class Main extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
+        System.out.println("----------->"+action+"<---------------------");
         if(request.getSession().getAttribute("user")==null){
             if(action==null){
                 request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -48,11 +50,13 @@ public class Main extends HttpServlet {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
         }else{
+
             // visto que o two-way binding nao funciona
             UserDTO user = (UserDTO) request.getSession().getAttribute("user");
-            user.setSellingCars(userejb.getCarsOfUser(user.getId()));
-            user.setFollowingCars(userejb.getCarsUserFollow(user.getId()));
-            request.getSession().setAttribute("user",user);
+//            UserDTO user = userejb.getUserById(refresh.getId());
+//            System.out.println(".........................................----------------------------------");
+//            System.out.println(user.getSellingCars());
+//            request.getSession().setAttribute("user",user);
             if(action==null){
                 request.getRequestDispatcher("menu.jsp").forward(request,response);
             }
@@ -71,10 +75,14 @@ public class Main extends HttpServlet {
                 request.getSession().setAttribute("car",car);
                 request.getRequestDispatcher("detail-car.jsp").forward(request,response);
             }else if(action.compareToIgnoreCase("search-car")==0){
-
                 request.getRequestDispatcher("menu.jsp").forward(request,response);
             }else if(action.compareToIgnoreCase("list-all")==0){
                 List<CarDTO> cars = carejb.getAllCars(1);
+                request.getSession().setAttribute("carslist",cars);
+                request.getRequestDispatcher("list-all.jsp").forward(request,response);
+            }else if(action.compareToIgnoreCase("listByBrand")==0){
+                List<CarDTO> cars = carejb.getCarsByBrand(request.getParameter("brand"),1);
+
                 request.getSession().setAttribute("carslist",cars);
                 request.getRequestDispatcher("list-all.jsp").forward(request,response);
             }
@@ -97,8 +105,7 @@ public class Main extends HttpServlet {
                         request.getParameter("phone")
                 );
                 userejb.register(newUser);
-                request.getRequestDispatcher("index.jsp")
-                        .forward(request,response);
+                response.sendRedirect("index.jsp");
             }else if(action.compareToIgnoreCase("login")==0){
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");
@@ -117,16 +124,12 @@ public class Main extends HttpServlet {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
         }else{
-            // visto que o two-way binding nao funciona
             UserDTO user = (UserDTO) request.getSession().getAttribute("user");
-            user.setSellingCars(userejb.getCarsOfUser(user.getId()));
-            request.getSession().setAttribute("user",user);
-            if(action==null){
-                request.getRequestDispatcher("menu.jsp").forward(request,response);
-            }
-            else if(action.compareToIgnoreCase("logout")==0){
+            String finalDestination = "menu.jsp";
+            if(action.compareToIgnoreCase("logout")==0){
                 request.getSession().removeAttribute("user");
-                request.getRequestDispatcher("index.jsp").forward(request,response);
+                finalDestination = "index.jsp";
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }else if(action.compareToIgnoreCase("edit-profile")==0){
                 if(request.getParameter("password")!=null){
                     user.setPassword(Hasher.hashPassword(request.getParameter("password")));
@@ -137,11 +140,11 @@ public class Main extends HttpServlet {
                 user.setPhone(request.getParameter("phone"));
 
                 userejb.editUserInfo(user);
-                request.getSession().setAttribute("user",user);
-                user.setSellingCars(userejb.getCarsOfUser(user.getId()));
-                request.getSession().setAttribute("user",user);
+//                request.getSession().setAttribute("user",user);
+//                user.setSellingCars(carejb.getCarsOfUser(user.getId()));
+//                request.getSession().setAttribute("user",user);
 
-                request.getRequestDispatcher("menu.jsp").forward(request,response);
+//                response.sendRedirect("menu.jsp");
             }else if(action.compareToIgnoreCase("new-car")==0){
 
                 CarDTO car = new CarDTO(request.getParameter("brand"),
@@ -157,10 +160,11 @@ public class Main extends HttpServlet {
                 );
                 carejb.addCar(car);
 
-                user.setSellingCars(userejb.getCarsOfUser(user.getId()));
-                request.getSession().setAttribute("user",user);
+//                user.setSellingCars(carejb.getCarsOfUser(user.getId()));
+//                request.getSession().setAttribute("user",user);
 
-                request.getRequestDispatcher("menu.jsp").forward(request,response);
+//                response.sendRedirect("menu.jsp");
+
             }else if(action.compareToIgnoreCase("edit-car")==0){
                 CarDTO car;
                 if(request.getPart("picture").getSize()>0){
@@ -187,9 +191,14 @@ public class Main extends HttpServlet {
                     );
                 }
                 carejb.editCarInfo(car);
-            }else{
-                request.getRequestDispatcher("menu.jsp").forward(request,response);
+//                user.setSellingCars(carejb.getCarsOfUser(user.getId()));
+//                request.getSession().setAttribute("user",user);
+
+//                response.sendRedirect("menu.jsp");
             }
+            UserDTO refreshed = userejb.getUserById(user.getId());
+            request.getSession().setAttribute("user",refreshed);
+            response.sendRedirect(finalDestination);
         }
     }
 

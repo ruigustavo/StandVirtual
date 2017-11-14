@@ -14,53 +14,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dba4a6bd-b378-41e6-8654-2a70a1e9a74f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/DTOs/CarDTO.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/DTOs/CarDTO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/DTOs/UserDTO.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/DTOs/UserDTO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/CarEJB.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/CarEJB.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/CarEJBInterface.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/CarEJBInterface.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/PlayersEJBInterface.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/PlayersEJBInterface.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/PlayersEJB.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/PlayersEJB.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/UserEJB.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/UserEJB.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/UserEJBInterface.class" afterPath="$PROJECT_DIR$/projeto2-business/target/classes/ejb/UserEJBInterface.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/projeto2-business.jar" afterPath="$PROJECT_DIR$/projeto2-business/target/projeto2-business.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/classes/data/Car.class" afterPath="$PROJECT_DIR$/projeto2-data/target/classes/data/Car.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/classes/data/User.class" afterPath="$PROJECT_DIR$/projeto2-data/target/classes/data/User.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/projeto2-data.jar" afterPath="$PROJECT_DIR$/projeto2-data/target/projeto2-data.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/firstear.ear" afterPath="$PROJECT_DIR$/projeto2-ear/target/firstear.ear" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/projeto2-business-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/projeto2-business-0.0.1-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/projeto2-data-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/projeto2-data-0.0.1-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/projeto2-web-0.0.1-SNAPSHOT.war" afterPath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/projeto2-web-0.0.1-SNAPSHOT.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/DTOs/CarDTO.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/DTOs/CarDTO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/DTOs/UserDTO.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/DTOs/UserDTO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/CarEJB.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/CarEJB.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/CarEJBInterface.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/CarEJBInterface.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/PlayersEJBInterface.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/PlayersEJBInterface.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/PlayersEJB.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/PlayersEJB.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/UserEJB.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/UserEJB.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/UserEJBInterface.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-business-0.0.1-SNAPSHOT.jar/ejb/UserEJBInterface.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-data-0.0.1-SNAPSHOT.jar/data/Car.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-data-0.0.1-SNAPSHOT.jar/data/Car.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-data-0.0.1-SNAPSHOT.jar/data/User.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-data-0.0.1-SNAPSHOT.jar/data/User.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/classes/servlet/Main.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/classes/servlet/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/classes/servlet/PlayersTallerThan.class" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/classes/servlet/PlayersTallerThan.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/lib/projeto2-business-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/lib/projeto2-business-0.0.1-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/lib/projeto2-data-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/WEB-INF/lib/projeto2-data-0.0.1-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/classes/servlet/Main.class" afterPath="$PROJECT_DIR$/projeto2-web/target/classes/servlet/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/classes/servlet/PlayersTallerThan.class" afterPath="$PROJECT_DIR$/projeto2-web/target/classes/servlet/PlayersTallerThan.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web.war" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/classes/servlet/Main.class" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/classes/servlet/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/classes/servlet/PlayersTallerThan.class" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/classes/servlet/PlayersTallerThan.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/lib/projeto2-business-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/lib/projeto2-business-0.0.1-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/lib/projeto2-data-0.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/WEB-INF/lib/projeto2-data-0.0.1-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tester/src/Tester.java" afterPath="$PROJECT_DIR$/Tester/src/Tester.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/CarDTO.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/CarDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJBInterface.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJBInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/PlayersEJB.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/PlayersEJB.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJBInterface.java" afterPath="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJBInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/projeto2-business/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/css/maven-base.css" afterPath="$PROJECT_DIR$/projeto2-business/target/site/css/maven-base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/css/print.css" afterPath="$PROJECT_DIR$/projeto2-business/target/site/css/print.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/dependencies.html" afterPath="$PROJECT_DIR$/projeto2-business/target/site/dependencies.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/dependency-convergence.html" afterPath="$PROJECT_DIR$/projeto2-business/target/site/dependency-convergence.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/dependency-info.html" afterPath="$PROJECT_DIR$/projeto2-business/target/site/dependency-info.html" />
@@ -72,13 +64,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/site/project-summary.html" afterPath="$PROJECT_DIR$/projeto2-business/target/site/project-summary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/surefire-reports/TEST-org.projeto2.business.AppTest.xml" afterPath="$PROJECT_DIR$/projeto2-business/target/surefire-reports/TEST-org.projeto2.business.AppTest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-business/target/surefire-reports/org.projeto2.business.AppTest.txt" afterPath="$PROJECT_DIR$/projeto2-business/target/surefire-reports/org.projeto2.business.AppTest.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/src/main/java/data/Car.java" afterPath="$PROJECT_DIR$/projeto2-data/src/main/java/data/Car.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/projeto2-data/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/css/maven-base.css" afterPath="$PROJECT_DIR$/projeto2-data/target/site/css/maven-base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/css/print.css" afterPath="$PROJECT_DIR$/projeto2-data/target/site/css/print.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/dependencies.html" afterPath="$PROJECT_DIR$/projeto2-data/target/site/dependencies.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/dependency-convergence.html" afterPath="$PROJECT_DIR$/projeto2-data/target/site/dependency-convergence.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/dependency-info.html" afterPath="$PROJECT_DIR$/projeto2-data/target/site/dependency-info.html" />
@@ -90,11 +79,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/site/project-summary.html" afterPath="$PROJECT_DIR$/projeto2-data/target/site/project-summary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/surefire-reports/TEST-org.projeto2.data.AppTest.xml" afterPath="$PROJECT_DIR$/projeto2-data/target/surefire-reports/TEST-org.projeto2.data.AppTest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-data/target/surefire-reports/org.projeto2.data.AppTest.txt" afterPath="$PROJECT_DIR$/projeto2-data/target/surefire-reports/org.projeto2.data.AppTest.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/application.xml" afterPath="$PROJECT_DIR$/projeto2-ear/target/application.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/projeto2-ear/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/META-INF/application.xml" afterPath="$PROJECT_DIR$/projeto2-ear/target/projeto2-firstear/META-INF/application.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/css/maven-base.css" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/css/maven-base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/css/print.css" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/css/print.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/dependencies.html" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/dependencies.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/dependency-convergence.html" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/dependency-convergence.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/site/dependency-info.html" afterPath="$PROJECT_DIR$/projeto2-ear/target/site/dependency-info.html" />
@@ -109,12 +94,18 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/detail-car.jsp" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/detail-car.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/edit-car.jsp" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/edit-car.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/edit-profile.jsp" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/edit-profile.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/js/menu.js" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/js/menu.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/list-all.jsp" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/list-all.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/menu.jsp" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/menu.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/new-car.jsp" afterPath="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web-0.0.1-SNAPSHOT.war/new-car.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/java/servlet/Main.java" afterPath="$PROJECT_DIR$/projeto2-web/src/main/java/servlet/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/java/servlet/PlayersTallerThan.java" afterPath="$PROJECT_DIR$/projeto2-web/src/main/java/servlet/PlayersTallerThan.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/detail-car.jsp" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/detail-car.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-car.jsp" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-car.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-profile.jsp" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-profile.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/js/menu.js" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/js/menu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/list-all.jsp" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/list-all.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/src/main/webapp/new-car.jsp" afterPath="$PROJECT_DIR$/projeto2-web/src/main/webapp/new-car.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
@@ -122,10 +113,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/projeto2-web/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/detail-car.jsp" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/detail-car.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/edit-car.jsp" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/edit-car.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/edit-profile.jsp" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/edit-profile.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/js/menu.js" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/js/menu.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/list-all.jsp" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/list-all.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/menu.jsp" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/menu.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/new-car.jsp" afterPath="$PROJECT_DIR$/projeto2-web/target/projeto2-web/new-car.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/css/maven-base.css" afterPath="$PROJECT_DIR$/projeto2-web/target/site/css/maven-base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/css/print.css" afterPath="$PROJECT_DIR$/projeto2-web/target/site/css/print.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/dependencies.html" afterPath="$PROJECT_DIR$/projeto2-web/target/site/dependencies.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/dependency-convergence.html" afterPath="$PROJECT_DIR$/projeto2-web/target/site/dependency-convergence.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/dependency-info.html" afterPath="$PROJECT_DIR$/projeto2-web/target/site/dependency-info.html" />
@@ -137,8 +129,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/site/project-summary.html" afterPath="$PROJECT_DIR$/projeto2-web/target/site/project-summary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/surefire-reports/TEST-org.projeto2.web.AppTest.xml" afterPath="$PROJECT_DIR$/projeto2-web/target/surefire-reports/TEST-org.projeto2.web.AppTest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projeto2-web/target/surefire-reports/org.projeto2.web.AppTest.txt" afterPath="$PROJECT_DIR$/projeto2-web/target/surefire-reports/org.projeto2.web.AppTest.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/css/maven-base.css" afterPath="$PROJECT_DIR$/target/site/css/maven-base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/css/print.css" afterPath="$PROJECT_DIR$/target/site/css/print.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/dependency-convergence.html" afterPath="$PROJECT_DIR$/target/site/dependency-convergence.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/dependency-info.html" afterPath="$PROJECT_DIR$/target/site/dependency-info.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/dependency-management.html" afterPath="$PROJECT_DIR$/target/site/dependency-management.html" />
@@ -163,67 +153,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Car.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projeto2-data/src/main/java/data/Car.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding>
-                <element signature="e#508#509#0" expanded="true" />
-                <element signature="e#533#534#0" expanded="true" />
-                <element signature="e#567#568#0" expanded="true" />
-                <element signature="e#595#596#0" expanded="true" />
-                <marker date="1510612044867" expanded="false" signature="1551:1561" ph=" { " />
-                <marker date="1510612044867" expanded="false" signature="1569:1575" ph=" }" />
-                <marker date="1510612044867" expanded="false" signature="1916:1927" ph=" { " />
-                <marker date="1510612044867" expanded="false" signature="1953:1959" ph=" }" />
-                <marker date="1510612044867" expanded="false" signature="2025:2036" ph=" { " />
-                <marker date="1510612044867" expanded="false" signature="2081:2087" ph=" }" />
-                <marker date="1510612044867" expanded="false" signature="2126:2137" ph=" { " />
-                <marker date="1510612044867" expanded="false" signature="2162:2168" ph=" }" />
-                <marker date="1510612044867" expanded="false" signature="2229:2240" ph=" { " />
-                <marker date="1510612044867" expanded="false" signature="2283:2289" ph=" }" />
-                <marker date="1510612044867" expanded="false" signature="2718:2729" ph=" { " />
-                <marker date="1510612044867" expanded="false" signature="2739:2745" ph=" }" />
-                <marker date="1510612044867" expanded="false" signature="2775:2786" ph=" { " />
-                <marker date="1510612044867" expanded="false" signature="2799:2805" ph=" }" />
-                <marker date="1510612044867" expanded="false" signature="2845:2856" ph=" { " />
-                <marker date="1510612044867" expanded="false" signature="2875:2881" ph=" }" />
-                <marker date="1510612044867" expanded="false" signature="2911:2922" ph=" { " />
-                <marker date="1510612044867" expanded="false" signature="2935:2941" ph=" }" />
-                <marker date="1510612044867" expanded="false" signature="2981:2992" ph=" { " />
-                <marker date="1510612044867" expanded="false" signature="3011:3017" ph=" }" />
-                <marker date="1510612044867" expanded="false" signature="3045:3056" ph=" { " />
-                <marker date="1510612044867" expanded="false" signature="3069:3075" ph=" }" />
-                <marker date="1510612044867" expanded="false" signature="3113:3124" ph=" { " />
-                <marker date="1510612044867" expanded="false" signature="3143:3149" ph=" }" />
-                <marker date="1510612044867" expanded="false" signature="3177:3188" ph=" { " />
-                <marker date="1510612044867" expanded="false" signature="3201:3207" ph=" }" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tester.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tester/src/Tester.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="364" column="62" lean-forward="false" selection-start-line="364" selection-start-column="62" selection-end-line="364" selection-end-column="62" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/java/servlet/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3196">
-              <caret line="199" column="13" lean-forward="false" selection-start-line="199" selection-start-column="13" selection-end-line="199" selection-end-column="13" />
+            <state relative-caret-position="689">
+              <caret line="85" column="16" lean-forward="false" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="60" column="34" lean-forward="false" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit-car.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-car.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1397">
+              <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list-all.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/list-all.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="101" column="84" lean-forward="false" selection-start-line="101" selection-start-column="84" selection-end-line="101" selection-end-column="84" />
+              <folding>
+                <marker date="1510627818637" expanded="false" signature="3735:3763" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/js/menu.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CarEJB.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="422" column="24" lean-forward="true" selection-start-line="422" selection-start-column="24" selection-end-line="422" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -231,32 +220,21 @@
       <file leaf-file-name="UserEJB.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="226" column="20" lean-forward="false" selection-start-line="226" selection-start-column="20" selection-end-line="226" selection-end-column="20" />
+            <state relative-caret-position="143">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#deleteUserById#0;class#UserEJB#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CarEJB.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java">
+      <file leaf-file-name="UserDTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="355" column="82" lean-forward="false" selection-start-line="355" selection-start-column="11" selection-end-line="355" selection-end-column="82" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CarEJBInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJBInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="117">
+              <caret line="122" column="36" lean-forward="false" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -281,6 +259,10 @@
       <find>deleteUserById</find>
       <find>byprice</find>
       <find>delete</find>
+      <find>ownedCars</find>
+      <find>system</find>
+      <find>syste</find>
+      <find>researchByBrand</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -301,27 +283,29 @@
         <option value="$PROJECT_DIR$/projeto2-business/pom.xml" />
         <option value="$PROJECT_DIR$/projeto2-data/pom.xml" />
         <option value="$PROJECT_DIR$/projeto2-data/src/main/java/data/User.java" />
-        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/PlayersEJB.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/projeto2-web/src/main/java/Helper/Hasher.java" />
         <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/login.jsp" />
         <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/register.jsp" />
-        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJBInterface.java" />
         <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/index.jsp" />
-        <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-profile.jsp" />
-        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java" />
-        <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp" />
         <option value="$PROJECT_DIR$/projeto2-web/src/main/java/servlet/PlayersTallerThan.java" />
         <option value="$PROJECT_DIR$/projeto2-data/src/main/java/data/Car.java" />
         <option value="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/CarDTO.java" />
-        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java" />
-        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java" />
-        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJBInterface.java" />
         <option value="$PROJECT_DIR$/Tester/src/Tester.java" />
-        <option value="$PROJECT_DIR$/projeto2-web/src/main/java/servlet/Main.java" />
-        <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-car.jsp" />
+        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/PlayersEJB.java" />
         <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/detail-car.jsp" />
+        <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-car.jsp" />
+        <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-profile.jsp" />
         <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/new-car.jsp" />
+        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJBInterface.java" />
+        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJBInterface.java" />
+        <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp" />
+        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java" />
+        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java" />
+        <option value="$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java" />
+        <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/js/menu.js" />
+        <option value="$PROJECT_DIR$/projeto2-web/src/main/java/servlet/Main.java" />
+        <option value="$PROJECT_DIR$/projeto2-web/src/main/webapp/list-all.jsp" />
       </list>
     </option>
   </component>
@@ -348,9 +332,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="426" />
-    <option name="width" value="1501" />
-    <option name="height" value="1087" />
+    <option name="x" value="1366" />
+    <option name="y" value="-6" />
+    <option name="width" value="1366" />
+    <option name="height" value="729" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -371,8 +356,8 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -488,6 +473,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projeto2-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projeto2-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projeto2-parent" type="b2602c69:ProjectViewProjectNode" />
@@ -693,15 +686,15 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43986000" />
+    <option name="totallyTimeSpent" value="55836000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="426" y="0" width="1501" height="1087" extended-state="0" />
+    <frame x="1366" y="-6" width="1366" height="729" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.025676614" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1830161" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -710,17 +703,16 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3993559" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25134265" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20933977" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20888272" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21229868" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="EJB" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -770,17 +762,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="6" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/projeto2-ear/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
-          <caret line="57" column="32" lean-forward="false" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projeto2-data/src/main/java/data/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -807,7 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -898,7 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -972,15 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJBInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1012,14 +988,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="11" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/register.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1032,123 +1000,64 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <marker date="1510611045744" expanded="true" signature="2307:2480" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="5" lean-forward="false" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-profile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="65" column="7" lean-forward="true" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="69" column="31" lean-forward="false" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/PlayersEJB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="50" column="29" lean-forward="false" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/java/servlet/PlayersTallerThan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/CarDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="98" column="19" lean-forward="false" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
+        <state relative-caret-position="135">
+          <caret line="156" column="18" lean-forward="false" selection-start-line="156" selection-start-column="18" selection-end-line="156" selection-end-column="18" />
           <folding>
-            <element signature="e#2543#2544#0" expanded="true" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2602#2603#0" expanded="true" />
-            <element signature="e#2630#2631#0" expanded="true" />
             <element signature="e#4103#4104#0" expanded="true" />
             <element signature="e#4133#4134#0" expanded="true" />
+            <marker date="1510615887377" expanded="true" signature="2913:3084" ph="{...}" />
+            <marker date="1510615887377" expanded="false" signature="3115:3126" ph=" { " />
+            <marker date="1510615887377" expanded="false" signature="3139:3145" ph=" }" />
+            <marker date="1510615887377" expanded="false" signature="3186:3197" ph=" { " />
+            <marker date="1510615887377" expanded="false" signature="3216:3222" ph=" }" />
+            <marker date="1510615887377" expanded="true" signature="3244:3251" ph="{}" />
+            <marker date="1510615887377" expanded="false" signature="3281:3292" ph=" { " />
+            <marker date="1510615887377" expanded="false" signature="3305:3311" ph=" }" />
+            <marker date="1510615887377" expanded="false" signature="3354:3365" ph=" { " />
+            <marker date="1510615887377" expanded="false" signature="3391:3397" ph=" }" />
+            <marker date="1510615887377" expanded="false" signature="3463:3474" ph=" { " />
+            <marker date="1510615887377" expanded="false" signature="3519:3525" ph=" }" />
+            <marker date="1510615887377" expanded="false" signature="3564:3575" ph=" { " />
+            <marker date="1510615887377" expanded="false" signature="3600:3606" ph=" }" />
+            <marker date="1510615887377" expanded="false" signature="3667:3678" ph=" { " />
+            <marker date="1510615887377" expanded="false" signature="3721:3727" ph=" }" />
+            <marker date="1510615887377" expanded="false" signature="3767:3778" ph=" { " />
+            <marker date="1510615887377" expanded="false" signature="3833:3844" ph=" { " />
+            <marker date="1510615887377" expanded="false" signature="3857:3863" ph=" }" />
+            <marker date="1510615887377" expanded="false" signature="3903:3914" ph=" { " />
+            <marker date="1510615887377" expanded="false" signature="3933:3939" ph=" }" />
+            <marker date="1510615887377" expanded="false" signature="3967:3978" ph=" { " />
+            <marker date="1510615887377" expanded="false" signature="3991:3997" ph=" }" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projeto2-data/src/main/java/data/Car.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="720">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#595#596#0" expanded="true" />
-            <marker date="1510612044867" expanded="false" signature="1551:1561" ph=" { " />
-            <marker date="1510612044867" expanded="false" signature="1569:1575" ph=" }" />
-            <marker date="1510612044867" expanded="false" signature="1916:1927" ph=" { " />
-            <marker date="1510612044867" expanded="false" signature="1953:1959" ph=" }" />
-            <marker date="1510612044867" expanded="false" signature="2025:2036" ph=" { " />
-            <marker date="1510612044867" expanded="false" signature="2081:2087" ph=" }" />
-            <marker date="1510612044867" expanded="false" signature="2126:2137" ph=" { " />
-            <marker date="1510612044867" expanded="false" signature="2162:2168" ph=" }" />
-            <marker date="1510612044867" expanded="false" signature="2229:2240" ph=" { " />
-            <marker date="1510612044867" expanded="false" signature="2283:2289" ph=" }" />
-            <marker date="1510612044867" expanded="false" signature="2718:2729" ph=" { " />
-            <marker date="1510612044867" expanded="false" signature="2739:2745" ph=" }" />
-            <marker date="1510612044867" expanded="false" signature="2775:2786" ph=" { " />
-            <marker date="1510612044867" expanded="false" signature="2799:2805" ph=" }" />
-            <marker date="1510612044867" expanded="false" signature="2845:2856" ph=" { " />
-            <marker date="1510612044867" expanded="false" signature="2875:2881" ph=" }" />
-            <marker date="1510612044867" expanded="false" signature="2911:2922" ph=" { " />
-            <marker date="1510612044867" expanded="false" signature="2935:2941" ph=" }" />
-            <marker date="1510612044867" expanded="false" signature="2981:2992" ph=" { " />
-            <marker date="1510612044867" expanded="false" signature="3011:3017" ph=" }" />
-            <marker date="1510612044867" expanded="false" signature="3045:3056" ph=" { " />
-            <marker date="1510612044867" expanded="false" signature="3069:3075" ph=" }" />
-            <marker date="1510612044867" expanded="false" signature="3113:3124" ph=" { " />
-            <marker date="1510612044867" expanded="false" signature="3143:3149" ph=" }" />
-            <marker date="1510612044867" expanded="false" signature="3177:3188" ph=" { " />
-            <marker date="1510612044867" expanded="false" signature="3201:3207" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="355" column="82" lean-forward="false" selection-start-line="355" selection-start-column="11" selection-end-line="355" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="226" column="20" lean-forward="false" selection-start-line="226" selection-start-column="20" selection-end-line="226" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1510615887381" expanded="true" signature="2537:2722" ph="{...}" />
+            <marker date="1510615887381" expanded="false" signature="2746:2757" ph=" { " />
+            <marker date="1510615887381" expanded="false" signature="2767:2773" ph=" }" />
+            <marker date="1510615887381" expanded="false" signature="2803:2814" ph=" { " />
+            <marker date="1510615887381" expanded="false" signature="2827:2833" ph=" }" />
+            <marker date="1510615887381" expanded="false" signature="2873:2884" ph=" { " />
+            <marker date="1510615887381" expanded="false" signature="2903:2909" ph=" }" />
+            <marker date="1510615887381" expanded="false" signature="2939:2950" ph=" { " />
+            <marker date="1510615887381" expanded="false" signature="2963:2969" ph=" }" />
+            <marker date="1510615887381" expanded="false" signature="3009:3020" ph=" { " />
+            <marker date="1510615887381" expanded="false" signature="3039:3045" ph=" }" />
+            <marker date="1510615887381" expanded="false" signature="3073:3084" ph=" { " />
+            <marker date="1510615887381" expanded="false" signature="3097:3103" ph=" }" />
+            <marker date="1510615887381" expanded="false" signature="3141:3152" ph=" { " />
+            <marker date="1510615887381" expanded="false" signature="3171:3177" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -1158,60 +1067,149 @@
         <state relative-caret-position="402">
           <caret line="364" column="62" lean-forward="false" selection-start-line="364" selection-start-column="62" selection-end-line="364" selection-end-column="62" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-car.jsp">
+    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/PlayersEJB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="652">
-          <caret line="56" column="36" lean-forward="true" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
+        <state relative-caret-position="246">
+          <caret line="50" column="27" lean-forward="false" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/list-all.jsp">
+    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        <state relative-caret-position="23">
+          <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/detail-car.jsp">
+    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-profile.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="57" column="55" lean-forward="true" selection-start-line="57" selection-start-column="55" selection-end-line="57" selection-end-column="55" />
-          <folding />
+        <state relative-caret-position="67">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/new-car.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="64" column="36" lean-forward="true" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
+        <state relative-caret-position="360">
+          <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/detail-car.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="88" column="13" lean-forward="false" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJBInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJBInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="576">
+          <caret line="36" column="43" lean-forward="false" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/java/servlet/PlayersTallerThan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="43" column="21" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/DTOs/UserDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="122" column="36" lean-forward="false" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/UserEJB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#deleteUserById#0;class#UserEJB#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="60" column="34" lean-forward="false" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/java/servlet/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3196">
-          <caret line="199" column="13" lean-forward="false" selection-start-line="199" selection-start-column="13" selection-end-line="199" selection-end-column="13" />
+        <state relative-caret-position="689">
+          <caret line="85" column="16" lean-forward="false" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/list-all.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="101" column="84" lean-forward="false" selection-start-line="101" selection-start-column="84" selection-end-line="101" selection-end-column="84" />
+          <folding>
+            <marker date="1510627818637" expanded="false" signature="3735:3763" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projeto2-web/src/main/webapp/edit-car.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1397">
+          <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projeto2-business/src/main/java/ejb/CarEJB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="422" column="24" lean-forward="true" selection-start-line="422" selection-start-column="24" selection-end-line="422" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

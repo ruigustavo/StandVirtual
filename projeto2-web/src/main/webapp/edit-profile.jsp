@@ -20,11 +20,28 @@
 <body>
 <header class="w3-container default-primary-color">
     <div class="w3-row">
-        <div class="w3-col m6" style="width:30%">
+        <div class="w3-col" style="width:30%">
             <h3 class="text-primary-color"><a href="/projeto2-web/">Welcome, <c:out value="${user.getName()}"/></a></h3>
         </div>
-        <div class="w3-col" style="width:60%">
-            <h3></h3>
+        <div class="w3-col" style="width:10%; margin-top: 10px;">
+            <form class="w3-form" method="get" action="Main">
+                <input type="hidden" name="action" value="search-car"/>
+                <input type="search" class="w3-input" name="search-value"/>
+            </form>
+        </div>
+
+        <div class="w3-col" style="width:10%; margin-top: 10px;">
+            <form class="w3-form" method="get" action="Main">
+                <input type="hidden" name="action" value="list-all"/>
+                <input type="submit" class="w3-btn accent-color secondary-text-color" value="All Cars"/>
+            </form>
+        </div>
+
+        <div class="w3-col" style="width:10%; margin-top: 10px;">
+            <form class="w3-form" method="get" action="Main">
+                <input type="hidden" name="action" value="edit-profile"/>
+                <input type="submit" class="w3-btn accent-color secondary-text-color" value="Edit Profile"/>
+            </form>
         </div>
         <div class="w3-col" style="width:10%; margin-top: 10px;">
             <form class="w3-form" method="post" action="Main">
@@ -34,6 +51,7 @@
         </div>
     </div>
 </header>
+
 <div class="w3-container ">
     <form class="w3-form" method="post" action="Main">
         <div class="w3-input-group">

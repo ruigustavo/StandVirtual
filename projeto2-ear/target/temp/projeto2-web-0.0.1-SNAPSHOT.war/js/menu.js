@@ -10,3 +10,10 @@ function goDetailsCar(i){
     document.ownedCars.id.value = i;
     document.ownedCars.submit();
 }
+
+function researchByBrand(i) {
+    document.forms["orderByBrand"].elements["action"].value = "listByBrand";
+    document.forms["orderByBrand"].elements["brand"].value = i;
+    document.forms["orderByBrand"].submit();
+
+}

@@ -32,7 +32,6 @@ public class UserEJB implements UserEJBInterface {
             q.setParameter("e",email);
             @SuppressWarnings("unchecked")
             User result = (User) q.getSingleResult();
-            System.out.println(result.getSellingCars());
             if(result!=null) {
                 if (result.getPassword().compareTo(hashedPassword) == 0) {
                     return result.getId();
@@ -50,10 +49,10 @@ public class UserEJB implements UserEJBInterface {
 
     public int register(UserDTO user){
         logger.info("Checking if email already exists");
-        Query q = em.createQuery("select count(u) from"+ User.class.getSimpleName() +"u where u.email =:email");
+        Query q = em.createQuery("select u from "+ User.class.getSimpleName() +" u where u.email =:email");
         q.setParameter("email", user.getEmail());
-
-        if((int)q.getSingleResult()==0){
+        int count =   q.getResultList().size();
+        if(count==0){
             logger.info("Creating new User with name "+user.getName());
             User toPersist = new User(user.getEmail(),user.getPassword(),user.getName(),user.getAddress(),user.getPhone());
             em.persist(toPersist);
@@ -100,94 +99,7 @@ public class UserEJB implements UserEJBInterface {
         logger.info("User edited successfully");
     }
 
-    public List<CarDTO> getCarsOfUser(int id){
-        logger.info("Getting Cars of User with ID " + id);
-        List<Car> aux =null;
-        try{
-            Query q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.owner.id = :n order by c.price asc");
-            q.setParameter("n", id);
-            aux = q.getResultList();
-        }   catch (Exception e) {
-        logger.warn("Dropped Exception");
-        e.printStackTrace();
-        logger.info("Returning null");
-        return null;
-    }
-        List<CarDTO> toSend = new ArrayList<>();
-        for(Car c : aux){
-            toSend.add(new CarDTO(c.getId(),
-                    c.getBrand(),
-                    c.getModel(),
-                    c.getPrice(),
-                    c.getKm(),
-                    c.getRegistration_month(),
-                    c.getRegistration_year(),
-                    new UserDTO(c.getOwner().getEmail(),
-                            c.getOwner().getName(),
-                            c.getOwner().getAddress(),
-                            c.getOwner().getPhone()),
-                    c.getPicture()));
-        }
-        logger.info("Returning Cars of User with ID " + id);
-        return toSend;
 
-    }
-
-     public List<CarDTO> getCarsUserFollow(int id){
-         List<Car> aux = null;
-         logger.info("Getting user from db.");
-         Query q = em.createQuery("select u from "+ User.class.getSimpleName() + " u where u.id = :i");
-         q.setParameter("i", id);
-         User u = (User) q.getSingleResult();
-         aux = u.getFollowingCars();
-         List<CarDTO> toSend = new ArrayList<>();
-         for(Car c : aux){
-             toSend.add(new CarDTO(c.getId(),
-                     c.getBrand(),
-                     c.getModel(),
-                     c.getPrice(),
-                     c.getKm(),
-                     c.getRegistration_month(),
-                     c.getRegistration_year(),
-                     new UserDTO(c.getOwner().getEmail(),
-                             c.getOwner().getName(),
-                             c.getOwner().getAddress(),
-                             c.getOwner().getPhone()),
-                     c.getPicture()));
-         }
-         return toSend;
-     }
-    public List<CarDTO> getCarsUserNotOwn(int id){
-        logger.info("Getting Cars of User with ID " + id);
-        List<Car> aux =null;
-        try{
-            Query q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.owner.id != :n order by c.price asc");
-            q.setParameter("n", id);
-            aux = q.getResultList();
-        }   catch (Exception e) {
-            logger.warn("Dropped Exception");
-            e.printStackTrace();
-            logger.info("Returning null");
-            return null;
-        }
-        List<CarDTO> toSend = new ArrayList<>();
-        for(Car c : aux){
-            toSend.add(new CarDTO(c.getId(),
-                    c.getBrand(),
-                    c.getModel(),
-                    c.getPrice(),
-                    c.getKm(),
-                    c.getRegistration_month(),
-                    c.getRegistration_year(),
-                    new UserDTO(c.getOwner().getEmail(),
-                            c.getOwner().getName(),
-                            c.getOwner().getAddress(),
-                            c.getOwner().getPhone()),
-                    c.getPicture()));
-        }
-        logger.info("Returning Cars of User with ID " + id);
-        return toSend;
-    }
     public UserDTO getUserById(int id) {
         logger.info("Getting User with ID " + id);
         User aux = null;
@@ -202,7 +114,12 @@ public class UserEJB implements UserEJBInterface {
             return null;
         }
         logger.info("Return User with ID " + id);
-        logger.info(aux.getSellingCars().toString());
+        UserDTO user = new UserDTO(aux.getId(),
+                aux.getEmail(),
+                aux.getName(),
+                aux.getAddress(),
+                aux.getPhone()
+                );
         List<CarDTO> followingCars= new ArrayList<>();
         for(Car c : aux.getFollowingCars()){
             followingCars.add(new CarDTO(c.getId(),
@@ -212,34 +129,24 @@ public class UserEJB implements UserEJBInterface {
                     c.getKm(),
                     c.getRegistration_month(),
                     c.getRegistration_year(),
-                    new UserDTO(c.getOwner().getEmail(),
-                            c.getOwner().getName(),
-                            c.getOwner().getAddress(),
-                            c.getOwner().getPhone()),
+                    user,
                     c.getPicture()));
         }
-        List<CarDTO> ownedCars= new ArrayList<>();
+        List<CarDTO> sellingCars= new ArrayList<>();
         for(Car c : aux.getSellingCars()){
-            ownedCars.add(new CarDTO(c.getId(),
+            sellingCars.add(new CarDTO(c.getId(),
                     c.getBrand(),
                     c.getModel(),
                     c.getPrice(),
                     c.getKm(),
                     c.getRegistration_month(),
                     c.getRegistration_year(),
-                    new UserDTO(c.getOwner().getEmail(),
-                            c.getOwner().getName(),
-                            c.getOwner().getAddress(),
-                            c.getOwner().getPhone()),
+                    user,
                     c.getPicture()));
         }
-        return new UserDTO(aux.getId(),
-                aux.getEmail(),
-                aux.getName(),
-                aux.getAddress(),
-                aux.getPhone(),
-                ownedCars,
-                followingCars);
+        user.setFollowingCars(followingCars);
+        user.setSellingCars(sellingCars);
+        return user;
     }
 
     public void deleteUserById(int id){

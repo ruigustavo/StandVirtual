@@ -20,9 +20,23 @@
 <body>
 <header class="w3-container default-primary-color">
     <div class="w3-row">
-        <div class="w3-col m6" style="width:30%">
+        <div class="w3-col" style="width:30%">
             <h3 class="text-primary-color"><a href="/projeto2-web/">Welcome, <c:out value="${user.getName()}"/></a></h3>
         </div>
+        <div class="w3-col" style="width:10%; margin-top: 10px;">
+            <form class="w3-form" method="get" action="Main">
+                <input type="hidden" name="action" value="search-car"/>
+                <input type="search" class="w3-input" name="search-value"/>
+            </form>
+        </div>
+
+        <div class="w3-col" style="width:10%; margin-top: 10px;">
+            <form class="w3-form" method="get" action="Main">
+                <input type="hidden" name="action" value="list-all"/>
+                <input type="submit" class="w3-btn accent-color secondary-text-color" value="All Cars"/>
+            </form>
+        </div>
+
         <div class="w3-col" style="width:10%; margin-top: 10px;">
             <form class="w3-form" method="get" action="Main">
                 <input type="hidden" name="action" value="edit-profile"/>
@@ -37,43 +51,45 @@
         </div>
     </div>
 </header>
+
+<div class="w3-container">
     <form class="w3-form" method="post" action="Main" enctype="multipart/form-data">
-        <div class="w3-input-group">
-            <label>Brand</label>
-            <input class="w3-input" name="brand" type="text" required/>
-        </div>
-        <div class="w3-input-group">
-            <label>Model</label>
-            <input class="w3-input" name="model" type="text" required/>
-        </div>
+            <div class="w3-input-group">
+                <label>Brand</label>
+                <input class="w3-input" name="brand" type="text" required/>
+            </div>
+            <div class="w3-input-group">
+                <label>Model</label>
+                <input class="w3-input" name="model" type="text" required/>
+            </div>
 
-        <div class="w3-input-group">
-            <label>Price</label>
-            <input class="w3-input" name="price" type="number" required/>
-        </div>
+            <div class="w3-input-group">
+                <label>Price</label>
+                <input class="w3-input" name="price" type="number" required/>
+            </div>
 
-        <div class="w3-input-group">
-            <label>Kilometers</label>
-            <input class="w3-input" name="km" type="number" required/>
-        </div>
+            <div class="w3-input-group">
+                <label>Kilometers</label>
+                <input class="w3-input" name="km" type="number" required/>
+            </div>
 
-        <div class="w3-input-group">
-            <label>Month</label>
-            <input class="w3-input" name="registration_month" type="text" required/>
-        </div>
+            <div class="w3-input-group">
+                <label>Month</label>
+                <input class="w3-input" name="registration_month" type="text" required/>
+            </div>
 
-        <div class="w3-input-group">
-            <label>Year</label>
-            <input class="w3-input" name="registration_year" type="number" required/>
-        </div>
+            <div class="w3-input-group">
+                <label>Year</label>
+                <input class="w3-input" name="registration_year" type="number" required/>
+            </div>
 
-        <div class="w3-input-group">
-            <label>Picture</label>
-            <input class="w3-input" name="picture" type="file" accept="image/*" required/>
-        </div>
-        <input type="hidden" name="action" value="new-car"/>
-        <button type="submit" class="w3-btn dark-primary-color">Create Auction</button>
-</form>
-
+            <div class="w3-input-group">
+                <label>Picture</label>
+                <input class="w3-input" name="picture" type="file" accept="image/*" required/>
+            </div>
+            <input type="hidden" name="action" value="new-car"/>
+            <button type="submit" class="w3-btn dark-primary-color">Create Auction</button>
+    </form>
+</div>
 </body>
 </html>

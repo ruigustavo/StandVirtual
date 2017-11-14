@@ -31,4 +31,8 @@ public interface CarEJBInterface {
     CarDTO getCarById(int id);
 
     List<CarDTO> getCarsByKmRange(long low_value, long up_value, int order);
+
+    List<CarDTO> getCarsOfUser(int id);
+    List<CarDTO> getCarsUserNotOwn(int id);
+    List<CarDTO> getCarsUserFollow(int id);
 }

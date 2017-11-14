@@ -41,7 +41,7 @@ public class PlayersEJB implements PlayersEJBInterface {
 
     public void populate(){
         User[] u = {//password=test
-                new User("user1@user.pt","098f6bcd4621d373cade4e832627b4f6","user1","Coimbra","123"),
+                new User("koala","098f6bcd4621d373cade4e832627b4f6","user1","Coimbra","123"),
                 new User("user2@user2.pt","098f6bcd4621d373cade4e832627b4f6","user2","Coimbra","123"),
 
         };

@@ -11,15 +11,42 @@ function goDetailsCar(i){
     document.ownedCars.submit();
 }
 
-function researchByBrand() {
-    var select = document.getElementsByName("brand");
-    var selected = select[0][select[0].selectedIndex].value;
-    if(selected!="" || selected!=undefined){
-        document.forms["reOrder"].elements["action"].value = "listByBrand";
-        // document.forms["reOrder"].elements["brand"].value = selected;
-        console.log(document.forms["reOrder"].elements["action"].value );
-        console.log(selected);
+function researchBrandModel(e) {
+    var brand = document.getElementsByName("brand");
+    var model = document.getElementsByName("model");
+    var brand_selected = brand[0][brand[0].selectedIndex].value;
+    var model_selected = model[0][model[0].selectedIndex].value;
+    if(brand_selected!=""){
+        if(model_selected!=""){
+            document.forms["researchBrandAndModel"].elements["action"].value = "list-brand-model";
+            document.forms["researchBrandAndModel"].submit();
+        }else{
+            document.forms["researchBrandAndModel"].elements["action"].value = "list-brand";
+            document.forms["researchBrandAndModel"].submit();
+        }
+    }else{
+        e.preventDefault();
     }
-    document.forms["reOrder"].submit();
+
+}
+
+function researchPrice(e) {
+    var form = document.forms["researchPrice"];
+    if(form.elements["low_value"].value!="" && form.elements["up_value"].value!=""){
+        form.submit();
+    }else{
+        e.preventDefault();
+    }
+
+}
+
+
+function researchYear(e) {
+    var form = document.forms["researchYear"];
+    if(form.elements["year"].value!=""){
+        form.submit();
+    }else{
+        e.preventDefault();
+    }
 
 }

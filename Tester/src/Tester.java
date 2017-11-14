@@ -193,13 +193,13 @@ public class Tester {
         logged = false;
         System.out.println("User Eliminated");
     }
-private void showAllMyCarsGUI(){
-    System.out.println("List of cars you own");
-    List<CarDTO> myCars = userEJB.getCarsOfUser(this.userId);
-    for (CarDTO p : myCars) {
-        System.out.println(p.toString());
-    }
-}
+//private void showAllMyCarsGUI(){
+//    System.out.println("List of cars you own");
+//    List<CarDTO> myCars = userEJB.getCarsOfUser(this.userId);
+//    for (CarDTO p : myCars) {
+//        System.out.println(p.toString());
+//    }
+//}
 
     private void showAllCarsGUI(int order){
         List<CarDTO> myCars = carEJB.getAllCars(order);
@@ -401,43 +401,43 @@ private void showAllMyCarsGUI(){
 
 
     }
-    private void editCarGUI(){
-        System.out.println("List of cars you own");
-        List<CarDTO> myCars = userEJB.getCarsOfUser(this.userId);
-        for (CarDTO p : myCars) {
-            System.out.println(p.toString());
-        }
-
-        try {
-            String value=null;
-            System.out.println("Insert the id of the car you want to edit");
-            String temp_id = br.readLine();
-            System.out.println("Select the parameter you want to edit");
-            System.out.println("1-Brand");
-            System.out.println("2-Model");
-            System.out.println("3-Price");
-            System.out.println("4-Data(does not exist)");
-            String field = br.readLine();
-            switch (field) {
-                case "1":
-                    System.out.println("Insert your new Brand:");
-                    value = br.readLine();
-                    break;
-                case "2":
-                    System.out.println("Insert your new model:");
-                    value = br.readLine();
-                    break;
-                case "3":
-                    System.out.println("Insert your new price:");
-                    value = br.readLine();
-                    break;
-            }
-            //carEJB.editCarInfo(Integer.parseInt(temp_id),Integer.parseInt(field),value);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
+//    private void editCarGUI(){
+//        System.out.println("List of cars you own");
+//        List<CarDTO> myCars = userEJB.getCarsOfUser(this.userId);
+//        for (CarDTO p : myCars) {
+//            System.out.println(p.toString());
+//        }
+//
+//        try {
+//            String value=null;
+//            System.out.println("Insert the id of the car you want to edit");
+//            String temp_id = br.readLine();
+//            System.out.println("Select the parameter you want to edit");
+//            System.out.println("1-Brand");
+//            System.out.println("2-Model");
+//            System.out.println("3-Price");
+//            System.out.println("4-Data(does not exist)");
+//            String field = br.readLine();
+//            switch (field) {
+//                case "1":
+//                    System.out.println("Insert your new Brand:");
+//                    value = br.readLine();
+//                    break;
+//                case "2":
+//                    System.out.println("Insert your new model:");
+//                    value = br.readLine();
+//                    break;
+//                case "3":
+//                    System.out.println("Insert your new price:");
+//                    value = br.readLine();
+//                    break;
+//            }
+//            //carEJB.editCarInfo(Integer.parseInt(temp_id),Integer.parseInt(field),value);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
     private void showCarsByYearGUI(){
         System.out.println("Insert year");
         try {
@@ -480,53 +480,60 @@ private void showAllMyCarsGUI(){
 
     }
 
-    private void deleteCarGUI(){
-        System.out.println("List of cars you own");
-        List<CarDTO> myCars = userEJB.getCarsOfUser(this.userId);
-        for (CarDTO p : myCars) {
+//    private void deleteCarGUI(){
+//        System.out.println("List of cars you own");
+//        List<CarDTO> myCars = userEJB.getCarsOfUser(this.userId);
+//        for (CarDTO p : myCars) {
+//            System.out.println(p.toString());
+//        }
+//
+//        try {
+//            System.out.println("Insert the id of the car you want to delete");
+//            String car_id = br.readLine();
+//            carEJB.deleteCarById(Integer.parseInt(car_id));
+//            System.out.println("Car Erased");
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+//    private void FollowCarsGUI(){
+//        System.out.println("List of cars you can follow");
+//        List<CarDTO> myCars = userEJB.getCarsUserNotOwn(this.userId);
+//        for (CarDTO p : myCars) {
+//            System.out.println(p.toString());
+//        }
+//        try {
+//            System.out.println("Insert the id of the car you want to follow");
+//            String car_id = br.readLine();
+//            carEJB.followCar(Integer.parseInt(car_id),this.userId);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+//    private void UnfollowCarsGUI(){
+//        System.out.println("List of cars you follow");
+//        List<CarDTO> myCars = userEJB.getCarsUserFollow(this.userId);
+//        for (CarDTO p : myCars) {
+//            System.out.println(p.toString());
+//        }
+//        try {
+//            System.out.println("Insert the id of the car you want to unfollow");
+//            String car_id = br.readLine();
+//            carEJB.unfollowCar(Integer.parseInt(car_id),this.userId);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+    private void getDistinctBrands(){
+        System.out.println("List of brands");
+        List<String> myBrands = carEJB.getDistinctBrands();
+        for (String p : myBrands) {
             System.out.println(p.toString());
         }
-
-        try {
-            System.out.println("Insert the id of the car you want to delete");
-            String car_id = br.readLine();
-            userEJB.deleteUserById(Integer.parseInt(car_id));
-            System.out.println("Car Erased");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-    private void FollowCarsGUI(){
-        System.out.println("List of cars you can follow");
-        List<CarDTO> myCars = userEJB.getCarsUserNotOwn(this.userId);
-        for (CarDTO p : myCars) {
-            System.out.println(p.toString());
-        }
-        try {
-            System.out.println("Insert the id of the car you want to follow");
-            String car_id = br.readLine();
-            carEJB.followCar(Integer.parseInt(car_id),this.userId);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-    private void UnfollowCarsGUI(){
-        System.out.println("List of cars you follow");
-        List<CarDTO> myCars = userEJB.getCarsUserFollow(this.userId);
-        for (CarDTO p : myCars) {
-            System.out.println(p.toString());
-        }
-        try {
-            System.out.println("Insert the id of the car you want to unfollow");
-            String car_id = br.readLine();
-            carEJB.unfollowCar(Integer.parseInt(car_id),this.userId);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
     }
 
     private void loggedMenu() {
@@ -546,6 +553,7 @@ private void showAllMyCarsGUI(){
             System.out.println("12-Remove car from sale");
             System.out.println("13-Follow a car");
             System.out.println("14-Unfollow a car");
+            System.out.println("15-List of brands");
             System.out.println("0-Logout");
             String input = br.readLine();
             switch (input) {
@@ -556,7 +564,7 @@ private void showAllMyCarsGUI(){
                     deleteUserGUI();
                     break;
                 case "3":
-                    showAllMyCarsGUI();
+                    //showAllMyCarsGUI();
                     break;
                 case "4":
                     showAllCarsGUI(1);
@@ -580,16 +588,19 @@ private void showAllMyCarsGUI(){
                     addNewCarForSaleGUI();
                     break;
                 case "11":
-                    editCarGUI();
+                    //editCarGUI();
                     break;
                 case "12":
-                    deleteCarGUI();
+                    //deleteCarGUI();
                     break;
                 case "13":
-                    FollowCarsGUI();
+                    //FollowCarsGUI();
                     break;
                 case "14":
-                    UnfollowCarsGUI();
+                    //UnfollowCarsGUI();
+                    break;
+                case "15":
+                    getDistinctBrands();
                     break;
                 default:
                     logged = false;

@@ -26,12 +26,6 @@
         <div class="w3-col" style="width:30%">
             <h3 class="text-primary-color"><a href="/projeto2-web/">Welcome, <c:out value="${user.getName()}"/></a></h3>
         </div>
-        <div class="w3-col" style="width:10%; margin-top: 10px;">
-            <form class="w3-form" method="get" action="Main">
-                <input type="hidden" name="action" value="search-car"/>
-                <input type="search" class="w3-input" name="search-value"/>
-            </form>
-        </div>
 
         <div class="w3-col" style="width:10%; margin-top: 10px;">
             <form class="w3-form" method="get" action="Main">

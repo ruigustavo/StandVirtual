@@ -11,7 +11,10 @@
           <element id="directory" name="classes">
             <element id="module-output" name="projeto2-web" />
           </element>
-          <element id="directory" name="lib" />
+          <element id="directory" name="lib">
+            <element id="library" level="project" name="Maven: javax.mail:mail:1.4" />
+            <element id="library" level="project" name="Maven: javax.activation:activation:1.1.1" />
+          </element>
         </element>
         <element id="directory" name="META-INF">
           <element id="file-copy" path="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web/META-INF/SKINNY_MANIFEST.MF" output-file-name="MANIFEST.MF" />
@@ -20,6 +23,10 @@
       </element>
       <element id="archive" name="projeto2-business-0.0.1-SNAPSHOT.jar">
         <element id="artifact" artifact-name="projeto2-business:ejb exploded" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="library" level="project" name="Maven: javax.mail:mail:1.4" />
+        <element id="library" level="project" name="Maven: javax.activation:activation:1.1.1" />
       </element>
       <element id="archive" name="projeto2-data-0.0.1-SNAPSHOT.jar">
         <element id="artifact" artifact-name="projeto2-data:ejb exploded" />

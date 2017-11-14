@@ -3,6 +3,7 @@ package DTOs;
 import data.User;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Base64;
 
@@ -55,17 +56,18 @@ public class CarDTO implements Serializable {
     @Override
     public String toString() {
         return "CarDTO{" +
-                "id=" + id + '\''+
-                "brand='" + brand + '\'' +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", price=" + price +
-                ", owner=" + owner +
-                ", registration month=" + registration_month +
-                ", registration year=" + registration_year +
+                ", km=" + km +
+                ", owner=" + owner.getId() +
+                ", registration_month='" + registration_month + '\'' +
+                ", registration_year=" + registration_year +
                 '}';
     }
 
-    public CarDTO(String brand, String model, long price,long km, String registration_month, int registration_year, UserDTO owner) {
+    public CarDTO(String brand, String model, long price, long km, String registration_month, int registration_year, UserDTO owner) {
         this.brand = brand;
         this.model = model;
         this.price = price;

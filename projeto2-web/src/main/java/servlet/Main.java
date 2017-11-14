@@ -37,7 +37,6 @@ public class Main extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        System.out.println("----------->"+action+"<---------------------");
         if(request.getSession().getAttribute("user")==null){
             if(action==null){
                 request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -51,12 +50,6 @@ public class Main extends HttpServlet {
             }
         }else{
 
-            // visto que o two-way binding nao funciona
-            UserDTO user = (UserDTO) request.getSession().getAttribute("user");
-//            UserDTO user = userejb.getUserById(refresh.getId());
-//            System.out.println(".........................................----------------------------------");
-//            System.out.println(user.getSellingCars());
-//            request.getSession().setAttribute("user",user);
             if(action==null){
                 request.getRequestDispatcher("menu.jsp").forward(request,response);
             }
@@ -78,15 +71,53 @@ public class Main extends HttpServlet {
                 request.getRequestDispatcher("menu.jsp").forward(request,response);
             }else if(action.compareToIgnoreCase("list-all")==0){
                 List<CarDTO> cars = carejb.getAllCars(1);
+                List<String> brands = carejb.getDistinctBrands();
+                List<String> models = carejb.getDistinctModels();
                 request.getSession().setAttribute("carslist",cars);
+                request.getSession().setAttribute("brandslist",brands);
+                request.getSession().setAttribute("modelslist",models);
                 request.getRequestDispatcher("list-all.jsp").forward(request,response);
-            }else if(action.compareToIgnoreCase("listByBrand")==0){
+            }else if(action.compareToIgnoreCase("list-brand-model")==0){
+                List<CarDTO> cars = carejb.getCarsByBrandAndModel(request.getParameter("brand"),request.getParameter("model"),1);
+                List<String> brands = carejb.getDistinctBrands();
+                List<String> models = carejb.getDistinctModels();
+                request.getSession().setAttribute("carslist",cars);
+                request.getSession().setAttribute("brandslist",brands);
+                request.getSession().setAttribute("modelslist",models);
+                request.getRequestDispatcher("list-all.jsp").forward(request,response);
+            }else if(action.compareToIgnoreCase("list-brand")==0){
                 List<CarDTO> cars = carejb.getCarsByBrand(request.getParameter("brand"),1);
-
+                List<String> brands = carejb.getDistinctBrands();
+                List<String> models = carejb.getDistinctModels();
                 request.getSession().setAttribute("carslist",cars);
+                request.getSession().setAttribute("brandslist",brands);
+                request.getSession().setAttribute("modelslist",models);
                 request.getRequestDispatcher("list-all.jsp").forward(request,response);
-            }
-            else{
+            }else if(action.compareToIgnoreCase("list-price")==0){
+                List<CarDTO> cars = carejb.getCarsByPriceRange(Long.parseLong(request.getParameter("low_value")),Long.parseLong(request.getParameter("up_value")),1);
+                List<String> brands = carejb.getDistinctBrands();
+                List<String> models = carejb.getDistinctModels();
+                request.getSession().setAttribute("carslist",cars);
+                request.getSession().setAttribute("brandslist",brands);
+                request.getSession().setAttribute("modelslist",models);
+                request.getRequestDispatcher("list-all.jsp").forward(request,response);
+            }else if(action.compareToIgnoreCase("list-km")==0){
+                List<CarDTO> cars = carejb.getCarsByKmRange(Long.parseLong(request.getParameter("low_value")),Long.parseLong(request.getParameter("up_value")),1);
+                List<String> brands = carejb.getDistinctBrands();
+                List<String> models = carejb.getDistinctModels();
+                request.getSession().setAttribute("carslist",cars);
+                request.getSession().setAttribute("brandslist",brands);
+                request.getSession().setAttribute("modelslist",models);
+                request.getRequestDispatcher("list-all.jsp").forward(request,response);
+            }else if(action.compareToIgnoreCase("list-year")==0){
+                List<CarDTO> cars = carejb.getCarsNewerThan(Integer.parseInt(request.getParameter("year")),1);
+                List<String> brands = carejb.getDistinctBrands();
+                List<String> models = carejb.getDistinctModels();
+                request.getSession().setAttribute("carslist",cars);
+                request.getSession().setAttribute("brandslist",brands);
+                request.getSession().setAttribute("modelslist",models);
+                request.getRequestDispatcher("list-all.jsp").forward(request,response);
+            }else{
                 request.getRequestDispatcher("menu.jsp").forward(request,response);
             }
         }
@@ -111,9 +142,7 @@ public class Main extends HttpServlet {
                 String password = request.getParameter("password");
                 int result = userejb.login(email,Hasher.hashPassword(password));
                 if(result>0){
-                    request.getSession().setAttribute("user",userejb.getUserById(result));
-
-                    UserDTO user = (UserDTO) request.getSession().getAttribute("user");
+                    UserDTO user = (UserDTO) userejb.getUserById(result);
                     request.getSession().setAttribute("user",user);
 
                     request.getRequestDispatcher("menu.jsp").forward(request,response);
@@ -140,11 +169,7 @@ public class Main extends HttpServlet {
                 user.setPhone(request.getParameter("phone"));
 
                 userejb.editUserInfo(user);
-//                request.getSession().setAttribute("user",user);
-//                user.setSellingCars(carejb.getCarsOfUser(user.getId()));
-//                request.getSession().setAttribute("user",user);
 
-//                response.sendRedirect("menu.jsp");
             }else if(action.compareToIgnoreCase("new-car")==0){
 
                 CarDTO car = new CarDTO(request.getParameter("brand"),
@@ -159,11 +184,6 @@ public class Main extends HttpServlet {
                                         .toByteArray())
                 );
                 carejb.addCar(car);
-
-//                user.setSellingCars(carejb.getCarsOfUser(user.getId()));
-//                request.getSession().setAttribute("user",user);
-
-//                response.sendRedirect("menu.jsp");
 
             }else if(action.compareToIgnoreCase("edit-car")==0){
                 CarDTO car;
@@ -191,10 +211,6 @@ public class Main extends HttpServlet {
                     );
                 }
                 carejb.editCarInfo(car);
-//                user.setSellingCars(carejb.getCarsOfUser(user.getId()));
-//                request.getSession().setAttribute("user",user);
-
-//                response.sendRedirect("menu.jsp");
             }
             UserDTO refreshed = userejb.getUserById(user.getId());
             request.getSession().setAttribute("user",refreshed);

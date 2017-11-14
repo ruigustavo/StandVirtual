@@ -1,8 +1,8 @@
-ejb\CarEJBInterface.class
-ejb\UserEJBInterface.class
-ejb\PlayersEJBInterface.class
-DTOs\UserDTO.class
-ejb\CarEJB.class
-ejb\PlayersEJB.class
-DTOs\CarDTO.class
-ejb\UserEJB.class
+ejb/CarEJBInterface.class
+ejb/PlayersEJBInterface.class
+DTOs/UserDTO.class
+ejb/PlayersEJB.class
+ejb/CarEJB.class
+ejb/UserEJBInterface.class
+DTOs/CarDTO.class
+ejb/UserEJB.class

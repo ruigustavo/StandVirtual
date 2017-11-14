@@ -404,6 +404,11 @@ public class CarEJB implements CarEJBInterface{
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.brand desc,c.model desc ");
                 q.setParameter("lo", low_value);q.setParameter("up", up_value);
                 break;
+            default:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by price");
+                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.price asc");
+                q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                break;
         }
         aux = q.getResultList();
 
@@ -433,6 +438,14 @@ public class CarEJB implements CarEJBInterface{
         Query q=null;
         q = em.createQuery("SELECT DISTINCT c.brand from " +Car.class.getSimpleName()+ " c" );
         aux = q.getResultList();
+
+        return aux;
+    }
+
+    @Override
+    public List<String> getDistinctModels() {
+        Query q= em.createQuery("SELECT DISTINCT c.model from " +Car.class.getSimpleName()+ " c" );
+        List<String> aux = q.getResultList();
         return aux;
     }
 
@@ -472,6 +485,11 @@ public class CarEJB implements CarEJBInterface{
                 q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.brand desc,c.model desc ");
                 q.setParameter("lo", low_value);q.setParameter("up", up_value);
                 break;
+            default:
+                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by km");
+                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.km asc");
+                q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                break;
         }
         aux = q.getResultList();
 
@@ -496,6 +514,7 @@ public class CarEJB implements CarEJBInterface{
         return toSend;
     }
 
+
     public void sendEmail(String recipient_email, String brand, String model){
         // Recipient's email ID needs to be mentioned.
         String to = recipient_email;
@@ -513,13 +532,6 @@ public class CarEJB implements CarEJBInterface{
         // Setup mail server
         properties.put("mail.smtp.host", host);
         properties.put("mail.smtp.port", port);
-
-        // Get the default Session object.
-//        Session mailSession = Session.getInstance(properties, new javax.mail.Authenticator() {
-//            protected PasswordAuthentication getPasswordAuthentication() {
-//                return new PasswordAuthentication(from, passwd);
-//            }
-//        });
 
 
         MimeMessage m = new MimeMessage(mailSession);

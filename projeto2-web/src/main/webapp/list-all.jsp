@@ -24,12 +24,6 @@
         <div class="w3-col" style="width:30%">
             <h3 class="text-primary-color"><a href="/projeto2-web/">Welcome, <c:out value="${user.getName()}"/></a></h3>
         </div>
-        <div class="w3-col" style="width:10%; margin-top: 10px;">
-            <form class="w3-form" method="get" action="Main">
-                <input type="hidden" name="action" value="search-car"/>
-                <input type="search" class="w3-input" name="search-value"/>
-            </form>
-        </div>
 
         <div class="w3-col" style="width:10%; margin-top: 10px;">
             <form class="w3-form" method="get" action="Main">
@@ -87,23 +81,58 @@
     </div>
 
     <div class="w3-row">
-        <%--<div class="w3-col" style="width:10%; margin-top: 10px;">--%>
-            <%--&lt;%&ndash;<form class="w3-form" method="get" action="Main">&ndash;%&gt;--%>
-                <%--&lt;%&ndash;<input type="hidden" name="action" value="search-car"/>&ndash;%&gt;--%>
-                <%--&lt;%&ndash;<input type="search" class="w3-input" name="search-value"/>&ndash;%&gt;--%>
-            <%--&lt;%&ndash;</form>&ndash;%&gt;--%>
-        <%--</div>--%>
-        <c:if test="${carslist!=null}">
-            <h4>Brand</h4>
-            <c:forEach items= "${carslist}" var = "i">
-                <form class="w3-form" name="orderByBrand" method="get" action="Main">
+        <h2>ReSearch</h2>
+        <div>
+            <c:if test="${brandslist!=null && modelslist!=null}">
+                <h4>Brand and Model</h4>
+                <form class="w3-form" name="researchBrandAndModel" method="get" action="Main">
                     <input type="hidden" name="action"/>
-                    <input type="hidden" name="brand"/>
-                    <button type="submit" onclick="researchByBrand('${i.getBrand()}')"><c:out value="${i.getBrand()}"/></button>
+                    <select name="brand">
+                        <option value="" disabled selected>Select your option</option>
+                        <c:forEach items= "${brandslist}" var = "i">
+                            <option value="${i}"><c:out value="${i}"/></option>
+                        </c:forEach>
+                    </select>
+                    <select name="model">
+                        <option value="" disabled selected>Select your option</option>
+                        <c:forEach items= "${modelslist}" var = "i">
+                            <option value="${i}"><c:out value="${i}"/></option>
+                        </c:forEach>
+                    </select>
+                    <button type="submit" onclick="researchBrandModel(event)">Search</button>
                 </form>
-            </c:forEach>
+            </c:if>
+        </div>
+        <div>
+            <h4>Price</h4>
+            <form class="w3-form" name="researchPrice" method="get" action="Main">
+                <input type="hidden" name="action" value="list-price"/>
+                <input type="number" class="" name="low_value">
+                <input type="number" class="" name="up_value">
+                <button type="submit" onclick="researchPrice(event)">Search</button>
+            </form>
 
-        </c:if>
+        </div>
+        <div>
+            <h4>Kilometers</h4>
+            <form class="w3-form" name="researchPrice" method="get" action="Main">
+                <input type="hidden" name="action" value="list-km"/>
+                <input type="number" class="" name="low_value">
+                <input type="number" class="" name="up_value">
+                <button type="submit" onclick="researchPrice(event)">Search</button>
+            </form>
+
+        </div>
+
+        <div>
+            <h4>Newer than</h4>
+            <form class="w3-form" name="researchYear" method="get" action="Main">
+                <input type="hidden" name="action" value="list-year"/>
+                <input type="number" class="" name="year">
+                <button type="submit" onclick="researchYear(event)">Search</button>
+            </form>
+
+        </div>
     </div>
 
 </div>

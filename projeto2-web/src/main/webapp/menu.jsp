@@ -24,12 +24,6 @@
         <div class="w3-col" style="width:30%">
             <h3 class="text-primary-color"><a href="/projeto2-web/">Welcome, <c:out value="${user.getName()}"/></a></h3>
         </div>
-        <div class="w3-col" style="width:10%; margin-top: 10px;">
-            <form class="w3-form" method="get" action="Main">
-                <input type="hidden" name="action" value="search-car"/>
-                <input type="search" class="w3-input" name="search-value"/>
-            </form>
-        </div>
 
         <div class="w3-col" style="width:10%; margin-top: 10px;">
             <form class="w3-form" method="get" action="Main">
@@ -52,8 +46,6 @@
         </div>
     </div>
 </header>
-
-<c:out value = "${user.getId()}"/>
 
 <div class="w3-container">
     <div class="w3-row">
@@ -78,7 +70,6 @@
                                 </c:otherwise>
                             </c:choose>
                             <td><c:out value = "${i.getBrand()}"/></td>
-                            <c:out value = "${i.getOwner().getId()}"/>
                             <td><button type="submit" onclick="goEditCar(${i.getId()})">Edit</button></td>
                             <td><button type="submit" onclick="goDetailsCar(${i.getId()})">Details</button></td>
                         </tr>

@@ -156,9 +156,9 @@ public class Main extends HttpServlet {
             UserDTO user = (UserDTO) request.getSession().getAttribute("user");
             String finalDestination = "menu.jsp";
             if(action.compareToIgnoreCase("logout")==0){
+                System.out.println("LOGOUTTATEATATETAETARAERAET");
                 request.getSession().removeAttribute("user");
                 finalDestination = "index.jsp";
-                request.getRequestDispatcher("index.jsp").forward(request, response);
             }else if(action.compareToIgnoreCase("edit-profile")==0){
                 if(request.getParameter("password")!=null){
                     user.setPassword(Hasher.hashPassword(request.getParameter("password")));
@@ -185,6 +185,8 @@ public class Main extends HttpServlet {
                 );
                 carejb.addCar(car);
 
+            }else if(action.compareToIgnoreCase("follow-car")==0){
+                carejb.followCar(Integer.parseInt(request.getParameter("id")),user.getId());
             }else if(action.compareToIgnoreCase("edit-car")==0){
                 CarDTO car;
                 if(request.getPart("picture").getSize()>0){
@@ -212,8 +214,10 @@ public class Main extends HttpServlet {
                 }
                 carejb.editCarInfo(car);
             }
-            UserDTO refreshed = userejb.getUserById(user.getId());
-            request.getSession().setAttribute("user",refreshed);
+            if(action.compareToIgnoreCase("logout")!=0){
+                UserDTO refreshed = userejb.getUserById(user.getId());
+                request.getSession().setAttribute("user",refreshed);
+            }
             response.sendRedirect(finalDestination);
         }
     }

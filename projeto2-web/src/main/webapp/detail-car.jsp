@@ -85,13 +85,23 @@
             <p><c:out value = "${car.getRegistration_month()}"/></p>
         </div>
         <div>
-            <c:if test="${user.getId() == car.getOwner().getId()}">
-                <form name="ownedCars">
+        <c:choose>
+
+            <c:when test="${user.getId() == car.getOwner().getId()}">
+                <form name="ownedCars" method="get" action="Main">
                     <input type="hidden" name="action"/>
                     <input type="hidden" name="id"/>
                     <button type="submit" onclick="goEditCar(${car.getId()})">Edit</button>
                 </form>
-            </c:if>
+            </c:when>
+            <c:otherwise>
+                <form name="ownedCars" method="post" action="Main">
+                    <input type="hidden" name="action"/>
+                    <input type="hidden" name="id"/>
+                    <button type="submit" onclick="followCar(${car.getId()})">Follow</button>
+                </form>
+            </c:otherwise>
+        </c:choose>
         </div>
     </div>
 </div>

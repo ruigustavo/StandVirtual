@@ -11,6 +11,14 @@ function goDetailsCar(i){
     document.ownedCars.submit();
 }
 
+function followCar(i){
+    document.ownedCars.action.value = "follow-car";
+    document.ownedCars.id.value = i;
+    document.ownedCars.submit();
+}
+
+
+
 function researchBrandModel(e) {
     var brand = document.getElementsByName("brand");
     var model = document.getElementsByName("model");

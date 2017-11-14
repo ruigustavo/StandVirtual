@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
-Built-By: rogeriocsilva
+Built-By: ruigustavo
 Class-Path: lib/projeto2-business-0.0.1-SNAPSHOT.jar lib/projeto2-data
  -0.0.1-SNAPSHOT.jar lib/mail-1.4.jar lib/activation-1.1.1.jar mail-1.
  4.jar activation-1.1.1.jar
 Created-By: Apache Maven 3.3.9
-Build-Jdk: 1.8.0_151
+Build-Jdk: 1.8.0_65
 

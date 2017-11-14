@@ -8,7 +8,7 @@ import javax.ejb.Local;
 import javax.ejb.Remote;
 import java.util.List;
 
-@Local
+@Remote
 public interface UserEJBInterface {
     int login(String email, String hashedPassword);
     int register(UserDTO user);

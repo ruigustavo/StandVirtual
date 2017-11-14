@@ -480,24 +480,24 @@ public class Tester {
 
     }
 
-//    private void deleteCarGUI(){
-//        System.out.println("List of cars you own");
-//        List<CarDTO> myCars = userEJB.getCarsOfUser(this.userId);
-//        for (CarDTO p : myCars) {
-//            System.out.println(p.toString());
-//        }
-//
-//        try {
-//            System.out.println("Insert the id of the car you want to delete");
-//            String car_id = br.readLine();
-//            carEJB.deleteCarById(Integer.parseInt(car_id));
-//            System.out.println("Car Erased");
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
+    private void deleteCarGUI(){
+        System.out.println("List of cars you own");
+        List<CarDTO> myCars = carEJB.getCarsOfUser(this.userId);
+        for (CarDTO p : myCars) {
+            System.out.println(p.toString());
+        }
+
+        try {
+            System.out.println("Insert the id of the car you want to delete");
+            String car_id = br.readLine();
+            carEJB.deleteCarById(Integer.parseInt(car_id));
+            System.out.println("Car Erased");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 //    private void FollowCarsGUI(){
 //        System.out.println("List of cars you can follow");
 //        List<CarDTO> myCars = userEJB.getCarsUserNotOwn(this.userId);
@@ -591,7 +591,7 @@ public class Tester {
                     //editCarGUI();
                     break;
                 case "12":
-                    //deleteCarGUI();
+                    deleteCarGUI();
                     break;
                 case "13":
                     //FollowCarsGUI();

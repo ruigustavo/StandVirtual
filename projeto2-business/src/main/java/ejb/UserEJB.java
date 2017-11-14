@@ -150,8 +150,15 @@ public class UserEJB implements UserEJBInterface {
     }
 
     public void deleteUserById(int id){
-        Query q = em.createQuery("DELETE FROM car_user s where s.follower_id = :n");
-        q.setParameter("n", id).executeUpdate();
+        List<Car> aux =null;
+            Query q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.owner.id = :n ");
+            q.setParameter("n", id);
+            aux = q.getResultList();
+        for(Car c : aux){
+            logger.info("Deleting car with Id " + id);
+            em.remove(em.find(Car.class, c.getId()));
+            logger.info("Car "+id+" deleted");
+        }
         try{
             logger.info("Deleting user with Id " + id);
             em.remove(em.find(User.class, id));

@@ -384,7 +384,7 @@ public class Tester {
     }
 
     private void addNewCarForSaleGUI(){
-        CarDTO newCar = new CarDTO();
+        CarDTO newCar =null;
         UserDTO s = userEJB.getUserById(this.userId);
         try {
             System.out.println("Insert the brand:");

@@ -741,15 +741,36 @@ public class CarEJB implements CarEJBInterface{
         return toSend;
     }
 
+
     @Schedule( minute="*/1",hour="*", persistent=false)
     public void statistics(){
-
+        int total_followers =0;
+        List<Car>aux=null;
+        String noob_owners="";
         Query query = em.createQuery("SELECT count(*) FROM "+User.class.getSimpleName());
         long count_users = (long) query.getSingleResult();
         query = em.createQuery("SELECT count(*) FROM "+Car.class.getSimpleName());
         long count_cars = (long) query.getSingleResult();
+        Query q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c");
+        aux = q.getResultList();
+        for(Car c : aux){
+            total_followers+= c.getFollowers().size();
+
+            for (User f : c.getFollowers()) {
+                if (c.getOwner().getId() == f.getId()) {
+                    noob_owners = noob_owners + f.getName() + ", ";
+                }
+            }
+
+        }
+        if(noob_owners.compareTo("")!=0){
+            noob_owners = noob_owners.substring(0, noob_owners.length() - 2);
+        }
+
         logger.info("***********Statistics**********");
         logger.info("Number of registered users:"+ count_users);
         logger.info("Number of cars for sale:"+ count_cars);
+        logger.info("Average number of followers per car for sale:"+ total_followers/count_cars);
+        logger.info("List of users that follow their own cars:"+noob_owners);
     }
 }

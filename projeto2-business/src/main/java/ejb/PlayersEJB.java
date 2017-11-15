@@ -54,8 +54,11 @@ public class PlayersEJB implements PlayersEJBInterface {
                 new Car("fiat","swag",1220,1212334567,"January",2000,u[1]),
                 new Car("citroen","c5",100,12345678,"July",2010,u[0])
         };
+        c[0].getFollowers().add(u[0]);
         c[0].getFollowers().add(u[1]);
-        c[0].getFollowers().add(u[1]);
+        c[0].getFollowers().add(u[2]);
+        c[1].getFollowers().add(u[2]);
+        c[2].getFollowers().add(u[2]);
         for (User t : u)
             em.persist(t);
         for (Car t : c)

@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
+import javax.ejb.Schedule;
 import javax.ejb.Stateless;
 import java.util.*;
 import javax.mail.*;
@@ -591,19 +592,19 @@ public class CarEJB implements CarEJBInterface{
         // Recipient's email ID needs to be mentioned.
         String to = recipient_email;
 
-        // Sender's email ID needs to be mentioned
-        String from = "standvirtual2017is@gmail.com";
-        //String user = "MAILFROM";
-        String passwd = "projectis";
-        // Assuming you are sending email from localhost
-        String host = "localhost";
-        String port = "465";
-        // Get system properties
-        Properties properties = System.getProperties();
-
-        // Setup mail server
-        properties.put("mail.smtp.host", host);
-        properties.put("mail.smtp.port", port);
+//        // Sender's email ID needs to be mentioned
+//        String from = "standvirtual2017is@gmail.com";
+//        //String user = "MAILFROM";
+//        String passwd = "projectis";
+//        // Assuming you are sending email from localhost
+//        String host = "localhost";
+//        String port = "465";
+//        // Get system properties
+//        Properties properties = System.getProperties();
+//
+//        // Setup mail server
+//        properties.put("mail.smtp.host", host);
+//        properties.put("mail.smtp.port", port);
 
 
         MimeMessage m = new MimeMessage(mailSession);
@@ -740,4 +741,15 @@ public class CarEJB implements CarEJBInterface{
         return toSend;
     }
 
+    @Schedule( minute="*/1",hour="*", persistent=false)
+    public void statistics(){
+
+        Query query = em.createQuery("SELECT count(*) FROM "+User.class.getSimpleName());
+        long count_users = (long) query.getSingleResult();
+        query = em.createQuery("SELECT count(*) FROM "+Car.class.getSimpleName());
+        long count_cars = (long) query.getSingleResult();
+        logger.info("***********Statistics**********");
+        logger.info("Number of registered users:"+ count_users);
+        logger.info("Number of cars for sale:"+ count_cars);
+    }
 }

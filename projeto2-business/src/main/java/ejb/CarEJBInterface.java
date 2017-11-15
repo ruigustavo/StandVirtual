@@ -35,8 +35,10 @@ public interface CarEJBInterface {
     List<CarDTO> getCarsOfUser(int id);
     List<CarDTO> getCarsUserNotOwn(int id);
     List<CarDTO> getCarsUserFollow(int id);
-//    void sendEmail(String recipient_email);
+   // void sendEmail(String recipient_email);
     List<String> getDistinctBrands();
 
     List<String> getDistinctModels();
+
+    //void statistics();
 }

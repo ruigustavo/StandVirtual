@@ -26,8 +26,22 @@
         </div>
 
         <div class="w3-col" style="width:10%; margin-top: 10px;">
+            <form class="w3-form"  method="get" action="Main">
+                <input type="hidden" name="action" value="new-car"/>
+                <input type="submit" class="w3-btn accent-color secondary-text-color" value="New Car"/>
+            </form>
+        </div>
+        <div class="w3-col" style="width:10%; margin-top: 10px;">
+            <form class="w3-form"  method="get" action="Main">
+                <input type="hidden" name="action" value="my-cars"/>
+                <input type="submit" class="w3-btn accent-color secondary-text-color" value="My Cars"/>
+            </form>
+        </div>
+
+        <div class="w3-col" style="width:10%; margin-top: 10px;">
             <form class="w3-form" method="get" action="Main">
                 <input type="hidden" name="action" value="list-all"/>
+                <input type="hidden" name="order" value="1"/>
                 <input type="submit" class="w3-btn accent-color secondary-text-color" value="All Cars"/>
             </form>
         </div>
@@ -44,6 +58,8 @@
                 <input type="submit" class="w3-btn accent-color secondary-text-color" value="Logout"/>
             </form>
         </div>
+
+
     </div>
 </header>
 
@@ -85,36 +101,49 @@
             <p><c:out value = "${car.getRegistration_month()}"/></p>
         </div>
         <div>
-        <c:choose>
 
-            <c:when test="${user.getId() == car.getOwner().getId()}">
+        <c:if test="${user.getId() == car.getOwner().getId()}">
+            <div class="w3-col" style="width:10%;">
                 <form name="ownedCars" method="get" action="Main">
-                    <input type="hidden" name="action"/>
-                    <input type="hidden" name="id"/>
-                    <button type="submit" onclick="goEditCar(${car.getId()})">Edit</button>
+                    <input type="hidden" name="action" value="edit-car"/>
+                    <input type="hidden" name="id" value="${car.getId()}"/>
+                    <button type="submit" class="w3-btn accent-color secondary-text-color" onclick="goEditCar()">Edit</button>
                 </form>
-            </c:when>
-            <c:otherwise>
-                <c:choose test="${user.isFollowing(i.getId())}">
-                    <td>
+            </div>
+            <div class="w3-col" style="width:10%;">
+                <form method="post" action="Main">
+                    <input type="hidden" name="id" value="${car.getId()}"/>
+                    <input type="hidden" name="action" value="delete-car"/>
+                    <input type="submit" class="w3-btn accent-color secondary-text-color" value="Delete"/>
+                </form>
+            </div>
+        </c:if>
+        <c:set var="contains" value="false" />
+        <c:if test="${not empty car.getFollowers()}">
+            <c:forEach items="${car.getFollowers()}" var="item">
+                <c:if test="${item.getId() eq user.getId()}">
+                    <c:set var="contains" value="true" />
+                </c:if>
+            </c:forEach>
+        </c:if>
+        <div class="w3-col" style="width:10%;">
+            <c:choose >
+                <c:when test="${contains}">
                         <form name="unfollow" method="post" action="Main">
-                            <input type="hidden" name="action"/>
-                            <input type="hidden" name="id"/>
-                            <button type="submit" onclick="unfollowCar(${car.getId()})">Unfollow</button>
+                            <input type="hidden" name="action" value="unfollow-car"/>
+                            <input type="hidden" name="id" value="${car.getId()}"/>
+                            <button type="submit" class="w3-btn accent-color secondary-text-color" onclick="unfollowCar()">Unfollow</button>
                         </form>
-                    </td>
-                </c:choose>
+                </c:when>
                 <c:otherwise>
-                    <td>
-                        <form name="follow" method="post" action="Main">
-                            <input type="hidden" name="action"/>
-                            <input type="hidden" name="id"/>
-                            <button type="submit" onclick="followCar(${car.getId()})">Follow</button>
-                        </form>
-                    </td>
+                    <form name="follow" method="post" action="Main">
+                        <input type="hidden" name="action" value="follow-car"/>
+                        <input type="hidden" name="id" value="${car.getId()}"/>
+                        <button type="submit" class="w3-btn accent-color secondary-text-color" onclick="followCar()">Follow</button>
+                    </form>
                 </c:otherwise>
-            </c:otherwise>
-        </c:choose>
+            </c:choose>
+        </div>
         </div>
     </div>
 </div>

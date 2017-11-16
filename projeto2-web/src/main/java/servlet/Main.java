@@ -62,6 +62,11 @@ public class Main extends HttpServlet {
                 CarDTO car = (CarDTO) carejb.getCarById(id);
                 request.getSession().setAttribute("car",car);
                 request.getRequestDispatcher("edit-car.jsp").forward(request,response);
+            }else if(action.compareToIgnoreCase("my-cars")==0){
+                UserDTO user = (UserDTO) request.getSession().getAttribute("user");
+                List<CarDTO> cars = carejb.getCarsOfUser(user.getId());
+                request.getSession().setAttribute("carslist",cars);
+                request.getRequestDispatcher("my-cars.jsp").forward(request,response);
             }else if(action.compareToIgnoreCase("detail-car")==0){
                 int id = Integer.parseInt(request.getParameter("id"));
                 CarDTO car = (CarDTO) carejb.getCarById(id);
@@ -70,13 +75,8 @@ public class Main extends HttpServlet {
             }else if(action.compareToIgnoreCase("search-car")==0){
                 request.getRequestDispatcher("menu.jsp").forward(request,response);
             }else if(action.compareToIgnoreCase("list-all")==0){
-                List<CarDTO> cars = carejb.getAllCars(1);
-                for(CarDTO c:cars){
-                    System.out.println("------------------"+c.getId()+"---------------------");
-                    for(UserDTO u:c.getFollowers()){
-                        System.out.println("----------------______"+u.getId()+"_________-----------------");
-                    }
-                }
+                int order = Integer.parseInt(request.getParameter("order"));
+                List<CarDTO> cars = carejb.getAllCars(order);
                 List<String> brands = carejb.getDistinctBrands();
                 List<String> models = carejb.getDistinctModels();
                 request.getSession().setAttribute("carslist",cars);
@@ -84,7 +84,8 @@ public class Main extends HttpServlet {
                 request.getSession().setAttribute("modelslist",models);
                 request.getRequestDispatcher("list-all.jsp").forward(request,response);
             }else if(action.compareToIgnoreCase("list-brand-model")==0){
-                List<CarDTO> cars = carejb.getCarsByBrandAndModel(request.getParameter("brand"),request.getParameter("model"),1);
+                int order = Integer.parseInt(request.getParameter("order"));
+                List<CarDTO> cars = carejb.getCarsByBrandAndModel(request.getParameter("brand"),request.getParameter("model"),order);
                 List<String> brands = carejb.getDistinctBrands();
                 List<String> models = carejb.getDistinctModels();
                 request.getSession().setAttribute("carslist",cars);
@@ -92,7 +93,8 @@ public class Main extends HttpServlet {
                 request.getSession().setAttribute("modelslist",models);
                 request.getRequestDispatcher("list-all.jsp").forward(request,response);
             }else if(action.compareToIgnoreCase("list-brand")==0){
-                List<CarDTO> cars = carejb.getCarsByBrand(request.getParameter("brand"),1);
+                int order = Integer.parseInt(request.getParameter("order"));
+                List<CarDTO> cars = carejb.getCarsByBrand(request.getParameter("brand"),order);
                 List<String> brands = carejb.getDistinctBrands();
                 List<String> models = carejb.getDistinctModels();
                 request.getSession().setAttribute("carslist",cars);
@@ -100,7 +102,8 @@ public class Main extends HttpServlet {
                 request.getSession().setAttribute("modelslist",models);
                 request.getRequestDispatcher("list-all.jsp").forward(request,response);
             }else if(action.compareToIgnoreCase("list-price")==0){
-                List<CarDTO> cars = carejb.getCarsByPriceRange(Long.parseLong(request.getParameter("low_value")),Long.parseLong(request.getParameter("up_value")),1);
+                int order = Integer.parseInt(request.getParameter("order"));
+                List<CarDTO> cars = carejb.getCarsByPriceRange(Long.parseLong(request.getParameter("low_value")),Long.parseLong(request.getParameter("up_value")),order);
                 List<String> brands = carejb.getDistinctBrands();
                 List<String> models = carejb.getDistinctModels();
                 request.getSession().setAttribute("carslist",cars);
@@ -108,7 +111,8 @@ public class Main extends HttpServlet {
                 request.getSession().setAttribute("modelslist",models);
                 request.getRequestDispatcher("list-all.jsp").forward(request,response);
             }else if(action.compareToIgnoreCase("list-km")==0){
-                List<CarDTO> cars = carejb.getCarsByKmRange(Long.parseLong(request.getParameter("low_value")),Long.parseLong(request.getParameter("up_value")),1);
+                int order = Integer.parseInt(request.getParameter("order"));
+                List<CarDTO> cars = carejb.getCarsByKmRange(Long.parseLong(request.getParameter("low_value")),Long.parseLong(request.getParameter("up_value")),order);
                 List<String> brands = carejb.getDistinctBrands();
                 List<String> models = carejb.getDistinctModels();
                 request.getSession().setAttribute("carslist",cars);
@@ -116,7 +120,8 @@ public class Main extends HttpServlet {
                 request.getSession().setAttribute("modelslist",models);
                 request.getRequestDispatcher("list-all.jsp").forward(request,response);
             }else if(action.compareToIgnoreCase("list-year")==0){
-                List<CarDTO> cars = carejb.getCarsNewerThan(Integer.parseInt(request.getParameter("year")),1);
+                int order = Integer.parseInt(request.getParameter("order"));
+                List<CarDTO> cars = carejb.getCarsNewerThan(Integer.parseInt(request.getParameter("year")),order);
                 List<String> brands = carejb.getDistinctBrands();
                 List<String> models = carejb.getDistinctModels();
                 request.getSession().setAttribute("carslist",cars);
@@ -150,7 +155,6 @@ public class Main extends HttpServlet {
                 if(result>0){
                     UserDTO user = (UserDTO) userejb.getUserById(result);
                     request.getSession().setAttribute("user",user);
-                    System.out.println(user.toString());
                     request.getRequestDispatcher("menu.jsp").forward(request,response);
                 }else{
                     request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -191,9 +195,14 @@ public class Main extends HttpServlet {
                 carejb.addCar(car);
 
             }else if(action.compareToIgnoreCase("follow-car")==0){
-                carejb.followCar(Integer.parseInt(request.getParameter("id")),user.getId());
+                String id = request.getParameter("id");
+                carejb.followCar(Integer.parseInt(id),user.getId());
+            }else if(action.compareToIgnoreCase("delete-car")==0){
+                String id = request.getParameter("id");
+                carejb.deleteCarById(Integer.parseInt(id));
             }else if(action.compareToIgnoreCase("unfollow-car")==0){
-                carejb.unfollowCar(Integer.parseInt(request.getParameter("id")),user.getId());
+                String id = request.getParameter("id");
+                carejb.unfollowCar(Integer.parseInt(id),user.getId());
             }else if(action.compareToIgnoreCase("edit-car")==0){
                 CarDTO car;
                 if(request.getPart("picture").getSize()>0){

@@ -122,6 +122,15 @@ public class UserEJB implements UserEJBInterface {
                 );
         List<CarDTO> followingCars= new ArrayList<>();
         for(Car c : aux.getFollowingCars()){
+            List<UserDTO> followers = new ArrayList<>();
+            for(User u: c.getFollowers()){
+                followers.add(new UserDTO(u.getId(),
+                        u.getEmail(),
+                        u.getName(),
+                        u.getAddress(),
+                        u.getPhone()
+                ));
+            }
             followingCars.add(new CarDTO(c.getId(),
                     c.getBrand(),
                     c.getModel(),
@@ -130,10 +139,20 @@ public class UserEJB implements UserEJBInterface {
                     c.getRegistration_month(),
                     c.getRegistration_year(),
                     user,
-                    c.getPicture()));
+                    c.getPicture(),
+                    followers));
         }
         List<CarDTO> sellingCars= new ArrayList<>();
         for(Car c : aux.getSellingCars()){
+            List<UserDTO> followers = new ArrayList<>();
+            for(User u: c.getFollowers()){
+                followers.add(new UserDTO(u.getId(),
+                        u.getEmail(),
+                        u.getName(),
+                        u.getAddress(),
+                        u.getPhone()
+                ));
+            }
             sellingCars.add(new CarDTO(c.getId(),
                     c.getBrand(),
                     c.getModel(),
@@ -142,7 +161,9 @@ public class UserEJB implements UserEJBInterface {
                     c.getRegistration_month(),
                     c.getRegistration_year(),
                     user,
-                    c.getPicture()));
+                    c.getPicture(),
+                    followers
+            ));
         }
         user.setFollowingCars(followingCars);
         user.setSellingCars(sellingCars);

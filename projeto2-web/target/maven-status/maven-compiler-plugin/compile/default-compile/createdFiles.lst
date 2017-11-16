@@ -1,3 +1,3 @@
-Helper\Hasher.class
-servlet\PlayersTallerThan.class
-servlet\Main.class
+Helper/Hasher.class
+servlet/Main.class
+servlet/PlayersTallerThan.class

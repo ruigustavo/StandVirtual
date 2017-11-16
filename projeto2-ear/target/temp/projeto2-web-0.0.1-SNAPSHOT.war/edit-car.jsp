@@ -19,6 +19,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>StandVirtual v2</title>
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <script src="js/menu.js"></script>
 </head>
 <body>
 <header class="w3-container default-primary-color">
@@ -28,8 +29,22 @@
         </div>
 
         <div class="w3-col" style="width:10%; margin-top: 10px;">
+            <form class="w3-form"  method="get" action="Main">
+                <input type="hidden" name="action" value="new-car"/>
+                <input type="submit" class="w3-btn accent-color secondary-text-color" value="New Car"/>
+            </form>
+        </div>
+        <div class="w3-col" style="width:10%; margin-top: 10px;">
+            <form class="w3-form"  method="get" action="Main">
+                <input type="hidden" name="action" value="my-cars"/>
+                <input type="submit" class="w3-btn accent-color secondary-text-color" value="My Cars"/>
+            </form>
+        </div>
+
+        <div class="w3-col" style="width:10%; margin-top: 10px;">
             <form class="w3-form" method="get" action="Main">
                 <input type="hidden" name="action" value="list-all"/>
+                <input type="hidden" name="order" value="1"/>
                 <input type="submit" class="w3-btn accent-color secondary-text-color" value="All Cars"/>
             </form>
         </div>
@@ -46,6 +61,8 @@
                 <input type="submit" class="w3-btn accent-color secondary-text-color" value="Logout"/>
             </form>
         </div>
+
+
     </div>
 </header>
 

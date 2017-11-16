@@ -68,7 +68,7 @@
 <div class="w3-container">
     <div class="w3-row">
         <c:if test="${carslist!=null}">
-            <table class="w3-table" style="width:50%">
+            <table class="w3-table-all" style="width:50%">
                 <tr>
                     <th></th>
                     <th>
@@ -172,10 +172,10 @@
                     <tr>
                         <c:choose>
                             <c:when test="${empty i.getPicture()}">
-                                <td></td>
+                                <td><img style="width: 200px; height: 150px;" src="https://vignette.wikia.nocookie.net/pixar/images/3/3c/LightningMcQueenCars3Artwork.jpg/revision/latest/scale-to-width-down/282?cb=20170807222423"></td>
                             </c:when>
                             <c:otherwise>
-                                <td><img style="width: 200px; height: 200px;" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
+                                <td><img style="width: 200px; height: 150px;" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
                             </c:otherwise>
                         </c:choose>
                         <td><c:out value = "${i.getBrand()}"/></td>

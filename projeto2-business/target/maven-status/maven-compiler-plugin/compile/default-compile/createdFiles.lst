@@ -1,8 +1,14 @@
 ejb/CarEJBInterface.class
 ejb/PlayersEJBInterface.class
 DTOs/UserDTO.class
+Crawler/Cars$Car$Price.class
+Crawler/Cars$Car.class
 ejb/PlayersEJB.class
-ejb/CarEJB.class
-ejb/UserEJBInterface.class
+Crawler/Cars.class
 DTOs/CarDTO.class
 ejb/UserEJB.class
+Crawler/ObjectFactory.class
+ejb/MessageBean.class
+Crawler/XMLUnmarshal.class
+ejb/CarEJB.class
+ejb/UserEJBInterface.class

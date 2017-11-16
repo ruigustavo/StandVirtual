@@ -35,9 +35,18 @@ public class CarEJB implements CarEJBInterface{
     }
 
     public void addCar(CarDTO car){
+        logger.info("Adding car");
         logger.info("Getting owner from db.");
-        Query q = em.createQuery("select u from "+ User.class.getSimpleName()+ " u where u.email = :i ");
-        q.setParameter("i",car.getOwner().getEmail());
+        Query q = null;
+        try{
+            q = em.createQuery("select u from "+ User.class.getSimpleName()+ " u where u.email = :i ");
+            q.setParameter("i",car.getOwner().getEmail());
+        } catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Failed to get user. Returning...");
+            return;
+        }
         logger.info("Creating new Car.");
         User owner = (User) q.getSingleResult();
         Car toPersist = new Car(car.getBrand(),
@@ -45,43 +54,60 @@ public class CarEJB implements CarEJBInterface{
                 car.getRegistration_month(),car.getRegistration_year(),
                 car.getPicture(),owner);
         logger.info("Persisting it to the db.");
-        em.persist(toPersist);
-        if(!owner.getSellingCars().contains(toPersist)){
-            owner.getSellingCars().add(toPersist);
-            em.persist(owner);
+        try{
+            em.persist(toPersist);
+            if(!owner.getSellingCars().contains(toPersist)){
+                owner.getSellingCars().add(toPersist);
+                em.persist(owner);
+                logger.info("Car added with sucess!");
+            }
+        } catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Car not added. Returning...");
+            return;
         }
     }
 
     public CarDTO getCarById(int id){
         Car aux = null;
-        logger.info("Getting car from db.");
-        Query q = em.createQuery("select u from "+ Car.class.getSimpleName() + " u where u.id = :i");
-        q.setParameter("i", id);
-        aux = (Car) q.getSingleResult();
-        logger.warn(aux.toString());
-        List<UserDTO> followers = new ArrayList<>();
-        for(User u: aux.getFollowers()){
-            followers.add(new UserDTO(u.getId(),
-                    u.getEmail(),
-                    u.getName(),
-                    u.getAddress(),
-                    u.getPhone()
-            ));
+        CarDTO toSend = null;
+        logger.info("Getting car by id from db.");
+        try{
+            Query q = em.createQuery("select u from "+ Car.class.getSimpleName() + " u where u.id = :i");
+            q.setParameter("i", id);
+            aux = (Car) q.getSingleResult();
+            logger.warn(aux.toString());
+            List<UserDTO> followers = new ArrayList<>();
+            for(User u: aux.getFollowers()){
+                followers.add(new UserDTO(u.getId(),
+                        u.getEmail(),
+                        u.getName(),
+                        u.getAddress(),
+                        u.getPhone()
+                ));
+            }
+            toSend = new CarDTO(aux.getId(),
+                    aux.getBrand(),
+                    aux.getModel(),
+                    aux.getPrice(),
+                    aux.getKm(),
+                    aux.getRegistration_month(),
+                    aux.getRegistration_year(),
+                    new UserDTO(aux.getOwner().getId(),
+                            aux.getOwner().getEmail(),
+                            aux.getOwner().getName(),
+                            aux.getOwner().getAddress(),
+                            aux.getOwner().getPhone()),
+                    aux.getPicture(),
+                    followers);
+        } catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Failed to get car by id. Returning...");
+            return null;
         }
-        CarDTO toSend = new CarDTO(aux.getId(),
-                aux.getBrand(),
-                aux.getModel(),
-                aux.getPrice(),
-                aux.getKm(),
-                aux.getRegistration_month(),
-                aux.getRegistration_year(),
-                new UserDTO(aux.getOwner().getId(),
-                        aux.getOwner().getEmail(),
-                        aux.getOwner().getName(),
-                        aux.getOwner().getAddress(),
-                        aux.getOwner().getPhone()),
-                aux.getPicture(),
-                followers);
+        logger.info("Returning car by id");
         logger.warn(toSend.toString());
         return toSend;
     }
@@ -90,27 +116,33 @@ public class CarEJB implements CarEJBInterface{
         logger.info("Editing Car with ID " + toEdit.getId());
 
         Car aux = null;
-
-        logger.info("Getting car from db.");
-        Query q = em.createQuery("select u from "+ Car.class.getSimpleName() + " u where u.id = :i");
-        q.setParameter("i", toEdit.getId());
-        aux = (Car) q.getSingleResult();
-        //verificar se preço foi alterado
-        if(toEdit.getPrice()!= aux.getPrice()){
-            for(User c : aux.getFollowers()){
-                logger.info("Sending e-mail to:"+c.getEmail());
-                sendEmail(c.getEmail(),aux.getBrand(),aux.getModel());
+        Query q = null;
+        logger.info("Getting car by id from db.");
+        try{
+            q = em.createQuery("select u from "+ Car.class.getSimpleName() + " u where u.id = :i");
+            q.setParameter("i", toEdit.getId());
+            aux = (Car) q.getSingleResult();
+            //verificar se preço foi alterado
+            if(toEdit.getPrice()!= aux.getPrice()){
+                for(User c : aux.getFollowers()){
+                    logger.info("Sending e-mail to:"+c.getEmail());
+                    sendEmail(c.getEmail(),aux.getBrand(),aux.getModel());
+                }
             }
-        }
-
-        aux.setBrand(toEdit.getBrand());
-        aux.setModel(toEdit.getModel());
-        aux.setPrice(toEdit.getPrice());
-        aux.setKm(toEdit.getKm());
-        aux.setRegistration_month(toEdit.getRegistration_month());
-        aux.setRegistration_year(toEdit.getRegistration_year());
-        if(toEdit.getPicture()!=null){
-            aux.setPicture(toEdit.getPicture());
+            aux.setBrand(toEdit.getBrand());
+            aux.setModel(toEdit.getModel());
+            aux.setPrice(toEdit.getPrice());
+            aux.setKm(toEdit.getKm());
+            aux.setRegistration_month(toEdit.getRegistration_month());
+            aux.setRegistration_year(toEdit.getRegistration_year());
+            if(toEdit.getPicture()!=null){
+                aux.setPicture(toEdit.getPicture());
+            }
+        } catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Failed to get car to edit. Returning...");
+            return;
         }
         logger.info("Saving Changes to the car...");
         try {
@@ -123,31 +155,48 @@ public class CarEJB implements CarEJBInterface{
         }
         logger.info("Car edited successfully");
     }
-//TODO ROGERIO NOOB
+
     public void deleteCarById(int id){
       try{
             logger.info("Deleting car with Id " + id);
             em.remove(em.find(Car.class, id));
             logger.info("Car "+id+" deleted");
-}catch (Exception e){
-        logger.warn("Dropped exception");
-        e.printStackTrace();
-        logger.info("Car not deleted");
+            return;
+        }catch (Exception e){
+            logger.warn("Dropped exception");
+            e.printStackTrace();
+            logger.info("Car not deleted");
+            return;
         }
     }
     public void unfollowCar(int car_id, int user_id){
         Car aux_car;
         User aux_user;
-        logger.info("Getting car from db.");
-        Query q = em.createQuery("select u from "+ Car.class.getSimpleName() + " u where u.id = :i");
-        q.setParameter("i", car_id);
-        aux_car = (Car) q.getSingleResult();
-        logger.info("Getting car from db.");
-        q = em.createQuery("select u from "+ User.class.getSimpleName() + " u where u.id = :i");
-        q.setParameter("i", user_id);
-        aux_user = (User) q.getSingleResult();
-        aux_car.getFollowers().remove(aux_user);
-        aux_user.getFollowingCars().remove(aux_car);
+        Query q;
+        logger.info("Getting car to unfollow from db.");
+       try{
+            q = em.createQuery("select u from "+ Car.class.getSimpleName() + " u where u.id = :i");
+            q.setParameter("i", car_id);
+            aux_car = (Car) q.getSingleResult();
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Failed to get car to unfollow. Returning...");
+            return;
+         }
+        logger.info("Getting user from db.");
+        try{
+            q = em.createQuery("select u from "+ User.class.getSimpleName() + " u where u.id = :i");
+            q.setParameter("i", user_id);
+            aux_user = (User) q.getSingleResult();
+            aux_car.getFollowers().remove(aux_user);
+            aux_user.getFollowingCars().remove(aux_car);
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Failed to get user. Returning...");
+            return;
+        }
 
         logger.info("Saving Changes ...");
         try {
@@ -164,16 +213,31 @@ public class CarEJB implements CarEJBInterface{
     public void followCar(int car_id, int user_id){
         Car aux_car;
         User aux_user;
-        logger.info("Getting car from db.");
-        Query q = em.createQuery("select u from "+ Car.class.getSimpleName() + " u where u.id = :i");
-        q.setParameter("i", car_id);
-        aux_car = (Car) q.getSingleResult();
-        logger.info("Getting car from db.");
-        q = em.createQuery("select u from "+ User.class.getSimpleName() + " u where u.id = :i");
-        q.setParameter("i", user_id);
-        aux_user = (User) q.getSingleResult();
-        aux_car.getFollowers().add(aux_user);
-        aux_user.getFollowingCars().add(aux_car);
+        Query q = null;
+        logger.info("Getting the car to follow from db.");
+        try{
+            q = em.createQuery("select u from "+ Car.class.getSimpleName() + " u where u.id = :i");
+            q.setParameter("i", car_id);
+            aux_car = (Car) q.getSingleResult();
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Failed to get car to unfollow. Returning...");
+            return;
+        }
+        logger.info("Getting user from db.");
+        try {
+            q = em.createQuery("select u from " + User.class.getSimpleName() + " u where u.id = :i");
+            q.setParameter("i", user_id);
+            aux_user = (User) q.getSingleResult();
+            aux_car.getFollowers().add(aux_user);
+            aux_user.getFollowingCars().add(aux_car);
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Failed to get user. Returning...");
+            return;
+        }
 
         logger.info("Saving Changes ...");
         try {
@@ -192,61 +256,69 @@ public class CarEJB implements CarEJBInterface{
         logger.info("Getting all Cars");
         List<Car> aux = null;
         Query q=null;
-        switch (order) {
-            case 1:
-                logger.info(" Getting cars from ascending order by price.");
-                q = em.createQuery("from Car order by price asc");
-                break;
-            case 2:
-                logger.info("Getting cars  descending order by price");
-                q = em.createQuery("from Car order by price desc");
-                break;
-            case 3:
-                logger.info("Getting cars  ascending order by brand.");
-                q = em.createQuery("from Car order by brand asc");
-                break;
-            case 4:
-                logger.info("Getting cars  descending order by brand.");
-                 q = em.createQuery("from Car order by brand desc");
-                break;
-            case 5:
-                logger.info("Getting cars from ascending order by brand and model.");
-                 q = em.createQuery("from Car order by brand asc,model asc ");
-                break;
-            case 6:
-                logger.info("Getting carsdescending order by brand and model.");
-                q = em.createQuery("from Car order by brand desc,model desc ");
-                break;
-        }
-        aux = q.getResultList();
-
-
         List<CarDTO> toSend = new ArrayList<>();
-        for(Car c : aux){
-            List<UserDTO> followers = new ArrayList<>();
-            for(User u: c.getFollowers()){
-                followers.add(new UserDTO(u.getId(),
-                        u.getEmail(),
-                        u.getName(),
-                        u.getAddress(),
-                        u.getPhone()
+        try{
+            switch (order) {
+                case 1:
+                    logger.info(" Getting cars from ascending order by price.");
+                    q = em.createQuery("from Car order by price asc");
+                    break;
+                case 2:
+                    logger.info("Getting cars  descending order by price");
+                    q = em.createQuery("from Car order by price desc");
+                    break;
+                case 3:
+                    logger.info("Getting cars  ascending order by brand.");
+                    q = em.createQuery("from Car order by brand asc");
+                    break;
+                case 4:
+                    logger.info("Getting cars  descending order by brand.");
+                     q = em.createQuery("from Car order by brand desc");
+                    break;
+                case 5:
+                    logger.info("Getting cars from ascending order by brand and model.");
+                     q = em.createQuery("from Car order by brand asc,model asc ");
+                    break;
+                case 6:
+                    logger.info("Getting carsdescending order by brand and model.");
+                    q = em.createQuery("from Car order by brand desc,model desc ");
+                    break;
+            }
+            aux = q.getResultList();
+
+
+
+            for(Car c : aux){
+                List<UserDTO> followers = new ArrayList<>();
+                for(User u: c.getFollowers()){
+                    followers.add(new UserDTO(u.getId(),
+                            u.getEmail(),
+                            u.getName(),
+                            u.getAddress(),
+                            u.getPhone()
+                    ));
+                }
+                toSend.add(new CarDTO(c.getId(),
+                        c.getBrand(),
+                        c.getModel(),
+                        c.getPrice(),
+                        c.getKm(),
+                        c.getRegistration_month(),
+                        c.getRegistration_year(),
+                        new UserDTO(c.getOwner().getId(),
+                                c.getOwner().getEmail(),
+                                c.getOwner().getName(),
+                                c.getOwner().getAddress(),
+                                c.getOwner().getPhone()),
+                        c.getPicture(),
+                        followers
                 ));
             }
-            toSend.add(new CarDTO(c.getId(),
-                    c.getBrand(),
-                    c.getModel(),
-                    c.getPrice(),
-                    c.getKm(),
-                    c.getRegistration_month(),
-                    c.getRegistration_year(),
-                    new UserDTO(c.getOwner().getId(),
-                            c.getOwner().getEmail(),
-                            c.getOwner().getName(),
-                            c.getOwner().getAddress(),
-                            c.getOwner().getPhone()),
-                    c.getPicture(),
-                    followers
-            ));
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Returning all Cars failed");
+            return null;
         }
         logger.info("Returning all Cars");
         return toSend;
@@ -256,63 +328,71 @@ public class CarEJB implements CarEJBInterface{
         logger.info("Getting all Cars of the brand:"+brand);
         List<Car> aux ;
         Query q=null;
-        switch (order) {
-            case 1:
-                logger.info("Getting all Cars of the brand:"+brand+"in ascending order by price");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.price asc");
-                q.setParameter("n", brand);
-                break;
-            case 2:
-                logger.info("Getting all Cars of the brand:"+brand+"in descending order by price");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.price desc");
-                q.setParameter("n", brand);
-                break;
-            case 3:
-                logger.info("Getting all Cars of the brand:"+brand+"in ascending order by brand");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.brand asc");
-                q.setParameter("n", brand);
-            case 4:
-                logger.info("Getting all Cars of the brand:"+brand+"in descending order by brand");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.brand desc");
-                q.setParameter("n", brand);
-                break;
-            case 5:
-                logger.info("Getting all Cars of the brand:"+brand+"in ascending order by model");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.brand asc,c.model asc");
-                q.setParameter("n", brand);
-            case 6:
-                logger.info("Getting all Cars of the brand:"+brand+"in descending order by model");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.brand asc,c.model desc");
-                q.setParameter("n", brand);
-                break;
-        }
-        aux = q.getResultList();
         List<CarDTO> toSend = new ArrayList<>();
-        for(Car c : aux){
-            List<UserDTO> followers = new ArrayList<>();
-            for(User u: c.getFollowers()){
-                followers.add(new UserDTO(u.getId(),
-                        u.getEmail(),
-                        u.getName(),
-                        u.getAddress(),
-                        u.getPhone()
+        try{
+            switch (order) {
+                case 1:
+                    logger.info("Getting all Cars of the brand:"+brand+"in ascending order by price");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.price asc");
+                    q.setParameter("n", brand);
+                    break;
+                case 2:
+                    logger.info("Getting all Cars of the brand:"+brand+"in descending order by price");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.price desc");
+                    q.setParameter("n", brand);
+                    break;
+                case 3:
+                    logger.info("Getting all Cars of the brand:"+brand+"in ascending order by brand");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.brand asc");
+                    q.setParameter("n", brand);
+                case 4:
+                    logger.info("Getting all Cars of the brand:"+brand+"in descending order by brand");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.brand desc");
+                    q.setParameter("n", brand);
+                    break;
+                case 5:
+                    logger.info("Getting all Cars of the brand:"+brand+"in ascending order by model");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.brand asc,c.model asc");
+                    q.setParameter("n", brand);
+                case 6:
+                    logger.info("Getting all Cars of the brand:"+brand+"in descending order by model");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.brand = :n order by c.brand asc,c.model desc");
+                    q.setParameter("n", brand);
+                    break;
+            }
+            aux = q.getResultList();
+
+            for(Car c : aux){
+                List<UserDTO> followers = new ArrayList<>();
+                for(User u: c.getFollowers()){
+                    followers.add(new UserDTO(u.getId(),
+                            u.getEmail(),
+                            u.getName(),
+                            u.getAddress(),
+                            u.getPhone()
+                    ));
+                }
+                toSend.add(new CarDTO(c.getId(),
+                        c.getBrand(),
+                        c.getModel(),
+                        c.getPrice(),
+                        c.getKm(),
+                        c.getRegistration_month(),
+                        c.getRegistration_year(),
+                        new UserDTO(c.getOwner().getId(),
+                                c.getOwner().getEmail(),
+                                c.getOwner().getName(),
+                                c.getOwner().getAddress(),
+                                c.getOwner().getPhone()),
+                        c.getPicture(),
+                        followers
                 ));
             }
-            toSend.add(new CarDTO(c.getId(),
-                    c.getBrand(),
-                    c.getModel(),
-                    c.getPrice(),
-                    c.getKm(),
-                    c.getRegistration_month(),
-                    c.getRegistration_year(),
-                    new UserDTO(c.getOwner().getId(),
-                            c.getOwner().getEmail(),
-                            c.getOwner().getName(),
-                            c.getOwner().getAddress(),
-                            c.getOwner().getPhone()),
-                    c.getPicture(),
-                    followers
-            ));
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Return all Cars of the brand:"+brand+"failed");
+            return null;
         }
         logger.warn(toSend.toString());
         logger.info("Return all Cars of the brand:"+brand);
@@ -323,6 +403,8 @@ public class CarEJB implements CarEJBInterface{
         logger.info("Getting all Cars of the brand:"+brand+"and model:"+model);
         List<Car> aux ;
         Query q=null;
+        List<CarDTO> toSend = new ArrayList<>();
+        try{
         switch (order) {
             case 1:
                 logger.info("Getting all Cars of the brand:"+brand+"and model:"+model+"in ascending order by price");
@@ -355,34 +437,40 @@ public class CarEJB implements CarEJBInterface{
                 q.setParameter("b", brand);q.setParameter("m", model);
                 break;
         }
-        aux = q.getResultList();
-        List<CarDTO> toSend = new ArrayList<>();
-        for(Car c : aux){
-            List<UserDTO> followers = new ArrayList<>();
-            for(User u: c.getFollowers()){
-                followers.add(new UserDTO(u.getId(),
-                        u.getEmail(),
-                        u.getName(),
-                        u.getAddress(),
-                        u.getPhone()
+            aux = q.getResultList();
+
+            for(Car c : aux){
+                List<UserDTO> followers = new ArrayList<>();
+                for(User u: c.getFollowers()){
+                    followers.add(new UserDTO(u.getId(),
+                            u.getEmail(),
+                            u.getName(),
+                            u.getAddress(),
+                            u.getPhone()
+                    ));
+                }
+
+                toSend.add(new CarDTO(c.getId(),
+                        c.getBrand(),
+                        c.getModel(),
+                        c.getPrice(),
+                        c.getKm(),
+                        c.getRegistration_month(),
+                        c.getRegistration_year(),
+                        new UserDTO(c.getOwner().getId(),
+                                c.getOwner().getEmail(),
+                                c.getOwner().getName(),
+                                c.getOwner().getAddress(),
+                                c.getOwner().getPhone()),
+                        c.getPicture(),
+                        followers
                 ));
             }
-
-            toSend.add(new CarDTO(c.getId(),
-                    c.getBrand(),
-                    c.getModel(),
-                    c.getPrice(),
-                    c.getKm(),
-                    c.getRegistration_month(),
-                    c.getRegistration_year(),
-                    new UserDTO(c.getOwner().getId(),
-                            c.getOwner().getEmail(),
-                            c.getOwner().getName(),
-                            c.getOwner().getAddress(),
-                            c.getOwner().getPhone()),
-                    c.getPicture(),
-                    followers
-            ));
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Return all Cars of the brand:"+brand+"and model:"+model+"failed");
+            return null;
         }
         logger.info("Return all Cars of the brand:"+brand+"and model:"+model);
         return toSend;
@@ -390,64 +478,72 @@ public class CarEJB implements CarEJBInterface{
     public List<CarDTO> getCarsNewerThan(int year, int order){
         logger.info("Getting all Cars with newer than "+year);
         Query q=null;
-        switch (order) {
-            case 1:
-                q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.price asc");
-                q.setParameter("y", year);
-                break;
-            case 2:
-                q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.price desc");
-                q.setParameter("y", year);
-                break;
-            case 3:
-                q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.brand asc");
-                q.setParameter("y", year);
-                break;
-            case 4:
-                q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.brand desc");
-                q.setParameter("y", year);
-                break;
-            case 5:
-                q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.brand asc,c.model asc ");
-                q.setParameter("y", year);
-                break;
-            case 6:
-                q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.brand desc,c.model desc ");
-                q.setParameter("y", year);
-                break;
-            default:
-                q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.price asc");
-                q.setParameter("y", year);
-                break;
-        }
-        List<Car> aux;
-        aux = q.getResultList();
         List<CarDTO> toSend = new ArrayList<>();
-        for(Car c : aux){
-            List<UserDTO> followers = new ArrayList<>();
-            for(User u: c.getFollowers()){
-                followers.add(new UserDTO(u.getId(),
-                        u.getEmail(),
-                        u.getName(),
-                        u.getAddress(),
-                        u.getPhone()
+        try{
+            switch (order) {
+                case 1:
+                    q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.price asc");
+                    q.setParameter("y", year);
+                    break;
+                case 2:
+                    q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.price desc");
+                    q.setParameter("y", year);
+                    break;
+                case 3:
+                    q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.brand asc");
+                    q.setParameter("y", year);
+                    break;
+                case 4:
+                    q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.brand desc");
+                    q.setParameter("y", year);
+                    break;
+                case 5:
+                    q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.brand asc,c.model asc ");
+                    q.setParameter("y", year);
+                    break;
+                case 6:
+                    q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.brand desc,c.model desc ");
+                    q.setParameter("y", year);
+                    break;
+                default:
+                    q = em.createQuery("select c from " + Car.class.getSimpleName() + " c   where c.registration_year > :y  order by c.price asc");
+                    q.setParameter("y", year);
+                    break;
+            }
+            List<Car> aux;
+            aux = q.getResultList();
+
+            for(Car c : aux){
+                List<UserDTO> followers = new ArrayList<>();
+                for(User u: c.getFollowers()){
+                    followers.add(new UserDTO(u.getId(),
+                            u.getEmail(),
+                            u.getName(),
+                            u.getAddress(),
+                            u.getPhone()
+                    ));
+                }
+                toSend.add(new CarDTO(c.getId(),
+                        c.getBrand(),
+                        c.getModel(),
+                        c.getPrice(),
+                        c.getKm(),
+                        c.getRegistration_month(),
+                        c.getRegistration_year(),
+                        new UserDTO(c.getOwner().getId(),
+                                c.getOwner().getEmail(),
+                                c.getOwner().getName(),
+                                c.getOwner().getAddress(),
+                                c.getOwner().getPhone()),
+                        c.getPicture(),
+                        followers
                 ));
             }
-            toSend.add(new CarDTO(c.getId(),
-                    c.getBrand(),
-                    c.getModel(),
-                    c.getPrice(),
-                    c.getKm(),
-                    c.getRegistration_month(),
-                    c.getRegistration_year(),
-                    new UserDTO(c.getOwner().getId(),
-                            c.getOwner().getEmail(),
-                            c.getOwner().getName(),
-                            c.getOwner().getAddress(),
-                            c.getOwner().getPhone()),
-                    c.getPicture(),
-                    followers
-            ));
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Returning all Cars with year newer than "+year+"failed");
+            return null;
         }
         logger.info("Returning all Cars with year newer than "+year);
         return toSend;
@@ -457,89 +553,114 @@ public class CarEJB implements CarEJBInterface{
         logger.info("Getting all Cars with price between "+low_value+"and"+up_value);
         List<Car> aux =null;
         Query q=null;
-        switch (order) {
-            case 1:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by price");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.price asc");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-            case 2:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by price");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.price desc");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-            case 3:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by brand");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.brand asc");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-            case 4:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by brand");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.brand desc");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-            case 5:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by brand and model");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.brand asc,c.model asc ");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-            case 6:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by brand and model");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.brand desc,c.model desc ");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-            default:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by price");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.price asc");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-        }
-        aux = q.getResultList();
-
         List<CarDTO> toSend = new ArrayList<>();
-        for(Car c : aux){
-            List<UserDTO> followers = new ArrayList<>();
-            for(User u: c.getFollowers()){
-                followers.add(new UserDTO(u.getId(),
-                        u.getEmail(),
-                        u.getName(),
-                        u.getAddress(),
-                        u.getPhone()
+        try{
+            switch (order) {
+                case 1:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by price");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.price asc");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+                case 2:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by price");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.price desc");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+                case 3:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by brand");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.brand asc");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+                case 4:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by brand");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.brand desc");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+                case 5:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by brand and model");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.brand asc,c.model asc ");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+                case 6:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by brand and model");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.brand desc,c.model desc ");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+                default:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by price");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.price between :lo AND :up order by c.price asc");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+            }
+            aux = q.getResultList();
+
+            for(Car c : aux){
+                List<UserDTO> followers = new ArrayList<>();
+                for(User u: c.getFollowers()){
+                    followers.add(new UserDTO(u.getId(),
+                            u.getEmail(),
+                            u.getName(),
+                            u.getAddress(),
+                            u.getPhone()
+                    ));
+                }
+                toSend.add(new CarDTO(c.getId(),
+                        c.getBrand(),
+                        c.getModel(),
+                        c.getPrice(),
+                        c.getKm(),
+                        c.getRegistration_month(),
+                        c.getRegistration_year(),
+                        new UserDTO(c.getOwner().getId(),
+                                c.getOwner().getEmail(),
+                                c.getOwner().getName(),
+                                c.getOwner().getAddress(),
+                                c.getOwner().getPhone()),
+                        c.getPicture(),
+                        followers
                 ));
             }
-            toSend.add(new CarDTO(c.getId(),
-                    c.getBrand(),
-                    c.getModel(),
-                    c.getPrice(),
-                    c.getKm(),
-                    c.getRegistration_month(),
-                    c.getRegistration_year(),
-                    new UserDTO(c.getOwner().getId(),
-                            c.getOwner().getEmail(),
-                            c.getOwner().getName(),
-                            c.getOwner().getAddress(),
-                            c.getOwner().getPhone()),
-                    c.getPicture(),
-                    followers
-            ));
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Returning all Cars with price between "+low_value+"and"+up_value+" failed");
+            return null;
         }
-        logger.info("Returning all Cars with price between "+low_value+"and"+up_value);
+        logger.info("Returning all Cars with price between "+low_value+" and "+up_value);
         return toSend;
     }
 
     public List<String> getDistinctBrands(){
+        logger.info("Getting distinct brands");
         List<String> aux =null;
         Query q=null;
-        q = em.createQuery("SELECT DISTINCT c.brand from " +Car.class.getSimpleName()+ " c" );
-        aux = q.getResultList();
-
+        try{
+            q = em.createQuery("SELECT DISTINCT c.brand from " +Car.class.getSimpleName()+ " c" );
+            aux = q.getResultList();
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Returning distinct brands failed");
+            return null;
+        }
+        logger.info("Returning distinct brands ");
         return aux;
     }
 
     @Override
     public List<String> getDistinctModels() {
-        Query q= em.createQuery("SELECT DISTINCT c.model from " +Car.class.getSimpleName()+ " c" );
-        List<String> aux = q.getResultList();
+        logger.info("Getting distinct models");
+        List<String> aux = null;
+        try{
+            Query q= em.createQuery("SELECT DISTINCT c.model from " +Car.class.getSimpleName()+ " c" );
+            aux = q.getResultList();
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Returning distinct models failed");
+            return null;
+        }
+        logger.info("Returning distinct models ");
         return aux;
     }
 
@@ -548,72 +669,80 @@ public class CarEJB implements CarEJBInterface{
         logger.info("Getting all Cars with kilometers between "+low_value+"and"+up_value);
         List<Car> aux =null;
         Query q=null;
-        switch (order) {
-            case 1:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by price");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.price asc");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-            case 2:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by price");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.price desc");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-            case 3:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by brand");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.brand asc");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-            case 4:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by brand");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.brand desc");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-            case 5:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by brand and model");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.brand asc,c.model asc ");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-            case 6:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by brand and model");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.brand desc,c.model desc ");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-            default:
-                logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by km");
-                q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.km asc");
-                q.setParameter("lo", low_value);q.setParameter("up", up_value);
-                break;
-        }
-        aux = q.getResultList();
-
         List<CarDTO> toSend = new ArrayList<>();
-        for(Car c : aux){
-            List<UserDTO> followers = new ArrayList<>();
-            for(User u: c.getFollowers()){
-                followers.add(new UserDTO(u.getId(),
-                        u.getEmail(),
-                        u.getName(),
-                        u.getAddress(),
-                        u.getPhone()
+        try{
+            switch (order) {
+                case 1:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by price");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.price asc");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+                case 2:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by price");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.price desc");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+                case 3:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by brand");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.brand asc");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+                case 4:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by brand");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.brand desc");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+                case 5:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by brand and model");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.brand asc,c.model asc ");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+                case 6:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in descending order by brand and model");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.brand desc,c.model desc ");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+                default:
+                    logger.info("Getting all Cars between "+low_value+"and"+up_value+"in ascending order by km");
+                    q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c where c.km between :lo AND :up order by c.km asc");
+                    q.setParameter("lo", low_value);q.setParameter("up", up_value);
+                    break;
+            }
+            aux = q.getResultList();
+
+
+            for(Car c : aux){
+                List<UserDTO> followers = new ArrayList<>();
+                for(User u: c.getFollowers()){
+                    followers.add(new UserDTO(u.getId(),
+                            u.getEmail(),
+                            u.getName(),
+                            u.getAddress(),
+                            u.getPhone()
+                    ));
+                }
+                toSend.add(new CarDTO(c.getId(),
+                        c.getBrand(),
+                        c.getModel(),
+                        c.getPrice(),
+                        c.getKm(),
+                        c.getRegistration_month(),
+                        c.getRegistration_year(),
+                        new UserDTO(c.getOwner().getId(),
+                                c.getOwner().getEmail(),
+                                c.getOwner().getName(),
+                                c.getOwner().getAddress(),
+                                c.getOwner().getPhone()),
+                        c.getPicture(),
+                        followers
                 ));
             }
-            toSend.add(new CarDTO(c.getId(),
-                    c.getBrand(),
-                    c.getModel(),
-                    c.getPrice(),
-                    c.getKm(),
-                    c.getRegistration_month(),
-                    c.getRegistration_year(),
-                    new UserDTO(c.getOwner().getId(),
-                            c.getOwner().getEmail(),
-                            c.getOwner().getName(),
-                            c.getOwner().getAddress(),
-                            c.getOwner().getPhone()),
-                    c.getPicture(),
-                    followers
-            ));
-        }
+    }   catch (Exception e) {
+        logger.warn("Dropped Exception");
+        e.printStackTrace();
+        logger.info("Returning all Cars with kilometers between"+low_value+"and"+up_value+ "failed");
+        return null;
+    }
         logger.info("Returning all Cars with kilometers between "+low_value+"and"+up_value);
         return toSend;
     }
@@ -621,22 +750,8 @@ public class CarEJB implements CarEJBInterface{
 
     public void sendEmail(String recipient_email, String brand, String model){
         // Recipient's email ID needs to be mentioned.
+        logger.info("Sending notification to:" +recipient_email);
         String to = recipient_email;
-
-//        // Sender's email ID needs to be mentioned
-//        String from = "standvirtual2017is@gmail.com";
-//        //String user = "MAILFROM";
-//        String passwd = "projectis";
-//        // Assuming you are sending email from localhost
-//        String host = "localhost";
-//        String port = "465";
-//        // Get system properties
-//        Properties properties = System.getProperties();
-//
-//        // Setup mail server
-//        properties.put("mail.smtp.host", host);
-//        properties.put("mail.smtp.port", port);
-
 
         MimeMessage m = new MimeMessage(mailSession);
         try {
@@ -646,47 +761,50 @@ public class CarEJB implements CarEJBInterface{
             Transport.send(m);//throws exception
         } catch (MessagingException e) {
             e.printStackTrace();
+            logger.info("Message not sent succefully");
+            return;
         }
+        logger.info("Email sent with success to: "+recipient_email);
     }
     public List<CarDTO> getCarsOfUser(int id){
         logger.info("Getting Cars of User with ID " + id);
         List<Car> aux =null;
+        List<CarDTO> toSend = new ArrayList<>();
         try{
             Query q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.owner.id = :n order by c.price asc");
             q.setParameter("n", id);
             aux = q.getResultList();
+            for(Car c : aux){
+                List<UserDTO> followers = new ArrayList<>();
+                for(User u: c.getFollowers()){
+                    followers.add(new UserDTO(u.getId(),
+                            u.getEmail(),
+                            u.getName(),
+                            u.getAddress(),
+                            u.getPhone()
+                    ));
+                }
+                toSend.add(new CarDTO(c.getId(),
+                        c.getBrand(),
+                        c.getModel(),
+                        c.getPrice(),
+                        c.getKm(),
+                        c.getRegistration_month(),
+                        c.getRegistration_year(),
+                        new UserDTO(c.getOwner().getId(),
+                                c.getOwner().getEmail(),
+                                c.getOwner().getName(),
+                                c.getOwner().getAddress(),
+                                c.getOwner().getPhone()),
+                        c.getPicture(),
+                        followers
+                ));
+            }
         }   catch (Exception e) {
             logger.warn("Dropped Exception");
             e.printStackTrace();
-            logger.info("Returning null");
+            logger.info("Returning cars of User failed");
             return null;
-        }
-        List<CarDTO> toSend = new ArrayList<>();
-        for(Car c : aux){
-            List<UserDTO> followers = new ArrayList<>();
-            for(User u: c.getFollowers()){
-                followers.add(new UserDTO(u.getId(),
-                        u.getEmail(),
-                        u.getName(),
-                        u.getAddress(),
-                        u.getPhone()
-                ));
-            }
-            toSend.add(new CarDTO(c.getId(),
-                    c.getBrand(),
-                    c.getModel(),
-                    c.getPrice(),
-                    c.getKm(),
-                    c.getRegistration_month(),
-                    c.getRegistration_year(),
-                    new UserDTO(c.getOwner().getId(),
-                            c.getOwner().getEmail(),
-                            c.getOwner().getName(),
-                            c.getOwner().getAddress(),
-                            c.getOwner().getPhone()),
-                    c.getPicture(),
-                    followers
-            ));
         }
         logger.info("Returning Cars of User with ID " + id);
         return toSend;
@@ -695,38 +813,47 @@ public class CarEJB implements CarEJBInterface{
 
     public List<CarDTO> getCarsUserFollow(int id){
         List<Car> aux = null;
-        logger.info("Getting user from db.");
-        Query q = em.createQuery("select u from "+ User.class.getSimpleName() + " u where u.id = :i");
-        q.setParameter("i", id);
-        User u = (User) q.getSingleResult();
-        aux = u.getFollowingCars();
         List<CarDTO> toSend = new ArrayList<>();
-        for(Car c : aux){
-            List<UserDTO> followers = new ArrayList<>();
-            for(User u1: c.getFollowers()){
-                followers.add(new UserDTO(u1.getId(),
-                        u1.getEmail(),
-                        u1.getName(),
-                        u1.getAddress(),
-                        u1.getPhone()
+        logger.info("Getting user from db.");
+        try{
+            Query q = em.createQuery("select u from "+ User.class.getSimpleName() + " u where u.id = :i");
+            q.setParameter("i", id);
+            User u = (User) q.getSingleResult();
+            aux = u.getFollowingCars();
+
+            for(Car c : aux){
+                List<UserDTO> followers = new ArrayList<>();
+                for(User u1: c.getFollowers()){
+                    followers.add(new UserDTO(u1.getId(),
+                            u1.getEmail(),
+                            u1.getName(),
+                            u1.getAddress(),
+                            u1.getPhone()
+                    ));
+                }
+                toSend.add(new CarDTO(c.getId(),
+                        c.getBrand(),
+                        c.getModel(),
+                        c.getPrice(),
+                        c.getKm(),
+                        c.getRegistration_month(),
+                        c.getRegistration_year(),
+                        new UserDTO(c.getOwner().getId(),
+                                c.getOwner().getEmail(),
+                                c.getOwner().getName(),
+                                c.getOwner().getAddress(),
+                                c.getOwner().getPhone()),
+                        c.getPicture(),
+                        followers
                 ));
             }
-            toSend.add(new CarDTO(c.getId(),
-                    c.getBrand(),
-                    c.getModel(),
-                    c.getPrice(),
-                    c.getKm(),
-                    c.getRegistration_month(),
-                    c.getRegistration_year(),
-                    new UserDTO(c.getOwner().getId(),
-                            c.getOwner().getEmail(),
-                            c.getOwner().getName(),
-                            c.getOwner().getAddress(),
-                            c.getOwner().getPhone()),
-                    c.getPicture(),
-                    followers
-            ));
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Returning cars that a user follow failed");
+            return null;
         }
+        logger.info("Getting user");
         return toSend;
     }
     public List<CarDTO> getCarsUserNotOwn(int id){
@@ -779,25 +906,51 @@ public class CarEJB implements CarEJBInterface{
         int total_followers =0;
         List<Car>aux=null;
         String noob_owners="";
-        Query query = em.createQuery("SELECT count(*) FROM "+User.class.getSimpleName());
-        long count_users = (long) query.getSingleResult();
-        query = em.createQuery("SELECT count(*) FROM "+Car.class.getSimpleName());
-        long count_cars = (long) query.getSingleResult();
-        Query q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c");
-        aux = q.getResultList();
-        for(Car c : aux){
-            total_followers+= c.getFollowers().size();
+        Query q=null;
+        long count_users=0L;
+        long count_cars =0L;
+        try{
+            logger.info("Obtaining the number of users");
+            q = em.createQuery("SELECT count(*) FROM "+User.class.getSimpleName());
+            count_users = (long) q.getSingleResult();
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Returning null");
+        }
+        try{
+            logger.info("Getting the number os cars");
+            q = em.createQuery("SELECT count(*) FROM "+Car.class.getSimpleName());
+            count_cars = (long) q.getSingleResult();
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Returning null");
+        }
+        try{
+            logger.info("Getting the names of the users that follow their own cars");
+            q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c");
+            aux = q.getResultList();
+            for(Car c : aux){
+                total_followers+= c.getFollowers().size();
 
-            for (User f : c.getFollowers()) {
-                if (c.getOwner().getId() == f.getId()) {
-                    noob_owners = noob_owners + f.getName() + ", ";
+                for (User f : c.getFollowers()) {
+                    if (c.getOwner().getId() == f.getId()) {
+                        noob_owners = noob_owners + f.getName() + ", ";
+                    }
                 }
-            }
 
+            }
+            if(noob_owners.compareTo("")!=0){
+                noob_owners = noob_owners.substring(0, noob_owners.length() - 2);
+            }
+        }catch (Exception e) {
+            logger.warn("Dropped Exception");
+            e.printStackTrace();
+            logger.info("Returning null");
+            return;
         }
-        if(noob_owners.compareTo("")!=0){
-            noob_owners = noob_owners.substring(0, noob_owners.length() - 2);
-        }
+
 
         logger.info("***********Statistics**********");
         logger.info("Number of registered users:"+ count_users);

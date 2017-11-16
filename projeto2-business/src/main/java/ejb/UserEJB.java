@@ -34,6 +34,7 @@ public class UserEJB implements UserEJBInterface {
             User result = (User) q.getSingleResult();
             if(result!=null) {
                 if (result.getPassword().compareTo(hashedPassword) == 0) {
+                    logger.info("Login was successful");
                     return result.getId();
                 }else{
                     logger.warn("Wrong password.");
@@ -113,7 +114,7 @@ public class UserEJB implements UserEJBInterface {
             logger.info("Returning null");
             return null;
         }
-        logger.info("Return User with ID " + id);
+
         UserDTO user = new UserDTO(aux.getId(),
                 aux.getEmail(),
                 aux.getName(),
@@ -167,11 +168,13 @@ public class UserEJB implements UserEJBInterface {
         }
         user.setFollowingCars(followingCars);
         user.setSellingCars(sellingCars);
+        logger.info("Return User with ID " + id);
         return user;
     }
 
     public void deleteUserById(int id){
         logger.info("Deleting user and all his information:"+id);
+        logger.info("Deleting the info about following cars");
         Query q1 = em.createQuery("select u from "+ User.class.getSimpleName()+" u where u.id =:id");
         q1.setParameter("id",id);
         User u = (User) q1.getSingleResult();
@@ -189,7 +192,7 @@ public class UserEJB implements UserEJBInterface {
         u.getFollowingCars().removeAll(cars_f);
         em.persist(u);
 
-        logger.info("Car unfollowed successfully");
+        logger.info("Deleting all the cars that user had for sale");
         List<Car> aux =null;
              Query q2 = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.owner.id = :n ");
             q2.setParameter("n", id);

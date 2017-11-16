@@ -66,7 +66,7 @@
 
 
 <div class="w3-container">
-    <div class="w3-row">
+    <div class="w3-container w3-cell">
         <c:if test="${carslist!=null}">
             <table class="w3-table-all" style="width:50%">
                 <tr>
@@ -232,7 +232,7 @@
         </c:if>
     </div>
 
-    <div class="w3-row">
+    <div class="w3-container w3-cell">
         <h2>ReSearch</h2>
         <div>
             <c:if test="${brandslist!=null && modelslist!=null}">

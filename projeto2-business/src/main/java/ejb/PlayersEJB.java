@@ -1,5 +1,6 @@
 package ejb;
 
+import DTOs.UserDTO;
 import data.Car;
 import data.Player;
 import data.Team;
@@ -41,9 +42,10 @@ public class PlayersEJB implements PlayersEJBInterface {
 
     public void populate(){
         User[] u = {//password=test
-                new User("koala","098f6bcd4621d373cade4e832627b4f6","userKoala","Anadia","123"),
+                new User("koala@mail.pt","098f6bcd4621d373cade4e832627b4f6","userKoala","Anadia","123"),
                 new User("r.g.ventura@hotmail.com","098f6bcd4621d373cade4e832627b4f6","user1","Coimbra","123"),
                 new User("rgventuraa@gmail.com","098f6bcd4621d373cade4e832627b4f6","user2","Coimbra","123"),
+                new User("standvirtual@mail.pt","098f6bcd4621d373cade4e832627b4f6","StandVirtual", "internet","000000000000000")
 
         };
 

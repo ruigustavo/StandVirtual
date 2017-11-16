@@ -48,14 +48,17 @@ public class PlayersEJB implements PlayersEJBInterface {
         };
 
         Car[] c = {
-           new Car("mercedes","v5",4000,12345,"December",2005,u[1]),
-                new Car("alfa-romeu","v6",1000,123456,"August",2011,u[0]),
-                new Car("fiat","punto",10000,1234567,"January",2000,u[1]),
-                new Car("fiat","swag",1220,1212334567,"January",2000,u[1]),
-                new Car("citroen","c5",100,12345678,"July",2010,u[0])
+           new Car("mercedes","v5",4000,12345,"December",2005,null,u[1]),
+                new Car("alfa-romeu","v6",1000,123456,"August",2011,null,u[0]),
+                new Car("fiat","punto",10000,1234567,"January",2000,null,u[1]),
+                new Car("fiat","swag",1220,1212334567,"January",2000,null,u[1]),
+                new Car("citroen","c5",100,12345678,"July",2010,null,u[0])
         };
+        c[0].getFollowers().add(u[0]);
         c[0].getFollowers().add(u[1]);
-        c[0].getFollowers().add(u[1]);
+        c[0].getFollowers().add(u[2]);
+        c[1].getFollowers().add(u[2]);
+        c[2].getFollowers().add(u[2]);
         for (User t : u)
             em.persist(t);
         for (Car t : c)

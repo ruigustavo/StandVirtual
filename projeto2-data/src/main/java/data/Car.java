@@ -28,6 +28,7 @@ public class Car implements Serializable {
     }
 
     public Car(String brand, String model, long price, long km, String registration_month, int registration_year, byte[] picture, User owner) {
+        super();
         this.brand = brand;
         this.model = model;
         this.price = price;
@@ -35,7 +36,7 @@ public class Car implements Serializable {
         this.registration_month = registration_month;
         this.registration_year = registration_year;
         this.picture = picture;
-
+        this.followers = new ArrayList<>();
         this.owner = owner;
     }
 
@@ -90,17 +91,6 @@ public class Car implements Serializable {
         this.registration_year = registration_year;
     }
 
-    public Car(String brand, String model, long price,long km, String registration_month, int registration_year, User owner) {
-        super();
-        this.brand = brand;
-        this.model = model;
-        this.price = price;
-        this.km=km;
-        this.owner = owner;
-        this.registration_month = registration_month;
-        this.registration_year = registration_year;
-        this.followers = new ArrayList<>();
-    }
 
     public int getId() {
         return id;

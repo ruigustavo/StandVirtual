@@ -168,6 +168,10 @@ public class Main extends HttpServlet {
             if(action.compareToIgnoreCase("logout")==0){
                 request.getSession().removeAttribute("user");
                 finalDestination = "index.jsp";
+            }else if(action.compareToIgnoreCase("delete-user")==0){
+                userejb.deleteUserById(user.getId());
+                request.getSession().removeAttribute("user");
+                finalDestination = "index.jsp";
             }else if(action.compareToIgnoreCase("edit-profile")==0){
                 if(request.getParameter("password")!=null){
                     user.setPassword(Hasher.hashPassword(request.getParameter("password")));
@@ -232,10 +236,9 @@ public class Main extends HttpServlet {
                 }
                 carejb.editCarInfo(car);
             }
-            if(action.compareToIgnoreCase("logout")!=0){
+            if(action.compareToIgnoreCase("logout")!=0 && action.compareToIgnoreCase("delete-user")!=0){
                 UserDTO refreshed = userejb.getUserById(user.getId());
                 request.getSession().setAttribute("user",refreshed);
-                System.out.println(refreshed.getFollowingCars().toString());
             }
             response.sendRedirect(finalDestination);
         }

@@ -18,13 +18,19 @@
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
 <body>
-    <form method="get" action="Main">
-        <input type="hidden" name="action" value="register"/>
-        <button>Register User</button>
-    </form>
-    <form method="get" action="Main">
-        <input type="hidden" name="action" value="login"/>
-        <button>Login</button>
-    </form>
+    <div class="w3-container ">
+        <div class="w3-row">
+            <form method="get" action="Main">
+                <input type="hidden" name="action" value="register"/>
+                <button>Register User</button>
+            </form>
+        </div>
+        <div class="w3-row">
+            <form method="get" action="Main">
+                <input type="hidden" name="action" value="login"/>
+                <button>Login</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

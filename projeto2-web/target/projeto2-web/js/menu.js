@@ -31,6 +31,8 @@ function researchBrandModel(e) {
                     document.forms["researchBrandAndModel"].submit();
                 }
             }
+        }else{
+            e.preventDefault();
         }
     }else{
         e.preventDefault();

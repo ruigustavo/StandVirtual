@@ -175,7 +175,7 @@
                                 <td></td>
                             </c:when>
                             <c:otherwise>
-                                <td><img style="width: 200px" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
+                                <td><img style="width: 200px; height: 200px;" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
                             </c:otherwise>
                         </c:choose>
                         <td><c:out value = "${i.getBrand()}"/></td>
@@ -252,7 +252,7 @@
                         </c:forEach>
                     </select>
                     <input type="hidden" name="order" value="1"/>
-                    <button type="submit" class="w3-btn accent-color secondary-text-color" onclick="researchBrandModel(event)">Search</button>
+                    <button type="submit" class="w3-btn" onclick="researchBrandModel(event)">Search</button>
                 </form>
             </c:if>
         </div>
@@ -260,10 +260,10 @@
             <h4>Price</h4>
             <form class="w3-form" name="researchPrice" method="get" action="Main">
                 <input type="hidden" name="action" value="list-price"/>
-                <input type="number" class="" name="low_value">
-                <input type="number" class="" name="up_value">
+                <input type="number" min="0" class="" name="low_value">
+                <input type="number" min="0" class="" name="up_value">
                 <input type="hidden" name="order" value="1"/>
-                <button type="submit" class="w3-btn accent-color secondary-text-color" onclick="researchPrice(event)">Search</button>
+                <button type="submit" class="w3-btn" onclick="researchPrice(event)">Search</button>
             </form>
 
         </div>
@@ -271,10 +271,10 @@
             <h4>Kilometers</h4>
             <form class="w3-form" name="researchKm" method="get" action="Main">
                 <input type="hidden" name="action" value="list-km"/>
-                <input type="number" class="" name="low_value">
-                <input type="number" class="" name="up_value">
+                <input type="number" min="0" class="" name="low_value">
+                <input type="number" min="0" class="" name="up_value">
                 <input type="hidden" name="order" value="1"/>
-                <button type="submit" class="w3-btn accent-color secondary-text-color" onclick="researchKm(event)">Search</button>
+                <button type="submit" class="w3-btn" onclick="researchKm(event)">Search</button>
             </form>
 
         </div>
@@ -283,7 +283,7 @@
             <h4>Newer than</h4>
             <form class="w3-form" name="researchYear" method="get" action="Main">
                 <input type="hidden" name="action" value="list-year"/>
-                <input type="number" class="" name="year">
+                <input type="number" min="1950" max="2017" class="" name="year">
                 <input type="hidden" name="order" value="1"/>
                 <button type="submit" class="w3-btn accent-color secondary-text-color" onclick="researchYear(event)">Search</button>
             </form>

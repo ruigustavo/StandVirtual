@@ -80,7 +80,7 @@
                                 <td></td>
                             </c:when>
                             <c:otherwise>
-                                <td><img style="width: 200px" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
+                                <td><img style="width: 200px; height: 200px;" src="data:image/*;base64,${i.getPictureEncoded()}"></td>
                             </c:otherwise>
                         </c:choose>
                         <td><c:out value = "${i.getBrand()}"/></td>

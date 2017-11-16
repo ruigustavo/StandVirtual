@@ -28,13 +28,13 @@
         <div class="w3-col" style="width:10%; margin-top: 10px;">
             <form class="w3-form"  method="get" action="Main">
                 <input type="hidden" name="action" value="new-car"/>
-                <input type="submit" class="w3-btn accent-color secondary-text-color" value="New Car"/>
+                <input type="submit" class="w3-btn " value="New Car"/>
             </form>
         </div>
         <div class="w3-col" style="width:10%; margin-top: 10px;">
             <form class="w3-form"  method="get" action="Main">
                 <input type="hidden" name="action" value="my-cars"/>
-                <input type="submit" class="w3-btn accent-color secondary-text-color" value="My Cars"/>
+                <input type="submit" class="w3-btn " value="My Cars"/>
             </form>
         </div>
 
@@ -42,20 +42,20 @@
             <form class="w3-form" method="get" action="Main">
                 <input type="hidden" name="action" value="list-all"/>
                 <input type="hidden" name="order" value="1"/>
-                <input type="submit" class="w3-btn accent-color secondary-text-color" value="All Cars"/>
+                <input type="submit" class="w3-btn " value="All Cars"/>
             </form>
         </div>
 
         <div class="w3-col" style="width:10%; margin-top: 10px;">
             <form class="w3-form" method="get" action="Main">
                 <input type="hidden" name="action" value="edit-profile"/>
-                <input type="submit" class="w3-btn accent-color secondary-text-color" value="Edit Profile"/>
+                <input type="submit" class="w3-btn " value="Edit Profile"/>
             </form>
         </div>
         <div class="w3-col" style="width:10%; margin-top: 10px;">
             <form class="w3-form" method="post" action="Main">
                 <input type="hidden" name="action" value="logout"/>
-                <input type="submit" class="w3-btn accent-color secondary-text-color" value="Logout"/>
+                <input type="submit" class="w3-btn " value="Logout"/>
             </form>
         </div>
 
@@ -76,12 +76,12 @@
 
             <div class="w3-input-group">
                 <label>Price</label>
-                <input class="w3-input" name="price" type="number" required/>
+                <input class="w3-input" min="0" name="price" type="number" required/>
             </div>
 
             <div class="w3-input-group">
                 <label>Kilometers</label>
-                <input class="w3-input" name="km" type="number" required/>
+                <input class="w3-input" min="0" name="km" type="number" required/>
             </div>
 
             <div class="w3-input-group">
@@ -91,7 +91,7 @@
 
             <div class="w3-input-group">
                 <label>Year</label>
-                <input class="w3-input" name="registration_year" type="number" required/>
+                <input class="w3-input" min="1950" max="2017" name="registration_year" type="number" required/>
             </div>
 
             <div class="w3-input-group">

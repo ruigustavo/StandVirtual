@@ -602,6 +602,9 @@ public class Tester {
                 case "15":
                     getDistinctBrands();
                     break;
+//                case "16":
+//                    carfollowedbyowner();
+//                    break;
                 default:
                     logged = false;
                     return;
@@ -610,6 +613,10 @@ public class Tester {
             e.printStackTrace();
         }
     }
+//    public void carfollowedbyowner(){
+//        carEJB.carFollowedByOwner();
+//        System.out.println("sup bro");
+//    }
 
     public static String hashPassword(String passwordToHash){
         try {

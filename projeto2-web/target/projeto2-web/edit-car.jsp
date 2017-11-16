@@ -80,12 +80,12 @@
 
         <div class="w3-input-group">
             <label>Price</label>
-            <input class="w3-input" name="price" type="number" value = "${car.getPrice()}" />
+            <input class="w3-input" min="0" name="price" type="number" value = "${car.getPrice()}" />
         </div>
 
         <div class="w3-input-group">
             <label>Kilometers</label>
-            <input class="w3-input" name="km" type="number" value = "${car.getKm()}" />
+            <input class="w3-input" min="0" name="km" type="number" value = "${car.getKm()}" />
         </div>
 
         <div class="w3-input-group">
@@ -95,7 +95,7 @@
 
         <div class="w3-input-group">
             <label>Year</label>
-            <input class="w3-input" name="registration_year" type="number" value = "${car.getRegistration_year()}" />
+            <input class="w3-input" min="1950" max="2017" name="registration_year" type="number" value = "${car.getRegistration_year()}" />
         </div>
 
         <c:choose>
@@ -103,7 +103,7 @@
                 <td></td>
             </c:when>
             <c:otherwise>
-                <td><img style="width: 200px" src="data:image/*;base64,${car.getPictureEncoded()}"></td>
+                <td><img style="width: 200px;height: 200px;" src="data:image/*;base64,${car.getPictureEncoded()}"></td>
             </c:otherwise>
         </c:choose>
 

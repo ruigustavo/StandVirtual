@@ -67,7 +67,7 @@
     <form class="w3-form" method="post" action="Main">
         <div class="w3-input-group">
             <label>E-mail</label>
-            <input class="w3-input" name="email" type="text" value="${user.getEmail()}"/>
+            <input class="w3-input" name="email" type="email" value="${user.getEmail()}"/>
         </div>
         <div class="w3-input-group">
             <label>Password</label>
@@ -88,7 +88,12 @@
             <input class="w3-input" name="phone" type="text" value="${user.getPhone()}"/>
         </div>
         <input type="hidden" name="action" value="edit-profile"/>
-        <button type="submit" class="w3-btn dark-primary-color">Save Changes</button>
+        <button type="submit" class="w3-btn">Save Changes</button>
+    </form>
+
+    <form class="w3-form" method="post" action="Main">
+        <input type="hidden" name="action" value="delete-user"/>
+        <button type="submit" class="w3-btn w3-red">Delete Account</button>
     </form>
 </div>
 

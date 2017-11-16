@@ -23,7 +23,7 @@
     <form class="w3-form" method="post" action="Main">
         <div class="w3-input-group">
             <label>E-mail</label>
-            <input class="w3-input" name="email" type="text" required/>
+            <input class="w3-input" name="email" type="email" required/>
         </div>
         <div class="w3-input-group">
             <label>Password</label>

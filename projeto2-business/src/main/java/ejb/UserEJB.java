@@ -171,10 +171,29 @@ public class UserEJB implements UserEJBInterface {
     }
 
     public void deleteUserById(int id){
+        logger.info("Deleting user and all his information:"+id);
+        Query q1 = em.createQuery("select u from "+ User.class.getSimpleName()+" u where u.id =:id");
+        q1.setParameter("id",id);
+        User u = (User) q1.getSingleResult();
+        List<Car> cars_f = u.getFollowingCars();
+        for(Car c_f : cars_f){
+            try {
+                c_f.getFollowers().remove(u);
+                em.persist(c_f);
+            } catch (Exception e) {
+                logger.warn("Dropped Exception");
+                e.printStackTrace();
+                logger.info("Car not unfollowed. Returning...");
+            }
+        }
+        u.getFollowingCars().removeAll(cars_f);
+        em.persist(u);
+
+        logger.info("Car unfollowed successfully");
         List<Car> aux =null;
-            Query q = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.owner.id = :n ");
-            q.setParameter("n", id);
-            aux = q.getResultList();
+             Query q2 = em.createQuery("select c from "+ Car.class.getSimpleName()+" c   where c.owner.id = :n ");
+            q2.setParameter("n", id);
+            aux = q2.getResultList();
         for(Car c : aux){
             logger.info("Deleting car with Id " + id);
             em.remove(em.find(Car.class, c.getId()));

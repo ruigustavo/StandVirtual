@@ -801,7 +801,10 @@ public class CarEJB implements CarEJBInterface{
         logger.info("***********Statistics**********");
         logger.info("Number of registered users:"+ count_users);
         logger.info("Number of cars for sale:"+ count_cars);
-        logger.info("Average number of followers per car for sale:"+ total_followers/count_cars);
+        if(count_cars>0)
+            logger.info("Average number of followers per car for sale:"+ total_followers/count_cars);
+        else
+            logger.info("Average number of followers per car for sale:"+ 0);
         logger.info("List of users that follow their own cars:"+noob_owners);
     }
 }

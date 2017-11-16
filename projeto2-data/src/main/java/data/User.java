@@ -22,7 +22,7 @@ public class User implements Serializable {
 
     //In this case Bidirectional helps to see the cars the user is selling
     //and the owner of the car that its being sold.
-    @OneToMany(mappedBy = "owner",cascade={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REMOVE})
+    @OneToMany(mappedBy = "owner",cascade={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
     private List<Car> sellingCars;
 
     //Bidirectional Many2Many because i just need to see who's following the car

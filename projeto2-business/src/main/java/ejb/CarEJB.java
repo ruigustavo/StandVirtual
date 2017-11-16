@@ -98,7 +98,7 @@ public class CarEJB implements CarEJBInterface{
         //verificar se preço foi alterado
         if(toEdit.getPrice()!= aux.getPrice()){
             for(User c : aux.getFollowers()){
-                logger.info("Enviando e-mail para:"+c.getEmail());
+                logger.info("Sending e-mail to:"+c.getEmail());
                 sendEmail(c.getEmail(),aux.getBrand(),aux.getModel());
             }
         }
@@ -641,7 +641,8 @@ public class CarEJB implements CarEJBInterface{
         MimeMessage m = new MimeMessage(mailSession);
         try {
             m.setRecipients(Message.RecipientType.TO, to);
-            m.setContent("Notification: The price of the "+brand+" "+model+" foi alterado!","text/plain");
+            m.setSubject("Price updated!");
+            m.setContent("Notification: The price of the "+brand+" "+model+" was changed!","text/plain");
             Transport.send(m);//throws exception
         } catch (MessagingException e) {
             e.printStackTrace();

@@ -6,16 +6,6 @@
         <element id="directory" name="classes">
           <element id="module-output" name="projeto2-web" />
         </element>
-        <element id="directory" name="lib">
-          <element id="archive" name="projeto2-business-0.0.1-SNAPSHOT.jar">
-            <element id="module-output" name="projeto2-business" />
-          </element>
-          <element id="archive" name="projeto2-data-0.0.1-SNAPSHOT.jar">
-            <element id="module-output" name="projeto2-data" />
-          </element>
-          <element id="library" level="project" name="Maven: javax.mail:mail:1.4" />
-          <element id="library" level="project" name="Maven: javax.activation:activation:1.1.1" />
-        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/projeto2-web/target/projeto2-web/META-INF/MANIFEST.MF" />

@@ -27,6 +27,7 @@
 			<groupId>IS</groupId>
 			<artifactId>projeto2-business</artifactId>
 			<version>${project.version}</version>
+			<scope>provided</scope>
 		</dependency>		
 	</dependencies>
 

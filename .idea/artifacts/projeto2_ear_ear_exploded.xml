@@ -11,13 +11,9 @@
           <element id="directory" name="classes">
             <element id="module-output" name="projeto2-web" />
           </element>
-          <element id="directory" name="lib">
-            <element id="library" level="project" name="Maven: javax.mail:mail:1.4" />
-            <element id="library" level="project" name="Maven: javax.activation:activation:1.1.1" />
-          </element>
         </element>
         <element id="directory" name="META-INF">
-          <element id="file-copy" path="$PROJECT_DIR$/projeto2-ear/target/temp/projeto2-web/META-INF/SKINNY_MANIFEST.MF" output-file-name="MANIFEST.MF" />
+          <element id="file-copy" path="$PROJECT_DIR$/projeto2-web/target/projeto2-web/META-INF/MANIFEST.MF" />
         </element>
         <element id="javaee-facet-resources" facet="projeto2-web/web/Web" />
       </element>

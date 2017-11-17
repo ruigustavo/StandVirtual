@@ -42,7 +42,7 @@ function researchBrandModel(e) {
 
 function researchPrice(e) {
     var form = document.forms["researchPrice"];
-    if(form.elements["low_value"].value!="" && form.elements["up_value"].value!=""){
+    if(form.elements["low_value"].value!=="" && form.elements["up_value"].value!==""){
         form.submit();
     }else{
         e.preventDefault();

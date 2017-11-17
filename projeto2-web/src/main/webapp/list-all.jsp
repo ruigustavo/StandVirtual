@@ -266,8 +266,8 @@
             <h4>Price</h4>
             <form class="w3-form" name="researchPrice" method="get" action="Main">
                 <input type="hidden" name="action" value="list-price"/>
-                <input type="number" min="0" class="" name="low_value">
-                <input type="number" min="0" class="" name="up_value">
+                <input type="number" min="0" name="low_value" required>
+                <input type="number" min="0" name="up_value" required>
                 <input type="hidden" name="order" value="1"/>
                 <button type="submit" class="w3-btn" onclick="researchPrice(event)">Search</button>
             </form>
@@ -277,8 +277,8 @@
             <h4>Kilometers</h4>
             <form class="w3-form" name="researchKm" method="get" action="Main">
                 <input type="hidden" name="action" value="list-km"/>
-                <input type="number" min="0" class="" name="low_value">
-                <input type="number" min="0" class="" name="up_value">
+                <input type="number" min="0" class="" name="low_value" required>
+                <input type="number" min="0" class="" name="up_value" required>
                 <input type="hidden" name="order" value="1"/>
                 <button type="submit" class="w3-btn" onclick="researchKm(event)">Search</button>
             </form>
@@ -289,7 +289,7 @@
             <h4>Newer than</h4>
             <form class="w3-form" name="researchYear" method="get" action="Main">
                 <input type="hidden" name="action" value="list-year"/>
-                <input type="number" min="1950" max="2017" class="" name="year">
+                <input type="number" min="1950" max="2017" class="" name="year" required>
                 <input type="hidden" name="order" value="1"/>
                 <button type="submit" class="w3-btn accent-color secondary-text-color" onclick="researchYear(event)">Search</button>
             </form>

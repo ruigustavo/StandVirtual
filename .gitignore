@@ -37,6 +37,7 @@ cmake-build-debug/
 # IntelliJ
 /out/
 *.iml
+*.DS_Store
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -91,5 +92,6 @@ hs_err_pid*
 
 */target/**
 out/
+Tester/
 
 # End of https://www.gitignore.io/api/java,java-web,intellij+all

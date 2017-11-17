@@ -67,7 +67,9 @@
 
 <div class="w3-container">
     <div class="w3-container w3-cell">
-        <c:if test="${carslist!=null}">
+        <c:choose>
+        <c:when test="${carslist!=null}">
+            <h2>All cars available</h2>
             <table class="w3-table-all" style="width:50%">
                 <tr>
                     <th></th>
@@ -229,7 +231,11 @@
                     </tr>
                 </c:forEach>
             </table>
-        </c:if>
+        </c:when>
+            <c:otherwise>
+                <h2>No cars available</h2>
+            </c:otherwise>
+        </c:choose>
     </div>
 
     <div class="w3-container w3-cell">

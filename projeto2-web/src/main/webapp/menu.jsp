@@ -63,6 +63,7 @@
     </div>
 </header>
 <div class="w3-container">
+    <p class="w3-text-red"><c:out value="${log}"/></p>
 </div>
 </body>
 </html>

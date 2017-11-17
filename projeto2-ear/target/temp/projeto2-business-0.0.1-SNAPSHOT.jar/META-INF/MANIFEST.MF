@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Built-By: ruigustavo
-Class-Path: mail-1.4.jar activation-1.1.1.jar
-Created-By: Apache Maven 3.3.9
-Build-Jdk: 1.8.0_65
-

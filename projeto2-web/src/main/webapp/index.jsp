@@ -20,6 +20,7 @@
     <body>
         <header class="w3-container w3-center">
             <h1>StandVirtual v2</h1>
+            <p class="w3-text-red"><c:out value="${log}"/></p>
         </header>
         <div class="w3-container">
             <div class="w3-row">

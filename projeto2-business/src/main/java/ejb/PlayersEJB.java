@@ -1,9 +1,6 @@
 package ejb;
 
-import DTOs.UserDTO;
 import data.Car;
-import data.Player;
-import data.Team;
 import data.User;
 
 import javax.ejb.Stateless;
@@ -67,13 +64,4 @@ public class PlayersEJB implements PlayersEJBInterface {
             em.persist(t);
     }
 
-
-    public List<Player> playersTallerThan(float threshold) {
-        System.out.println("In the EJB. Height = " + threshold);
-        Query q = em.createQuery("from Player p where p.height >= :t");
-        q.setParameter("t", threshold);
-        @SuppressWarnings("unchecked")
-        List<Player> result = q.getResultList();
-        return result;
-    }
 }

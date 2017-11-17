@@ -5,8 +5,8 @@
 	<persistence-unit name="Players" transaction-type="JTA">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:/MySqlDS</jta-data-source>
-		<class>data.Player</class>
-		<class>data.Team</class>
+		<class>data.Car</class>
+		<class>data.User</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 			<property name="hibernate.hbm2ddl.auto" value="create" />

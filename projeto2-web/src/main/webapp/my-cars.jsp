@@ -64,9 +64,10 @@
 </header>
 <div class="w3-container">
     <div class="w3-row">
-        <c:if test="${carslist.size() > 0}">
+        <c:choose>
+        <c:when test="${carslist.size() > 0}">
             <table class="w3-table" style="width:50%">
-                <caption>My Cars</caption>
+                <h2>My Cars</h2>
                 <tr>
                     <th></th>
                     <th>Brand</th>
@@ -135,7 +136,11 @@
                 </c:forEach>
             </table>
 
-        </c:if>
+        </c:when>
+            <c:otherwise>
+                <h2>You have no cars on sale.</h2>
+            </c:otherwise>
+        </c:choose>
     </div>
 
 </div>

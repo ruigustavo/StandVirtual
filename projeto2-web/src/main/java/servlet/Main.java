@@ -37,6 +37,7 @@ public class Main extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
+        request.getSession().removeAttribute("log");
         if(request.getSession().getAttribute("user")==null){
             if(action==null){
                 request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -138,6 +139,7 @@ public class Main extends HttpServlet {
         String action = request.getParameter("action");
         if(request.getSession().getAttribute("user")==null){
             if(action==null) {
+                request.getSession().setAttribute("log","Something went wrong. Try again.");
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }else if(action.compareToIgnoreCase("register")==0){
                 UserDTO newUser = new UserDTO(request.getParameter("email"),
@@ -147,7 +149,9 @@ public class Main extends HttpServlet {
                         request.getParameter("phone")
                 );
                 userejb.register(newUser);
+                request.getSession().setAttribute("log","Registered with success.");
                 response.sendRedirect("index.jsp");
+
             }else if(action.compareToIgnoreCase("login")==0){
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");
@@ -155,8 +159,11 @@ public class Main extends HttpServlet {
                 if(result>0){
                     UserDTO user = (UserDTO) userejb.getUserById(result);
                     request.getSession().setAttribute("user",user);
+                    request.getSession().setAttribute("log","Welcome.");
                     request.getRequestDispatcher("menu.jsp").forward(request,response);
+
                 }else{
+                    request.getSession().setAttribute("log","Wrong Email/Password combination. Try Again.");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
             }else{
@@ -167,6 +174,7 @@ public class Main extends HttpServlet {
             String finalDestination = "menu.jsp";
             if(action.compareToIgnoreCase("logout")==0){
                 request.getSession().removeAttribute("user");
+                request.getSession().setAttribute("log","Goodbye.");
                 finalDestination = "index.jsp";
             }else if(action.compareToIgnoreCase("delete-user")==0){
                 userejb.deleteUserById(user.getId());
@@ -181,6 +189,7 @@ public class Main extends HttpServlet {
                 user.setAddress(request.getParameter("address"));
                 user.setPhone(request.getParameter("phone"));
 
+                request.getSession().setAttribute("log","Profile edited successfully.");
                 userejb.editUserInfo(user);
 
             }else if(action.compareToIgnoreCase("new-car")==0){
@@ -197,16 +206,20 @@ public class Main extends HttpServlet {
                                         .toByteArray())
                 );
                 carejb.addCar(car);
+                request.getSession().setAttribute("log","New auction added successfully.");
 
             }else if(action.compareToIgnoreCase("follow-car")==0){
                 String id = request.getParameter("id");
                 carejb.followCar(Integer.parseInt(id),user.getId());
+                request.getSession().setAttribute("log","You're now following that auction.");
             }else if(action.compareToIgnoreCase("delete-car")==0){
                 String id = request.getParameter("id");
                 carejb.deleteCarById(Integer.parseInt(id));
+                request.getSession().setAttribute("log","Removed auction with success.");
             }else if(action.compareToIgnoreCase("unfollow-car")==0){
                 String id = request.getParameter("id");
                 carejb.unfollowCar(Integer.parseInt(id),user.getId());
+                request.getSession().setAttribute("log","Removed follow with success.");
             }else if(action.compareToIgnoreCase("edit-car")==0){
                 CarDTO car;
                 if(request.getPart("picture").getSize()>0){
@@ -235,6 +248,7 @@ public class Main extends HttpServlet {
                     );
                 }
                 carejb.editCarInfo(car);
+                request.getSession().setAttribute("log","Auction edited with success.");
             }
             if(action.compareToIgnoreCase("logout")!=0 && action.compareToIgnoreCase("delete-user")!=0){
                 UserDTO refreshed = userejb.getUserById(user.getId());

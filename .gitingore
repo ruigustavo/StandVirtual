@@ -88,11 +88,7 @@ hs_err_pid*
 ### Java-Web ###
 ## ignoring target file
 
-projeto2-business/target/
-projeto2-data/target/
-projeto2-ear/target/
-projeto2-web/target/
-target/
+*/target/**
 out/
 
 # End of https://www.gitignore.io/api/java,java-web,intellij+all

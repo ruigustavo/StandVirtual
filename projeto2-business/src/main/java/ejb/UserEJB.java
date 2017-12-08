@@ -219,8 +219,8 @@ public class UserEJB implements UserEJBInterface {
         List<User> aux = null;
         Query q = null;
         List<UserDTO> toSend = new ArrayList<>();
-        logger.info(" Getting Users from ascending order by name.");
-        q = em.createQuery("from User order by name asc");
+        logger.info(" Getting Users from ascending order by id.");
+        q = em.createQuery("from User order by id asc");
 
         aux = q.getResultList();
 

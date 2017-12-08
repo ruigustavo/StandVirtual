@@ -244,7 +244,7 @@ public class Main extends HttpServlet {
                             request.getParameter("registration_month"),
                             Integer.parseInt(request.getParameter("registration_year")),
                             user,
-                            null
+                            (byte[]) null
                     );
                 }
                 carejb.editCarInfo(car);

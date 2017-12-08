@@ -4,12 +4,16 @@ import DTOs.CarDTO;
 import ejb.CarEJBInterface;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+
+//https://stackoverflow.com/questions/3027834/inject-an-ejb-into-jax-rs-restful-service
+@Stateless
 @Path("/")
 public class WebServicesServer {
 

@@ -39,6 +39,18 @@ public class CarDTO implements Serializable {
         this.picture = picture;
     }
 
+    public CarDTO(int id, String brand, String model, long price, long km, String registration_month, int registration_year, UserDTO owner, List<UserDTO> followers) {
+        this.id = id;
+        this.brand = brand;
+        this.model = model;
+        this.price = price;
+        this.km=km;
+        this.owner = owner;
+        this.registration_month = registration_month;
+        this.registration_year = registration_year;
+        this.followers = followers;
+    }
+
 
     @Override
     public String toString() {
@@ -139,7 +151,9 @@ public class CarDTO implements Serializable {
     }
 
     public String getPictureEncoded() {
-        return new String(this.picture);
+        if(this.picture != null)
+            return new String(this.picture);
+        return null;
     }
 
     public void setPicture(byte[] picture) {

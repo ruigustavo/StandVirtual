@@ -302,21 +302,38 @@ public class CarEJB implements CarEJBInterface{
                             u.getPhone()
                     ));
                 }
-                toSend.add(new CarDTO(c.getId(),
-                        c.getBrand(),
-                        c.getModel(),
-                        c.getPrice(),
-                        c.getKm(),
-                        c.getRegistration_month(),
-                        c.getRegistration_year(),
-                        new UserDTO(c.getOwner().getId(),
-                                c.getOwner().getEmail(),
-                                c.getOwner().getName(),
-                                c.getOwner().getAddress(),
-                                c.getOwner().getPhone()),
-                        c.getPicture(),
-                        followers
-                ));
+                if(order!=7){
+                    toSend.add(new CarDTO(c.getId(),
+                            c.getBrand(),
+                            c.getModel(),
+                            c.getPrice(),
+                            c.getKm(),
+                            c.getRegistration_month(),
+                            c.getRegistration_year(),
+                            new UserDTO(c.getOwner().getId(),
+                                    c.getOwner().getEmail(),
+                                    c.getOwner().getName(),
+                                    c.getOwner().getAddress(),
+                                    c.getOwner().getPhone()),
+                            c.getPicture(),
+                            followers
+                    ));
+                }else{
+                    toSend.add(new CarDTO(c.getId(),
+                            c.getBrand(),
+                            c.getModel(),
+                            c.getPrice(),
+                            c.getKm(),
+                            c.getRegistration_month(),
+                            c.getRegistration_year(),
+                            new UserDTO(c.getOwner().getId(),
+                                    c.getOwner().getEmail(),
+                                    c.getOwner().getName(),
+                                    c.getOwner().getAddress(),
+                                    c.getOwner().getPhone()),
+                            followers
+                    ));
+                }
             }
         }catch (Exception e) {
             logger.warn("Dropped Exception");

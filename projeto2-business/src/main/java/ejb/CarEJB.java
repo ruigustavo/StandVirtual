@@ -283,6 +283,10 @@ public class CarEJB implements CarEJBInterface{
                     logger.info("Getting carsdescending order by brand and model.");
                     q = em.createQuery("from Car order by brand desc,model desc ");
                     break;
+                default:
+                    logger.info(" Getting cars from ascending order by price.");
+                    q = em.createQuery("from Car order by price asc");
+                    break;
             }
             aux = q.getResultList();
 

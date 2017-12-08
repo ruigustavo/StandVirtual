@@ -215,4 +215,26 @@ public class UserEJB implements UserEJBInterface {
 
     }
 
+    public List<UserDTO> getAllUsers() {
+        List<User> aux = null;
+        Query q = null;
+        List<UserDTO> toSend = new ArrayList<>();
+        logger.info(" Getting Users from ascending order by name.");
+        q = em.createQuery("from User order by name asc");
+
+        aux = q.getResultList();
+
+        for (User u : aux) {
+            UserDTO user = new UserDTO(u.getId(),
+                    u.getEmail(),
+                    u.getName(),
+                    u.getAddress(),
+                    u.getPhone()
+            );
+            toSend.add(user);
+        }
+
+        return toSend;
+    }
+
 }

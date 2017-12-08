@@ -2,18 +2,27 @@ package DTOs;
 
 import data.Car;
 
+import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 import java.util.List;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class UserDTO implements Serializable{
 
+    @XmlAttribute
     private int id;
+    @XmlAttribute
     private String email;
     private String password;
+    @XmlAttribute
     private String name;
+    @XmlAttribute
     private String address;
+    @XmlAttribute
     private String phone;
     private List<CarDTO> sellingCars;
+    @XmlElementWrapper(name="following")
+    @XmlElement(name="CarDTO")
     private List<CarDTO> followingCars;
 
     public UserDTO(int id, String email, String name, String address, String phone, List<CarDTO> sellingCars, List<CarDTO> followingCars) {

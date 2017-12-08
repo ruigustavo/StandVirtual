@@ -15,4 +15,5 @@ public interface UserEJBInterface {
     void editUserInfo(UserDTO user);
     void deleteUserById(int id);
     UserDTO getUserById(int id);
+    List<UserDTO> getAllUsers();
 }

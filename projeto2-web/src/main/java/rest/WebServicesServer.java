@@ -1,7 +1,10 @@
 package rest;
 
 import DTOs.CarDTO;
+import DTOs.UserDTO;
+import data.User;
 import ejb.CarEJBInterface;
+import ejb.UserEJBInterface;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -20,6 +23,10 @@ public class WebServicesServer {
     @EJB
     CarEJBInterface carejb;
 
+    @EJB
+    UserEJBInterface userejb;
+
+
     public WebServicesServer() {
         System.out.println("WebServicesServer created");
     }
@@ -35,12 +42,22 @@ public class WebServicesServer {
     @Path("/cars")
     @Produces({MediaType.APPLICATION_JSON})
     public List<CarDTO> getAllCars() {
-        System.out.println("getting all cars");
-        List<CarDTO> toSend = carejb.getAllCars(1);
+        System.out.println("Getting all cars");
+        List<CarDTO> toSend = carejb.getAllCars(7);
 
-        System.out.println(toSend);
         if(toSend!=null)
             return toSend;
         return null;
+    }
+
+
+    @GET
+    @Path("/users")
+    @Produces({MediaType.APPLICATION_XML})
+    public ListUsers getAllUsers() {
+        System.out.println("Getting all users");
+        ListUsers lu = new ListUsers();
+        lu.setUsers(userejb.getAllUsers());
+        return lu;
     }
 }

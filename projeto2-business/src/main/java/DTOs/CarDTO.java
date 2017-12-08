@@ -1,16 +1,28 @@
 package DTOs;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import java.io.Serializable;
 import java.util.List;
 
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CarDTO implements Serializable {
+    @XmlAttribute
     private int id;
+    @XmlAttribute
     private String brand;
+    @XmlAttribute
     private String model;
+    @XmlAttribute
     private long price;
+    @XmlAttribute
     private long km;
     private UserDTO owner;
+    @XmlAttribute
     private String registration_month;
+    @XmlAttribute
     private int registration_year;
     private byte[] picture;
     private List<UserDTO> followers;
